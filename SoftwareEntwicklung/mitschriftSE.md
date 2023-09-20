@@ -2,9 +2,7 @@
 
 ## Index
 
-* [Test](#test)
+* [Platzhalter](#platzhalter)
 
 
-## Test
-
-platzhalter
+## Platzhalter
