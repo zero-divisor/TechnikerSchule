@@ -6,4 +6,4 @@
 
 ## Existenzgründung
 
-someText
+#### [Existenzgruendung Blended Learning Aufgabe](https://github.com/zero-divisor/TechnikerSchule/blob/master/BWL/ExistenzgruendungAusgefuellt.pdf)
