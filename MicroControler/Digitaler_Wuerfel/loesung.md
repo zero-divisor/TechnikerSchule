@@ -18,6 +18,6 @@ Gewünschte Spannung am Vorwiderstand: U<sub>R</sub> = U - U<sub>led</sub> = 5V 
 Strom durch den Vorwiderstand: I<sub>R</sub> = I<sub>gesamt</sub> = I<sub>led</sub> = 20mA = 0.02A
 (da Reihenschaltung)
 
-Vorwiderstand: R = U<sub>R</sub>/I<sub>R</sub> = 3V/0.02A = 150&#937;
+Vorwiderstand: R = U<sub>R</sub> / I<sub>R</sub> = 3V / 0.02A = 150&#937;
 
 [^1]: Mir ist erst später aufgefallen, dass die Vorwiderstände in der Aufgabenstellung gegeben sind. 
