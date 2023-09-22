@@ -1,6 +1,6 @@
 # Digitaler Würfel
 
-#### [Schaltungsaufbau](https://github.com/zero-divisor/TechnikerSchule/blob/master/MicroControler/Schaltung.PNG)
+#### [Schaltungsaufbau](https://github.com/zero-divisor/TechnikerSchule/blob/master/MicroControler/Digitaler_Wuerfel/Schaltung.PNG)
 
 ## Vorwiderstand für LED berechnen
 
