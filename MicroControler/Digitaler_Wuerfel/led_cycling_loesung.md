@@ -1,10 +1,10 @@
 # Digitaler Würfel
 
-#### [Aufgabe](https://github.com/zero-divisor/TechnikerSchule/blob/master/MicroControler/Digitaler_Wuerfel/Aufgabenstellung.pdf)
+#### [Aufgabe](https://github.com/zero-divisor/TechnikerSchule/blob/master/MicroControler/Digitaler_Wuerfel/led_cycling_Aufgabenstellung.pdf)
 
 #### [Schaltungsaufbau](https://github.com/zero-divisor/TechnikerSchule/blob/master/MicroControler/Digitaler_Wuerfel/Schaltung.PNG)
 
-#### [Code](https://github.com/zero-divisor/TechnikerSchule/blob/master/MicroControler/Digitaler_Wuerfel/code.ino)
+#### [Code](https://github.com/zero-divisor/TechnikerSchule/blob/master/MicroControler/Digitaler_Wuerfel/led_cycling_code.ino)
 
 
 ## Vorwiderstand für LED berechnen[^1]
