@@ -8,4 +8,10 @@
 
 ## Datenbank und Benutzer anlegen, Rechte zuweisen
 
-platzhalter
+###  Datenbank anlegen
+
+Um eine Datenbank mit dem Namen EST anzulegen, verwenden Sie das folgende Kommando:
+
+```sql
+create database EST;
+```
