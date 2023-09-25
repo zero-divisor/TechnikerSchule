@@ -3,9 +3,9 @@
 
 ## Index
 
-* [Platzhalter](#platzhalter)
+* [Datenbank und Benutzer anlegen, Rechte zuweisen](#datenbank-und-benutzer anlegen-rechte-zuweisen)
 
 
-## Platzhalter
+## Datenbank und Benutzer anlegen, Rechte zuweisen
 
 platzhalter
