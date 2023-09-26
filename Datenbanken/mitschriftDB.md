@@ -61,3 +61,13 @@ show databases;
 ```
 
 können Sie sich alle Datenbanken anzeigen lassen, auf die Sie Zugriff haben.
+
+### Passwort Ändern
+
+Mit den folgenden Befehlen kann das Passwort eines Benutzers geändert werden.
+
+```sql
+ALTER USER 'user'@'hostname' IDENTIFIED BY 'newPassword';
+flush privileges;
+exit;
+```
