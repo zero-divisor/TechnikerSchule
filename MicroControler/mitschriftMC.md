@@ -81,13 +81,36 @@ for(byte i=0; i<10; i++) {
 }
 
 // "byte i=0;" Initialisierung: Startwert festlegen (Variable)
-// "i<10;" Bedingung: Wann soll die Schleife abgebrochen werden?
-// "i++" Postoperation: Behandlung des Schleifenzählers 
-//                      nach einem Schleifendurchlauf
+// "i<10;"     Bedingung:       Wann soll die Schleife abgebrochen werden?
+// "i++"       Postoperation:   Behandlung des Schleifenzählers 
+//                              nach einem Schleifendurchlauf
 ```
 
 ### switch-case
 
 <img src="images/switch-case.PNG" width="50%">
+
+Eine switch-case-Anweisung vergleicht den Wert einer Variablen mit den Werten aus den case-Anweisungen.
+
+Wenn eine Übereinstimmung gefunden wird, wird das Programm ab der jeweiligen case-Anweisung bis zum nächsten `break;` ausgeführt.
+
+Programmcode:
+
+```c
+switch(variable) {
+	case wert1:
+		// Anweisung 1
+		break;
+	case wert2:
+		// Anweisung 2
+		break;
+	case wert3:
+		// Anweisung 3
+		break;
+	default:
+		// Anweisung 4
+		break;
+}
+```
 
 ### Funktionen
