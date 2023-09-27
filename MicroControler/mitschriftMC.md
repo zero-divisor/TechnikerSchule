@@ -117,10 +117,33 @@ switch(variable) {
 
 Eine Funktion ist in der Informatik die bezeichnung eines Programm-Konstrukts, mit dem der Quellcode strukturiert werden kann, so dass Teile der funktionalität des Programms wiederverwendbar sind.
 
-Aufbau einer Funktion:
+#### Aufbau einer Funktion:
+
+void<sup>1</sup> funktionsName<sup>2</sup> (int übergabeWert<sup>3</sup>)
+
+1. Datentyp return value (void fals kein wert zurückgegeben wird)
+2. Aussagekräftiger Funktionsname
+3. Keiner bis beliebig viele Übergabewerte
+
+Beispiele:
 
 ```c
-int funktionsName(int uebergabeWert){
+// Funktion mit mehreren Übergabewerten
+byte funktionsName(int uebergabeWert1, int uebergabeWert2){
+    // Code der die Übergabewerte verarbeitet
+    
+    // Rückgabewert
+    return someByte;
+}
+
+// Funktion ohne Übergabewerte
+int funktionsName(){
+    // someCode
+    return someInteger;
+}
+
+// Funktion ohne return value
+void funktionsName(int uebergabeWert){
     // someCode
 }
 ```
