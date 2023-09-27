@@ -10,33 +10,69 @@
 
 ### if-else
 
-![Programmablaufplan if-else](https://github.com/zero-divisor/TechnikerSchule/blob/master/MicroControler/images/if-else.PNG)
+<img src="images/if-else.PNG" width="80%">
 
-Programmcode
+Programmcode:
+
 ```c
 // bedingung muss vom Typ boolean (true/false) sein
 
-if(bedingung){
+if(bedingung) {
 	// Aktion 1
 }
 
-if(bedingung){
+if(bedingung) {
 	// Aktion 1
-}else{
+} else {
 	// Aktion 2
 }
 ```
 
-### while Schleife
+### Schleifen
 
+#### while-Schleife
 
+<img src="images/while-loop.PNG" width="70%">
 
-### for Schleife
+Eine while-Schleife wiederholt den Code innerhalb der geschweiften {} Klammern, bis die Bedingung in den runden Klammern nicht mehr wahr ist.
 
+Um die Schleife zu verlassen, muss der Wert der Bedingung innerhalb der geschweiften {} Klammern geändert werden.
 
+__oder:__ Die Bedingung ist von einem externen Event abhängig
+z.B.
+```c
+while(digitalRead(someInput) == HIGH)
+```
+
+Programmcode:
+
+```c
+while(bedingung) {
+	// Schleifenkörper
+}
+```
+
+#### do-while-Schleife
+
+<img src="images/do-while-loop.PNG" width="40%">
+
+Doe do-while-Schleife verhält sich wie die while-Schleife, jedoch wird die Bedingungerst am Ende der Schleife überprüft.\
+Die do-while-Schleife wird also immer mindestens 1x durchlaufen.
+
+Programmcode:
+
+```c
+do {
+	// Schleifenkörper
+} while(bedingung)
+```
+
+#### for-Schleife
+
+<img src="images/for-loop.PNG" width="70%">
 
 ### switch-case
 
-
+<img src="images/switch-case.PNG" width="50%">
 
 ### Funktionen
