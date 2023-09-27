@@ -102,4 +102,4 @@ Die Anmeldeverpflichtungen können je nach Land und Region variieren, aber in De
 - Sozialversicherungsträger: Zur Klärung von Sozialversicherungsbeiträgen (z. B. Krankenversicherung). 
 - Handwerkskammer (falls zutreffend): Für Handwerksbetriebe. 
 - IHK (Industrie- und Handelskammer, falls zutreffend): Für Unternehmen im Handels- und Dienstleistungsbereich. 
-- Eventuell weitere Behörden je nach Branche und Standort, z. B. Umweltbehörden oder Gesundheitsämter, wenn gesundheitliche oder umweltbezogene Vorschriften relevant sind. 
+- Eventuell weitere Behörden je nach Branche und Standort, z. B. Umweltbehörden oder Gesundheitsämter, wenn gesundheitliche oder umweltbezogene Vorschriften relevant sind.
