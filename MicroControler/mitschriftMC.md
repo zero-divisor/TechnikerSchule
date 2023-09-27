@@ -3,10 +3,10 @@
 
 ## Index
 
-* [Kontrollstrukturen](#kontrollstrukturen)
+* [Kontrollstrukturen und Funktionen](#kontrollstrukturen-und-funktionen)
 
 
-## Kontrollstrukturen
+## Kontrollstrukturen und Funktionen
 
 ### if-else
 
