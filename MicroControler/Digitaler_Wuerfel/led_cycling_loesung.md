@@ -1,6 +1,6 @@
 # Digitaler Würfel
 
-#### [Aufgabe](https://github.com/zero-divisor/TechnikerSchule/blob/master/MicroControler/Digitaler_Wuerfel/led_cycling_Aufgabenstellung.pdf)
+#### [Aufgabe](led_cycling_Aufgabenstellung.pdf)
 
 #### [Schaltungsaufbau](https://github.com/zero-divisor/TechnikerSchule/blob/master/MicroControler/Digitaler_Wuerfel/Schaltung.PNG)
 

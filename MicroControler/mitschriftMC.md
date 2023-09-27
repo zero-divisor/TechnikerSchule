@@ -18,13 +18,13 @@ Programmcode:
 // bedingung muss vom Typ boolean (true/false) sein
 
 if(bedingung) {
-	// Aktion 1
+    // Aktion 1
 }
 
 if(bedingung) {
-	// Aktion 1
+    // Aktion 1
 } else {
-	// Aktion 2
+    // Aktion 2
 }
 ```
 
@@ -48,7 +48,7 @@ Programmcode:
 
 ```c
 while(bedingung) {
-	// Schleifenkörper
+    // Schleifenkörper
 }
 ```
 
@@ -63,7 +63,7 @@ Programmcode:
 
 ```c
 do {
-	// Schleifenkörper
+    // Schleifenkörper
 } while(bedingung)
 ```
 
@@ -77,7 +77,7 @@ Programmcode:
 
 ```c
 for(byte i=0; i<10; i++) {
-	// Schleifenkörper
+    // Schleifenkörper
 }
 
 // "byte i=0;" Initialisierung: Startwert festlegen (Variable)
@@ -98,19 +98,29 @@ Programmcode:
 
 ```c
 switch(variable) {
-	case wert1:
-		// Anweisung 1
-		break;
-	case wert2:
-		// Anweisung 2
-		break;
-	case wert3:
-		// Anweisung 3
-		break;
-	default:
-		// Anweisung 4
-		break;
+    case wert1:
+        // Anweisung 1
+        break;
+    case wert2:
+        // Anweisung 2
+        break;
+    case wert3:
+        // Anweisung 3
+        break;
+    default:
+        // Anweisung 4
+    break;
 }
 ```
 
 ### Funktionen
+
+Eine Funktion ist in der Informatik die bezeichnung eines Programm-Konstrukts, mit dem der Quellcode strukturiert werden kann, so dass Teile der funktionalität des Programms wiederverwendbar sind.
+
+Aufbau einer Funktion:
+
+```c
+int funktionsName(int uebergabeWert){
+    // someCode
+}
+```
