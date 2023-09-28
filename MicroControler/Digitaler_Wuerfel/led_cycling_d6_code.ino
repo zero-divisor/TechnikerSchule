@@ -65,6 +65,7 @@ void showD6Result(int result){
   int ledStates;
   switch (result) {
     case 1:
+	  // lsb = topLeft, msb = bottomRight
       ledStates = 0b0001000;
       break;
     case 2:

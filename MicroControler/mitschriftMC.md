@@ -109,7 +109,7 @@ switch(variable) {
         break;
     default:
         // Anweisung 4
-    break;
+        break;
 }
 ```
 
