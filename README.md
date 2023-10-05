@@ -1,10 +1,10 @@
 # TechnikerSchule
 
-Schulaufgaben Informationstechnik
+Schulunterlagen Informationstechnik
 
-#### [BWL](BWL/README.md)
-#### [Computersysteme](ComputerSysteme/README.md)
+#### [BWL](BWL)
+#### [Computersysteme](ComputerSysteme)
 #### [Datenbanken](Datenbanken)
-#### [Micro Controler](MicroControler/README.md)
-#### [Softwareentwicklung](SoftwareEntwicklung/README.md)
-#### [Robotik 1](Robotik1/README.md)
+#### [Micro Controler](MicroControler)
+#### [Softwareentwicklung](SoftwareEntwicklung)
+#### [Robotik 1](Robotik1)
