@@ -8,7 +8,7 @@
 
 ## Hello World
 
-### Das Programm „Hello World“
+### Das Programm "Hello World"
 
 ```java
 // Klassenname "HelloWorld"
