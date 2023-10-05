@@ -68,8 +68,8 @@ Eine while-Schleife wiederholt den Code innerhalb der geschweiften { } Klammern,
 
 Um die Schleife zu verlassen, muss der Wert der Bedingung innerhalb der geschweiften { } Klammern geändert werden.
 
-__oder:__ Die Bedingung ist von einem externen Event abhängig
-z.B.
+__oder:__ Die Bedingung ist von einem externen Event abhängig z.B.
+
 ```c
 while(digitalRead(someInput) == HIGH)
 ```
@@ -125,7 +125,7 @@ Eine Funktion ist in der Informatik die bezeichnung eines Programm-Konstrukts, m
 
 void<sup>1</sup> funktionsName<sup>2</sup> (int übergabeWert<sup>3</sup>)
 
-1. Datentyp return value (void fals kein wert zurückgegeben wird)
+1. Datentyp des return-value (void fals kein wert zurückgegeben wird)
 2. Aussagekräftiger Funktionsname
 3. Keiner bis beliebig viele Übergabewerte
 
