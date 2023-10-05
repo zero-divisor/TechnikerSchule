@@ -8,7 +8,7 @@ public class ErsteEingabe {
 		int zahl;
 		Scanner keyboardInput = new Scanner(System.in);
 		
-		System.out.println("Bitte gib eine Zahl  ein:");
+		System.out.println("Bitte gib eine Zahl ein:");
 		zahl = keyboardInput.nextInt();
 		
 		System.out.println("Deine eingegebene Zahl lautet: " + zahl);
