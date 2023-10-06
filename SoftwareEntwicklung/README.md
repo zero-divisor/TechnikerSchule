@@ -4,6 +4,8 @@
 ## Index
 
 * [Hello World](#hello-world)
+* [Eingabe von Text über die Tastatur](#eingabe-von-text-über-die-tastatur)
+* [Variablen](#variablen)
 
 
 ## Hello World
@@ -47,3 +49,43 @@ Da Ihre "HelloWorld.class" nun durch den Compiler erstellt ist, können Sie Ihr 
 ```
 java HelloWorld
 ```
+
+## Eingabe von Text über die Tastatur
+
+```java
+import java.util.Scanner;
+
+public class ErsteEingabe {
+
+    public static void main(String[] args) {
+        int zahl;
+        Scanner keyboardInput = new Scanner(System.in);
+
+        System.out.println("Bitte gib eine Zahl ein:");
+        zahl = keyboardInput.nextInt();
+
+        System.out.println("Deine eingegebene Zahl lautet: " + zahl);
+
+        keyboardInput.close();
+    }
+
+}
+```
+
+## Variablen
+
+Eine Variable ist ein Container in dem Daten während der Laufzeit des Programms gespeichert werden kann.
+
+In Java hat eine Variable folgende Eigenschaften:
+
+* __Typ:__ z.B. Zahl oder Text. Eine Liste mit Grundtypen in Java findet sich unten.
+* __Name:__ unter diesem Namen kennt der Compiler die Variable. Es sollten nur sinnvolle Namen verwendet werden.
+* __Wert:__ der Inhalt den man speichern möchte. Der Inhalt muss zum Typ passen!
+
+| Typ     | Beschreibung          | Größe              | Wertebereich | Literal |
+| ------- | --------------------- |------------------- |------------- |-------- |
+| int     | ganze Zahl            | 4 Byte             | -2<sup>31</sup> bis 2<sup>31</sup> | 34 |
+| double  | Zahl mit Komma        | 8 Byte             | &#177;1.4\*10<sup>-45</sup> bis &#177;3.4\*10<sup>38</sup> | 2.6 |
+| char    | Ein einzelnes Zeichen | 2 Byte             | Unicode Tabelle |
+| String  | Eine Zeichenkette     | 2 Byte pro Zeichen | Unicode Tabelle |
+| boolean | Ein Wahrheitswert     | 1-4 Byte           | `true` oder `false` |
