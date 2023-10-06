@@ -92,20 +92,29 @@ In Java hat eine Variable folgende Eigenschaften:
 
 ### Variablen definieren:
 
-Z.B. Definieren einer Integer Variable:\
+Z.B. Definieren einer Integer Variable:
+
+```java
 int zahl;
+```
 
 ### Werte zuweisen:
 
+```java
 zahl = 3;
+```
 
 ### Abkürzung (Definition und Zuweisung in einem):
 
+```java
 int zahl = 3;
+```
 
 ### weitere Beispiele:
 
-String text = "HelloWorld";\
-boolean volljährig = true;\
-char zeichen = 'x';\
+```java
+String text = "HelloWorld";
+boolean volljährig = true;
+char zeichen = 'x';
 double geldbetrag = 3.99;
+```
