@@ -92,7 +92,7 @@ In Java hat eine Variable folgende Eigenschaften:
 
 ### Variablen definieren:
 
-Z.B. Definieren einer Integer Variable:
+z.B. Definieren einer Integer Variable:
 
 ```java
 int zahl;
