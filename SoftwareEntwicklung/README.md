@@ -82,10 +82,30 @@ In Java hat eine Variable folgende Eigenschaften:
 * __Name:__ unter diesem Namen kennt der Compiler die Variable. Es sollten nur sinnvolle Namen verwendet werden.
 * __Wert:__ der Inhalt den man speichern möchte. Der Inhalt muss zum Typ passen!
 
-| Typ     | Beschreibung          | Größe              | Wertebereich | Literal |
-| ------- | --------------------- |------------------- |------------- |-------- |
-| int     | ganze Zahl            | 4 Byte             | -2<sup>31</sup> bis 2<sup>31</sup> | 34 |
-| double  | Zahl mit Komma        | 8 Byte             | &#177;1.4\*10<sup>-45</sup> bis &#177;3.4\*10<sup>38</sup> | 2.6 |
-| char    | Ein einzelnes Zeichen | 2 Byte             | Unicode Tabelle |
-| String  | Eine Zeichenkette     | 2 Byte pro Zeichen | Unicode Tabelle |
-| boolean | Ein Wahrheitswert     | 1-4 Byte           | `true` oder `false` |
+| Typ     | Beschreibung          | Größe              | Wertebereich                                               | Literal |
+| ------- | --------------------- |------------------- | ---------------------------------------------------------- |-------- |
+| int     | ganze Zahl            | 4 Byte             | -2<sup>31</sup> bis 2<sup>31</sup>                         | 34      |
+| double  | Zahl mit Komma        | 8 Byte             | &#177;1.4\*10<sup>-45</sup> bis &#177;3.4\*10<sup>38</sup> | 2.6     |
+| char    | Ein einzelnes Zeichen | 2 Byte             | Unicode Tabelle                                            | 'F'     |
+| String  | Eine Zeichenkette     | 2 Byte pro Zeichen | Unicode Tabelle                                            | "Hello" |
+| boolean | Ein Wahrheitswert     | 1-4 Byte           | `true` oder `false`                                        | `true`  |
+
+### Variablen definieren:
+
+Z.B. Definieren einer Integer Variable:
+int zahl;
+
+### Werte zuweisen:
+
+zahl = 3;
+
+### Abkürzung (Definition und Zuweisung in einem):
+
+int zahl = 3;
+
+### weitere Beispiele:
+
+String text = "HelloWorld";
+boolean volljährig = true;
+char zeichen = 'x';
+double geldbetrag = 3.99;
