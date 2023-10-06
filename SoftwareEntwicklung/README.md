@@ -105,7 +105,7 @@ int zahl = 3;
 
 ### weitere Beispiele:
 
-String text = "HelloWorld";
-boolean volljährig = true;
-char zeichen = 'x';
+String text = "HelloWorld";\
+boolean volljährig = true;\
+char zeichen = 'x';\
 double geldbetrag = 3.99;
