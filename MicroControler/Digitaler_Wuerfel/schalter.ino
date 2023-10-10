@@ -76,8 +76,8 @@ void showD6Result(int result){
       ledStates = 0b1110111;
       break;
     default:
-	  // Bei ungültigem wert alle LEDs an
-	  ledStates = 0b1111111;
+      // Bei ungültigem wert alle LEDs an
+      ledStates = 0b1111111;
       break;
   }
   

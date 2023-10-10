@@ -3,10 +3,30 @@
 
 ## Index
 
+* [Vergleichsoperatoren](#vergleichsoperatoren)
+* [Boolsche Operatoren](#boolsche-operatoren)
 * [Kontrollstrukturen](#kontrollstrukturen)
 * [Schleifen](#schleifen)
 * [Funktionen](#funktionen)
 
+## Vergleichsoperatoren
+
+| Operator | Bedeutung      | Anwendung |
+| -------- | -------------- | --------- |
+| ==       | Gleichheit     | `a == b`  |
+| !=       | Ungleichheit   | `a != b`  |
+| <        | echt kleiner   | `a < b`   |
+| >        | echt größer    | `a > b`   |
+| <=       | kleiner gleich | `a <= b`  |
+| >=       | größer gleich  | `a >= b`  |
+
+## Boolsche Operatoren
+
+| Operator | Bedeutung      | Anwendung  |
+| -------- | -------------- | ---------  |
+| &&       | und            | `a && b`   |
+| \|\|     | oder           | `a \|\| b` |
+| !        | nicht          | `!a`       |
 
 ## Kontrollstrukturen
 
