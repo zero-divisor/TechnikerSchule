@@ -118,3 +118,4 @@ boolean volljährig = true;
 char zeichen = 'x';
 double geldbetrag = 3.99;
 ```
+
