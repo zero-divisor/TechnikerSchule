@@ -139,6 +139,7 @@ public class ArbeitsblattVariablen {
 		double anschlussgrundgebuehr = 27.30;
 		// Locale.US, dass . statt , benutzt wird
 		String anschlussgrundgebuehrFormatted = String.format(Locale.US, "%.2f", anschlussgrundgebuehr);
+		
 		double preisProKw = 0.13;
 		String preisProKwFormatted = String.format(Locale.US, "%.2f", preisProKw);
 		
