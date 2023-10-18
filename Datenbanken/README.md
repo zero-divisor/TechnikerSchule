@@ -3,8 +3,46 @@
 
 ## Index
 
+* [Datenbank](#datenbank)
+* [Datenbankmanagementsystem](#datenbankmanagementsystem)
+* [Tabellen](#tabellen)
 * [Datenbank und Benutzer anlegen, Rechte zuweisen](#datenbank-und-benutzer-anlegen-rechte-zuweisen)
+* [Structured Querry Language SQL](#structured-querry-language-sql)
 
+
+## Datenbank
+
++ Tabellen
++ Views
++ Indizes
++ Stored Procedures
++ Trigger
+
+## Datenbankmanagementsystem
+
++ Verarbeitung
++ Zugriffsrechte
++ Sitzungsverwaltung
++ Transaktionsverarbeitung
++ Datensicherung
++ API (Application Programming Interface)
+
+## Tabellen
+
+| KundenNr | Name          | Ort        |
+|----------|---------------|------------|
+| 4711     | Müller, Otto  | Tettnang   |
+| 4712     | Schmid, Luis  | Ravensburg |
+| 4713     | Maier, Martin | Mengen     |
+
++ __Spalte:__ (Attribut, Datenfeld, Eigenschaft, Property)
+  + Beinhaltet Daten desselben Typs (z.B. Zahlen)
+  + Beinhaltet Daten derselben logischen Zuordnung (z.B. Name)
+  + Haben einen eindeutigen Namen
++ __Zeile:__ (Datensatz, Entität, Record, Objekt)
+  + Enthält inhaltlich zusammenhängende Daten
++ __Tabelle:__ (Matrix, Entitätstyp, Relation, Klasse, Recordset)
+   + Besteht aus mindestens einer Spalte mit endlich vielen Zeilen (0 bis n Zeilen)
 
 ## Datenbank und Benutzer anlegen, Rechte zuweisen
 
@@ -71,3 +109,6 @@ ALTER USER 'user'@'hostname' IDENTIFIED BY 'newPassword';
 flush privileges;
 exit;
 ```
+
+## Structured Querry Language SQL
+
