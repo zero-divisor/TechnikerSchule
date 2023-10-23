@@ -8,6 +8,7 @@
 * [Tabellen](#tabellen)
 * [Datenbank und Benutzer anlegen, Rechte zuweisen](#datenbank-und-benutzer-anlegen-rechte-zuweisen)
 * [Structured Querry Language SQL](#structured-querry-language-sql)
+* [Erste SQL Kommandos](#erste-sql-kommandos)
 
 
 ## Datenbank
@@ -115,3 +116,121 @@ exit;
 SQL (Structured Query Language) ist eine genormte Sprache zur Verarbeitung von Daten in Datenbanksystemen. Die Wurzeln der Sprache liegen bereits in den 1970er Jahren und wurden ursprünglich von IBM entwickelt. Bis heute hat sich SQL stetig weiterentwickelt und ist eine ANSI-Norm. Die meisten DBMS verwenden SQL.
 
 <img src="images/sql.png">
+
+Wie dem Diagramm zu entnehmen ist, gibt es sehr wenige Kommandos (wobei die Liste nicht vollständig ist). Die eigentliche Mächtigkeit liegt allerdings in den Teilkommandos. Hier werden wir nicht alles behandeln können, wir beschränken uns auf die wichtigsten Befehle.
+
+### Allgemeines zu SQL-Befehlen
+
++ Hilfe im Internet:
+    + https://dev.mysql.com/doc/refman/5.7/en/
+    + https://mariadb.com/kb/en/library/documentation/
+    + https://www.w3schools.com/sql/
++ Bei den Befehlen wird nicht zwischen Groß- und Kleinschreibung unterschieden
++ Bei Namen für Datenbanken, Tabellen, Feldern, … wird zwischen Groß- und Kleinschreibung unterschieden. Es kann also z.B. eine Tabelle TEST und eine Tabelle Test existieren (sollte aber vermieden werden!). Wenn Leerzeichen verwendet werden, dann müssen die Namen in Hochkomma stehen (' oder ").
++ Empfehlungen für Namen: 
+    + Halten Sie sich konsequent an Konventionen (z.B. Groß-/Kleinschreibung, deutsch/englisch, Wörter/Abkürzungen).
+    + Verwenden Sie keine Leerzeichen oder Umlaute --> "lästig" beim Programmieren, teilweise auch problematisch wegen unterschiedlicher Zeichensätze.
+    + Inhalt sollte am Namen erkennbar sein, aber je kürzer desto besser.
++ Die Reihenfolge der Teilkommandos ist fest vorgegeben. (z.B. select XY from ABC where xy > 0).
++ SQL-Kommandos werden mit einem Semikolon ; abgeschlossen.
+
+## Erste SQL Kommandos
+
+### Anmelden an der Datenbank mit dem MySQL-Client
+
+In der Regel greifen spezielle Softwareprodukte (SAP) auf Datenbanken zu, teilweise auch in Form von Web-Seiten (Amazon,...). Es gibt aber in der Regel vom Softwarehersteller des DBMS auch ein kleines Hilfsprogramm, mit dem direkt auf die Datenbank zugegriffen werden kann. So ist es auf bei MariaDB. Um den MySQL-Client zu starten und sich am Datenbankserver anzumelden, verwenden Sie das folgende Kommando:
+
+```
+mysql -u USERNAME -p
+```
+
+USERNAME steht hier stellvertretend für Ihren Anmeldenamen. Anschließend werden Sie nach dem Passwort gefragt. Wundern Sie sich nicht, wenn die eingegebenen Passwort-Zeichen nicht auf dem Bildschirm angezeigt werden.
+
+Wenn alles richtig eingegeben wurde, dann sollte Sie der Datenbankserver begrüßen. Nun können Sie SQL-Kommandos ausführen.
+
+
+### mysql-Client aufrufen in XAMPP oder unter Linux
+
+Unter XAMPP ohne root-Passwort: mysql
+Unter Linux: sudo mysql -u root -p (-u: Benutzer root, -p: nach Passwort fragen)
+
+
+### Anlegen einer Datenbank
+
+```sql
+create database DATENBANKNAME --(z.B. create database SAP).
+```
+
+### Anlegen eines Benutzers und zuweisen von Rechten
+
+```sql
+create user 'schueler'@'localhost' identified by 'passwort'; 
+grant all on SAP.* to 'schueler'@'localhost';
+```
+
+### Nützliches zum mysql-Client
+
++ Mit den Tasten hoch/runter kann zwischen den letzten Kommandos geblättert werden.
++ Help bzw. help BEFEHL wird die entsprechende Hilfe angezeigt (z.B. help create database).
++ Mit use DATENBANK wird in die gewünschte Datenbank gewechselt - kann auch direkt an den mysql-Aufruf gehängt werden (z.B. mysql DATENBANK).
+
+
+### Erste hilfreiche Kommandos (teilweise nicht SQL-Standard, sondern speziell für MySQL)
+
+__Alle Datenbanken anzeigen:__
+```sql
+show databases;
+```
+ 
+__Alle Benutzer anzeigen (nur möglich mit root-Rechten):__
+
+```sql
+select * from mysql.user;
+
+-- Oder nur Name/Passwort:
+
+select host, user, password from mysql.user;
+```
+ 
+__Alle Tabellen anzeigen:__
+
+```sql
+show tables;
+```
+ 
+__Tabellenstruktur anzeigen:__
+
+```sql
+describe TABELLE;
+```
+ 
+__Anlegen einer Tabelle:__
+
+```sql
+create table artikel (artikelnummer integer, benennung varchar(30));
+```
+ 
+__Datensatz in eine Tabelle einfügen:__
+
+```sql
+insert into artikel values (1, "Blauer Gummiball");
+```
+ 
+__Alle Datensätze einer Tabelle anzeigen:__
+
+```sql
+select * from artikel;
+```
+\* für alle Felder oder Feldnamen mit Komma getrennt.
+
+__Alle Datensätze einer Tabelle löschen:__
+
+```sql
+delete from artikel;
+```
+
+__Eine Tabelle löschen:__
+
+```sql
+drop table artikel;
+```
