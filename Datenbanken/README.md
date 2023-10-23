@@ -148,17 +148,10 @@ USERNAME steht hier stellvertretend für Ihren Anmeldenamen. Anschließend werde
 
 Wenn alles richtig eingegeben wurde, dann sollte Sie der Datenbankserver begrüßen. Nun können Sie SQL-Kommandos ausführen.
 
-
-### mysql-Client aufrufen in XAMPP oder unter Linux
-
-Unter XAMPP ohne root-Passwort: mysql
-Unter Linux: sudo mysql -u root -p (-u: Benutzer root, -p: nach Passwort fragen)
-
-
 ### Anlegen einer Datenbank
 
 ```sql
-create database DATENBANKNAME --(z.B. create database SAP).
+create database DATENBANKNAME -- (z.B. create database SAP).
 ```
 
 ### Anlegen eines Benutzers und zuweisen von Rechten
