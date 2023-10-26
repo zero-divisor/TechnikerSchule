@@ -202,8 +202,7 @@ __Beispiele:__
 
 Es gibt in Java ein- und mehrzeilige Kommentare:
 
-__Einzeiliger Kommentar:__ Text, der im Programmcode hinter einem // steht bis zum Zeilenende.
-
+__Einzeiliger Kommentar:__ Text, der im Programmcode hinter einem // steht bis zum Zeilenende.\
 __Mehrzeiliger Kommentar:__ Alles was zwischen den Zeichenfolgen /* und */ steht, auch über mehrere Zeilen.
 
 __Beispiel:__
