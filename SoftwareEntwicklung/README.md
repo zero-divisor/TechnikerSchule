@@ -7,6 +7,7 @@
 * [Eingabe von Text über die Tastatur](#eingabe-von-text-über-die-tastatur)
 * [Variablen](#variablen)
 * [Operatoren](#operatoren)
+* [Kommentare in Java](#kommentare-in-java)
 
 
 ## Hello World
@@ -195,4 +196,30 @@ __Beispiele:__
 11 % 3     // hat den Wert 2 , da 11 : 3 = 3 Rest 2
 2 % 3      // hat den Wert 2 , da  2 : 3 = 0 Rest 2
 10.1 % 3.1 // hat den Wert 0.8 , da 10,1 : 3,1 = 9,3 Rest 0,8
+```
+
+## Kommentare in Java
+
+Es gibt in Java ein- und mehrzeilige Kommentare:\
+Einzeiliger Kommentar: Text, der im Programmcode hinter einem // steht bis zum Zeilenende.
+
+Mehrzeiliger Kommentar: Alles was zwischen den Zeichenfolgen /* und */ steht, auch über mehrere Zeilen.
+
+__Beispiel:__
+
+```java
+// Author: Max Mustermann
+// Datum: 09.10.2015
+public class HelloWorld {
+    public static void main(String[] args) {
+        int i = 2;
+        i = i * 5; // In dieser Zeile wird i mit 5 multipliziert.
+        i++;       // In dieser Zeile wird i um eins erhöht.
+        
+        /* Der folgende Abschnitt ist noch nicht fertig.
+        System.out.println(i);
+        i++;
+        */
+    }
+}
 ```
