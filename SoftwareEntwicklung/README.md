@@ -6,6 +6,7 @@
 * [Hello World](#hello-world)
 * [Eingabe von Text über die Tastatur](#eingabe-von-text-über-die-tastatur)
 * [Variablen](#variablen)
+* [Operatoren](#operatoren)
 
 
 ## Hello World
@@ -119,3 +120,79 @@ char zeichen = 'x';
 double geldbetrag = 3.99;
 ```
 
+## Operatoren
+
+### Arithmetische Operatoren:
+
+Arithmetische Operatoren sind binäre Operatoren, welche immer mit zwei Operanden arbeiten und bei denen immer die Punkt-vor-Strich-Regel gilt.
+
+| Operator | Verhalten            |
+|----|----------------------------|
+| \+ | Addition                   |
+| \- | Subtraktion                |
+| \* |Multiplikation              |
+| /  | Division                   |
+| %  | Modulo (Rest der Division) |
+
+### Zuweisungsoperator (=):
+
+```java
+zahl = 5;
+```
+
+Der Zuweisungsoperator weist der Variable auf der linken Seite, den Ausdruck auf der rechten Seite zu.\
+Dabei wird der Ausdruck auf der rechten Seite vor der Zuweisung zuerst ausgewertet.
+
+Ein Ausdruck kann aus Variablen oder Werten bestehen.
+
+__Beispiele (Zuweisung von Werten):__
+
+```java
+zeichen = 'A';
+text = "Hallo";
+kommazahl = 3.44;
+i = i + 1;
+```
+
+__Allgemein:__
+
+```java
+variable = anderevariable + 3;
+```
+
+### Inkrement- und Dekrementoperatoren (++,--):
+
+Inkrement- und Dekrementoperatoren sind _unär_ und erhöhen bzw. erniedrigen den Wert einer Variablen um eins.
+
+```
+++zahl oder zahl++ Addition
+--zahl oder zahl-- Subtraktion
+```
+
+__Beispiel:__
+
+```java
+int zahl = 5;
+System.out.println(++zahl); // Ausgabe: 6
+System.out.println(zahl++); // Ausgabe: 5
+```
+
+### Spezialfall Integerdivision:
+
+```java
+double zahl = 3.0 / 2.0; // Zahl hat den Wert 1.5
+int zahl = 3 / 2;        // Zahl hat den Wert 1. Das Ergebnis 1.5 wird abgerundet.
+```
+
+### Spezialfall Modulo:
+
+Der Modulo-Operator (%) ermittelt den Rest der Division.
+
+__Beispiele:__
+
+```java
+10 % 3     // hat den Wert 1 , da 10 : 3 = 3 Rest 1
+11 % 3     // hat den Wert 2 , da 11 : 3 = 3 Rest 2
+2 % 3      // hat den Wert 2 , da  2 : 3 = 0 Rest 2
+10.1 % 3.1 // hat den Wert 0.8 , da 10,1 : 3,1 = 9,3 Rest 0,8
+```
