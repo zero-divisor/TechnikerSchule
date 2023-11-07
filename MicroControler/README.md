@@ -5,6 +5,8 @@
 
 * [Vergleichsoperatoren](#vergleichsoperatoren)
 * [Boolsche Operatoren](#boolsche-operatoren)
+* [Variablen](#variablen)
+* [Arrays](#arays)
 * [Kontrollstrukturen](#kontrollstrukturen)
 * [Schleifen](#schleifen)
 * [Funktionen](#funktionen)
@@ -27,6 +29,28 @@
 | &&       | und            | `a && b`   |
 | \|\|     | oder           | `a \|\| b` |
 | !        | nicht          | `!a`       |
+
+## Variablen
+
+<img src="images/variablen.jpeg" width="80%">
+
+## Arrays
+
+Ein Array sind mehrere Werte des selben Datentyps, auf sie über einen Index zugegriffen werden kann.
+
+__Bsp.:__ Deklaration eines Arrays
+
+```c
+byte mcpin[7] = {2, 3, 4, 5, 6, 7, 8};
+```
+
+__Bsp.:__ Zugriff über Index
+
+_Indizes fangen bei 0 an._
+```c
+byte firstValue = mcpin[0];
+```
+
 
 ## Kontrollstrukturen
 
