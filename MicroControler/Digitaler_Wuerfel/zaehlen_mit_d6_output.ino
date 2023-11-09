@@ -14,8 +14,20 @@
 byte wuerfelWert = 0;
 byte d6Result = 0;
 
+// led zustände für Würfelergebnisse
+// lsb = topLeft, msb = bottomRight
+byte ledStates[7] = 
+{
+  0b0001000,
+  0b1000001, 
+  0b1001001, 
+  0b1100011, 
+  0b1101011, 
+  0b1110111
+};
+
 // Array mit den Pins der LEDs
-byte wuerfelLeds[] = 
+byte wuerfelLeds[7] = 
 {
   ledPinTopLeft,
   ledPinTopRight,
@@ -82,34 +94,8 @@ void ledsOff(){
 
 // Zeigt Zahl zwischen 1 und 6 an
 void showD6Result(int result){
-  byte ledStates;
-  switch (result) {
-    case 1:
-	  // lsb = topLeft, msb = bottomRight
-      ledStates = 0b0001000;
-      break;
-    case 2:
-      ledStates = 0b1000001;
-      break;
-	case 3:
-      ledStates = 0b1001001;
-      break;
-	case 4:
-      ledStates = 0b1100011;
-      break;
-	case 5:
-      ledStates = 0b1101011;
-      break;
-	case 6:
-      ledStates = 0b1110111;
-      break;
-    default:
-	  // Bei ungültigem wert alle LEDs an
-	  ledStates = 0b1111111;
-      break;
-  }
   
   for(int i=0; i<wuerfelLedsSize; i++){
-	digitalWrite(wuerfelLeds[i], (ledStates >> i) & 1);
+	digitalWrite(wuerfelLeds[i], (ledStates[result-1] >> i) & 1);
   }
 }
