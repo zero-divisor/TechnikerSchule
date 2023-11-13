@@ -8,6 +8,7 @@
 * [Variablen](#variablen)
 * [Operatoren](#operatoren)
 * [Kommentare in Java](#kommentare-in-java)
+* [Strings](#strings)
 
 
 ## Hello World
@@ -222,4 +223,74 @@ public class HelloWorld {
         */
     }
 }
+```
+
+## Strings
+
+String ist ein Variablentyp, der Zeichenketten als Werte speichern kann.
+
+```java
+public class StringsAufgaben {
+
+    public static void main(String[] args) {
+        String text;
+        text = "Hello World";
+        System.out.println(text);
+
+        String stundenplan;
+        stundenplan = "1.\tSAE\n2.\tSAE\n3.\tBWL\n4.\tBWL\n5.\tWI\n6.\tREL";
+        System.out.println(stundenplan);
+
+        // Aneinanderhängen von beliebig vielen Zeichenketten (Der + Operator)
+        String vname = "Vorname";
+        String nname = "Nachname";
+        String ausgabe = vname + " " + nname;
+        System.out.println(ausgabe);
+    }
+}
+```
+
+### Methoden des String-Objekts:
+
+Eine String-Variable ist kein primitiver Datentyp sondern ein Objekt. Sie besitzt nicht nur einen Wert (die Zeichenkette), sondern auch Methoden um bestimmte Eigenschaften dieser Zeichenkette zu ermitteln oder die gespeicherte Zeichenkette zu verändern.
+
+#### Die length-Methode: Länge einer Zeichenkette ermitteln:
+
+```java
+String text = "Hello World";
+int laenge = text.length();
+System.out.println("Der Text ist " + laenge + " Zeichen lang.");
+```
+
+#### Die charAt-Methode: Zeichen an einer bestimmten Position ermitteln:
+
+Die Zeichen in einer Zeichenkette sind mit einem Index durchnummeriert, beginnend bei 0.
+
+|H |e |l |l |o |  |W |o |r |l |d |
+|--|--|--|--|--|--|--|--|--|--|--|
+|0 |1 |2 |3 |4 |5 |6 |7 |8 |9 |10|
+
+
+```java
+String text = "Hello World";
+char zeichen = text.charAt(4);
+System.out.println("Das ermittelte Zeichen lautet " + zeichen + ".");
+```
+
+#### Die substring-Methode: Einen Teil der Zeichenkette ermitteln:
+
+```java
+String text = "Hello World";
+String erstesWort = text.substring(0, 5); // Ermittelt die Zeichen 0 bis 4
+String zweitesWort = text.substring(6, 11); // Ermittelt die Zeichen 6 bis 10
+```
+
+Der Startindex ist mit dabei, der Endindex nicht mehr.
+
+#### Die replace-Methode: Ein Zeichen in der Zeichenkette ersetzen:
+
+```java
+String text = "Hello World";
+String neuerText = text.replace('W','w');
+System.out.println(neuerText);
 ```
