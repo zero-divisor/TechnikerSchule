@@ -6,7 +6,7 @@
 * [Vergleichsoperatoren](#vergleichsoperatoren)
 * [Boolsche Operatoren](#boolsche-operatoren)
 * [Variablen](#variablen)
-* [Arrays](#arays)
+* [Arrays](#arrays)
 * [Kontrollstrukturen](#kontrollstrukturen)
 * [Schleifen](#schleifen)
 * [Funktionen](#funktionen)
