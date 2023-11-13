@@ -254,7 +254,7 @@ public class StringsAufgaben {
 
 Eine String-Variable ist kein primitiver Datentyp sondern ein Objekt. Sie besitzt nicht nur einen Wert (die Zeichenkette), sondern auch Methoden um bestimmte Eigenschaften dieser Zeichenkette zu ermitteln oder die gespeicherte Zeichenkette zu verändern.
 
-#### Die length-Methode: Länge einer Zeichenkette ermitteln:
+### Die length-Methode: Länge einer Zeichenkette ermitteln:
 
 ```java
 String text = "Hello World";
@@ -262,7 +262,7 @@ int laenge = text.length();
 System.out.println("Der Text ist " + laenge + " Zeichen lang.");
 ```
 
-#### Die charAt-Methode: Zeichen an einer bestimmten Position ermitteln:
+### Die charAt-Methode: Zeichen an einer bestimmten Position ermitteln:
 
 Die Zeichen in einer Zeichenkette sind mit einem Index durchnummeriert, beginnend bei 0.
 
@@ -277,7 +277,7 @@ char zeichen = text.charAt(4);
 System.out.println("Das ermittelte Zeichen lautet " + zeichen + ".");
 ```
 
-#### Die substring-Methode: Einen Teil der Zeichenkette ermitteln:
+### Die substring-Methode: Einen Teil der Zeichenkette ermitteln:
 
 ```java
 String text = "Hello World";
@@ -287,7 +287,7 @@ String zweitesWort = text.substring(6, 11); // Ermittelt die Zeichen 6 bis 10
 
 Der Startindex ist mit dabei, der Endindex nicht mehr.
 
-#### Die replace-Methode: Ein Zeichen in der Zeichenkette ersetzen:
+### Die replace-Methode: Ein Zeichen in der Zeichenkette ersetzen:
 
 ```java
 String text = "Hello World";
