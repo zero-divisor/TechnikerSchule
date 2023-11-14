@@ -13,6 +13,8 @@
 * [Rechnen mit Feldern](#rechnen-mit-feldern)
 * [Aliasnamen](#aliasnamen)
 * [Datenimport über CSV-Datei](#datenimport-über-csv-datei)
+* [Where-Clause](#where-clause)
+* [Vergleichsoperatoren](#vergleichsoperatoren)
 
 
 ## Datenbank
@@ -284,3 +286,27 @@ load data local infile 'PFAD/DATEINAME'
 |enclosed by '"'|Daten eingeschlossen in ein Zeichen|
 |lines terminated by '\n'|Datensätze sind getrennt durch Zeilenumbruch|
 |ignore 1 rows;|1. Zeile überspringen (z.B. bei Titel)|
+
+## Where-Clause
+
+Filtert die betroffenen Daten (select, update, delete). Hinter where steht ein logischer Ausdruck, der datensatzbezogen wahr oder falsch sein kann.
+
+## Vergleichsoperatoren
+
+| Operator | Bedeutung |
+| -------- | --------- |
+| = | gleich |
+| <> | ungleich (bei manchen SQL-Versionen auch !=) |
+| > | größer als |
+| < | kleiner als |
+| >= | größer oder gleich |
+| <= | kleiner oder gleich |
+| BETWEEN | zwischen (z.B. BETWEEN 10 AND 15) |
+| LIKE | Suchmuster (mit Platzhalter % für 0-n Zeichen und _ für 1 exakt Zeichen) |
+| IN | Werte in einer Liste (z.B. Ort IN ('New York', 'Rio', 'Tokio')) |
+
+Mit AND, OR können mehrere logische Ausdrücke verbunden werden.
+
+NOT negiert die Logik.
+
+--> siehe Digitaltechnik oder Programmiersprachen
