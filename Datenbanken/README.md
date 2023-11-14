@@ -15,6 +15,9 @@
 * [Datenimport über CSV-Datei](#datenimport-über-csv-datei)
 * [Where-Clause](#where-clause)
 * [Vergleichsoperatoren](#vergleichsoperatoren)
+* [Daten sortieren](#daten-sortieren)
+* [Aggregatfunktionen](#aggregatfunktionen)
+* [Limit](#limit)
 
 
 ## Datenbank
@@ -310,3 +313,21 @@ Mit AND, OR können mehrere logische Ausdrücke verbunden werden.
 NOT negiert die Logik.
 
 --> siehe Digitaltechnik oder Programmiersprachen
+
+## Daten sortieren
+
+`order by feldname` (oder mehrere Feldnamen mit Komma getrennt)
+
+__z.B.__
+
+```sql
+select name, vorname
+    from adressen
+    order by name, vorname
+```
+
+Per Default wir aufsteigend sortiert (Schlüsselwort `ASC`). Soll absteigend sortiert werden, so wird hinter dem Feldnamen das Schlüsselwort `DESC` angegeben.
+
+## Aggregatfunktionen
+
+## Limit
