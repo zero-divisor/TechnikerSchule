@@ -12,6 +12,7 @@
 * [Daten ändern](#daten-ändern)
 * [Rechnen mit Feldern](#rechnen-mit-feldern)
 * [Aliasnamen](#aliasnamen)
+* [Datenimport über CSV-Datei](#datenimport-über-csv-datei)
 
 
 ## Datenbank
@@ -261,3 +262,25 @@ z.B.
 select gehalt - steuern as netto 
     from arbeiter as a;
 ```
+
+## Datenimport über CSV-Datei
+
+Laden von Daten aus einer strukturierten Datei (z.B. CSV) in eine existierende Tabelle.
+
+```sql
+load data local infile 'PFAD/DATEINAME'
+    into table TABELLENNAME
+    fields terminated by ';'
+    enclosed by '"'
+    lines terminated by '\n'
+    ignore 1 rows;
+```
+
+| Syntax | Funktion |
+|-|-|
+|load data local infile 'PFAD/DATEINAME'|local: Datei befindet sich auf dem Client|
+|into table TABELLENNAME|Die Tabelle muss exisitieren|
+|fields terminated by ';'|Trennzeichen zwischen den Feldinhalten|
+|enclosed by '"'|Daten eingeschlossen in ein Zeichen|
+|lines terminated by '\n'|Datensätze sind getrennt durch Zeilenumbruch|
+|ignore 1 rows;|1. Zeile überspringen (z.B. bei Titel)|
