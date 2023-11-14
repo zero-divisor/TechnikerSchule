@@ -1,5 +1,6 @@
 package schuljahr1;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class StringsAufgaben {
@@ -17,14 +18,14 @@ public class StringsAufgaben {
 		Hostname: elektronikschule.de
 		*/
 		
-		System.out.println("\n1: Email Adressen");
-		System.out.println("----------------------------------------");
-		
-		System.out.println("Bitte gib deine Email Adresse ein:");
-		String email = keyboardInput.next();
-		
-		String[] split = email.split("@");
-		System.out.println("Benutzername: " + split[0] + "\nHostname: " + split[1]);
+//		System.out.println("\n1: Email Adressen");
+//		System.out.println("----------------------------------------");
+//		
+//		System.out.println("Bitte gib deine Email Adresse ein:");
+//		String email = keyboardInput.nextLine();
+//		
+//		String[] split = email.split("@");
+//		System.out.println("Benutzername: " + split[0] + "\nHostname: " + split[1]);
 		
 		/*
 		Aufgabe 2:
@@ -35,15 +36,43 @@ public class StringsAufgaben {
 		Schweinelatein ausgibt.
 		*/
 		
+//		System.out.println("\n2: Schweinelatein");
+//		System.out.println("----------------------------------------");
+//		
+//		System.out.println("Bitte gib deinen Vor- und Nachnamen ein:");
+//		String inputStr = keyboardInput.nextLine();
+//		
+//		String[] words = inputStr.split("\\s");
+//		String outputStr = "";
+//		
+//		for(int i=0; i<words.length; i++) {
+//			// Ersten Buchstaben nach hinten
+//			String newWord = words[i].substring(1, words[i].length()) + words[i].substring(0, 1).toLowerCase();
+//			
+//			// Ersten Buschstaben groß falls er bei words[i] Groß war
+//			if(Character.isUpperCase(words[i].charAt(0))) {
+//				newWord = newWord.substring(0, 1).toUpperCase() + newWord.substring(1, newWord.length());
+//			}
+//			
+//			// oink anhängen
+//			newWord += "oink";
+//			
+//			outputStr += newWord + (i == words.length-1 ? "" : " ");
+//		}
+//		
+//		System.out.println(outputStr);
+		
 		/*
 		Aufgabe 3:
 		Schreiben Sie ein Programm mit dem Namen „AddressReader“ das Daten von der Tastatur in folgendem
 		Format einliest:
 		Vorname Nachname Alter
 		Adresse
+		
 		Beispieleingabe:
 		Thomas Schmidt 21
 		Hauptstr. 4, 88069 Tettnang
+		
 		Die Ausgabe soll so aussehen:
 		Vorname: Thomas
 		Nachname: Schmidt
@@ -53,6 +82,25 @@ public class StringsAufgaben {
 		PLZ: 88069
 		Wohnort: Tettnang
 		*/
+		
+//		System.out.println("\n3: AddressReader");
+//		System.out.println("----------------------------------------");
+//		
+//		System.out.println("Bitte gib deinen Vornamen Nachnamen und Alter ein:");
+//		String nameAndAge = keyboardInput.nextLine();
+//		System.out.println("Bitte gib deine Adresse ein: (Straße Hausnummer, PLZ Wohnort)");
+//		String fullAdress = keyboardInput.nextLine();
+//		
+//		String[] nameSplit = nameAndAge.split("\\s");
+//		String[] adressSplit = fullAdress.split(",?\\s");
+//		
+//		System.out.println("Vorname: " + nameSplit[0] + "\n"
+//				+ "Nachname: " + nameSplit[1] + "\n"
+//				+ "Alter: " + nameSplit[2] + "\n"
+//				+ "Strasse: " + adressSplit[0] + "\n"
+//				+ "Hausnummer: " + adressSplit[1] + "\n"
+//				+ "PLZ: " + adressSplit[2] + "\n"
+//				+ "Wohnort: " + adressSplit[3]);
 		
 		/*
 		Aufgabe 4:
@@ -64,6 +112,32 @@ public class StringsAufgaben {
 		a) Geben Sie das Alter der Person in Jahren aus.
 		b) Geben Sie das Alter der Person in Jahren und Monaten aus.
 		 */
+		
+//		System.out.println("\n3: Alter");
+//		System.out.println("----------------------------------------");
+//		
+//		System.out.println("Bitte gib dein Geburtsdatum ein: (dd.mm.yyyy)");
+//		String birthdayStr = keyboardInput.nextLine();
+//		
+//		System.out.println("Bitte gib das heutige Datum ein: (dd.mm.yyyy)");
+//		String todayStr = keyboardInput.nextLine();
+//		
+//		String[] birthdaySplit = birthdayStr.split("\\.");
+//		String[] todaySplit = todayStr.split("\\.");
+//		
+//		int birthdayYear = Integer.valueOf(birthdaySplit[2]);
+//		int birthdayMonth = Integer.valueOf(birthdaySplit[1]);
+//		
+//		int todayYear = Integer.valueOf(todaySplit[2]);
+//		int todayMonth = Integer.valueOf(todaySplit[1]);
+//		
+//		int ageInYears = todayYear - birthdayYear;
+//		if(birthdayMonth > todayMonth) ageInYears--;
+//		
+//		int monthsDif = birthdayMonth > todayMonth ? todayMonth + 12 - birthdayMonth : todayMonth - birthdayMonth;
+//		
+//		System.out.println("a) Alter in Jahre: " + ageInYears);
+//		System.out.println("b) Alter in Jahre, Monate: " + ageInYears + " J, " + monthsDif + " M");
 		
 		/*
 		Schreiben Sie ein Programm, das vom Benutzer Kontonummer und Bankleitzahl einliest und die
@@ -93,6 +167,18 @@ public class StringsAufgaben {
 		LLPPBBBBBBBBKKKKKKKKKK
 		*/
 		
+		System.out.println("\n4: IBAN Rechner");
+		System.out.println("----------------------------------------");
+		
+		System.out.println("Bitte gib deine Kontonummer ein:");
+		String kontoNrStr = keyboardInput.nextLine();
+		
+		System.out.println("Bitte gib deine Bankleitzahl ein:");
+		String blzStr = keyboardInput.nextLine();
+		
+		String countryCode = "DE";
+		String pruefZiffer = "00";
+		
 		/*
 		Berechnung der Prüfziffer
 		Schritt 1
@@ -114,6 +200,40 @@ public class StringsAufgaben {
 		BBBBBBBBKKKKKKKKKK131400
 		*/
 		
+		HashMap<Character, Integer> countryCodeMap = new HashMap<Character, Integer>() {
+			private static final long serialVersionUID = 1L;
+		{
+			put('A', 10);
+			put('B', 11);
+			put('C', 12);
+			put('D', 13);
+			put('E', 14);
+			put('F', 15);
+			put('G', 16);
+			put('H', 17);
+			put('I', 18);
+			put('J', 19);
+			put('K', 20);
+			put('L', 21);
+			put('M', 22);
+			put('N', 23);
+			put('O', 24);
+			put('P', 25);
+			put('Q', 26);
+			put('R', 27);
+			put('S', 28);
+			put('T', 29);
+			put('U', 30);
+			put('V', 31);
+			put('W', 32);
+			put('X', 33);
+			put('Y', 34);
+			put('Z', 35);
+		}};
+		
+		String countryCodeAsNumber = countryCodeMap.get(countryCode.charAt(0)) + "" + countryCodeMap.get(countryCode.charAt(1));
+		String ibanStrWithNumericCountryCode = blzStr + kontoNrStr + countryCodeAsNumber + pruefZiffer; 
+		
 		/*
 		Schritt 3
 		Es muss der Wert PZ1 über Modulo 97 der umgestellte IBAN berechnet werden.
@@ -124,11 +244,15 @@ public class StringsAufgaben {
 		2: wenn z =a*b+c , dann z mod n=(( a mod n)*(b mod n)+(c mod n))mod n
 		*/
 		
+		int pz1 = (int)(Long.valueOf(ibanStrWithNumericCountryCode) % 97);
+		
 		/*
 		Schritt 4
 		Das Ergebnis PZ1 aus Schritt 3 wird von dem Wert 98 abgezogen.
 		PZ2 = 98 – PZ1
 		*/
+		
+		int pz2 = 98 - pz1;
 		
 		/*
 		Schritt 5
@@ -138,6 +262,8 @@ public class StringsAufgaben {
 		dann PZ = “0” + PZ2
 		sonst PZ = PZ2
 		*/
+		
+		String pzStr = (pz2 < 10 ? "0" : "") + pz2;
 		
 		/*
 		Beispiel Rechnung
@@ -150,8 +276,11 @@ public class StringsAufgaben {
 		Schritt 4 PZ1 = 98 – 51
 		PZ1 = 47
 		Schritt 5 PZ1 nicht keiner 10, daher ist die Prüfziffer 47.
-		Die korrekte IBAN wäre somit DE47500105170532013018.
+		Die korrekte IBAN wäre somit DE47500105170532013018. LLPPBBBBBBBBKKKKKKKKKK
 		 */
+		
+		String iban = countryCode + pzStr + blzStr + kontoNrStr;
+		System.out.println("Ihre IBAN ist: " + iban);
 		
 		// zum Abschluss noch Scanner schließen
 		keyboardInput.close();
