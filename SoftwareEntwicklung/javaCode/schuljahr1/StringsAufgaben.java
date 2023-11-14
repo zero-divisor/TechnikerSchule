@@ -276,7 +276,7 @@ public class StringsAufgaben {
 		Schritt 4 PZ1 = 98 – 51
 		PZ1 = 47
 		Schritt 5 PZ1 nicht keiner 10, daher ist die Prüfziffer 47.
-		Die korrekte IBAN wäre somit DE47500105170532013018. LLPPBBBBBBBBKKKKKKKKKK
+		Die korrekte IBAN wäre somit DE47500105170532013018.
 		 */
 		
 		String iban = countryCode + pzStr + blzStr + kontoNrStr;

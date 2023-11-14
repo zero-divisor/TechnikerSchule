@@ -9,6 +9,9 @@
 * [Datenbank und Benutzer anlegen, Rechte zuweisen](#datenbank-und-benutzer-anlegen-rechte-zuweisen)
 * [Structured Querry Language SQL](#structured-querry-language-sql)
 * [Erste SQL Kommandos](#erste-sql-kommandos)
+* [Daten ändern](#daten-ändern)
+* [Rechnen mit Feldern](#rechnen-mit-feldern)
+* [Aliasnamen](#aliasnamen)
 
 
 ## Datenbank
@@ -226,4 +229,35 @@ __Eine Tabelle löschen:__
 
 ```sql
 drop table artikel;
+```
+
+## Daten ändern
+
+```sql
+update TABELLENNAME set FELDNAME = wert;
+```
+
+Es können auch mehrere Felder mit Komma getrennt angegeben werden.
+
+ 
+## Rechnen mit Feldern
+
+Mit Felder kann direkt gerechnet werden.
+
+z.B.
+
+```sql
+select nr * 2 from nummern;
+update arbeiter set gehalt = gehalt + 1000;
+```
+
+## Aliasnamen
+
+Tabellen und Feldern können alternative Namen vergeben werden.
+
+z.B. 
+
+```sql
+select gehalt - steuern as netto 
+    from arbeiter as a;
 ```
