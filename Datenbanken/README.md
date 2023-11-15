@@ -308,9 +308,9 @@ Filtert die betroffenen Daten (select, update, delete). Hinter where steht ein l
 | LIKE | Suchmuster (mit Platzhalter % für 0-n Zeichen und _ für 1 exakt Zeichen) |
 | IN | Werte in einer Liste (z.B. Ort IN ('New York', 'Rio', 'Tokio')) |
 
-Mit AND, OR können mehrere logische Ausdrücke verbunden werden.
+Mit `AND`, `OR` können mehrere logische Ausdrücke verbunden werden.
 
-NOT negiert die Logik.
+`NOT` negiert die Logik.
 
 --> siehe Digitaltechnik oder Programmiersprachen
 
@@ -330,4 +330,47 @@ Per Default wir aufsteigend sortiert (Schlüsselwort `ASC`). Soll absteigend sor
 
 ## Aggregatfunktionen
 
+| Funktion | Bedeutung |
+| -------- | --------- |
+| count()  | Anzahl    |
+| sum()    | Summe     |
+| min()    | minimaler Wert |
+| max()    | maximaler Wert |
+| avg()    | durchschnittlicher Wert |
+
+
+__Beispiel__
+
+```sql
+select count(*)
+    from TABELLENNAME
+```
+
+um die Anzahl der Datensätze einer Tabelle auszugeben.
+
 ## Limit
+
+### SQL Server / MS Access Syntax:
+
+```sql
+SELECT TOP number column_name(s)
+    FROM table_name
+    WHERE condition;
+```
+ 
+### MySQL Syntax:
+
+```sql
+SELECT column_name(s)
+    FROM table_name
+    WHERE condition
+    LIMIT number;
+```
+
+### Oracle Syntax:
+
+```sql
+SELECT column_name(s)
+    FROM table_name
+    WHERE ROWNUM <= number;
+```
