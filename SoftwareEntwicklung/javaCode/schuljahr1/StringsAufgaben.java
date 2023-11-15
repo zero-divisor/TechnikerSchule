@@ -18,14 +18,14 @@ public class StringsAufgaben {
 		Hostname: elektronikschule.de
 		*/
 		
-//		System.out.println("\n1: Email Adressen");
-//		System.out.println("----------------------------------------");
-//		
-//		System.out.println("Bitte gib deine Email Adresse ein:");
-//		String email = keyboardInput.nextLine();
-//		
-//		String[] split = email.split("@");
-//		System.out.println("Benutzername: " + split[0] + "\nHostname: " + split[1]);
+		System.out.println("\n1: Email Adressen");
+		System.out.println("----------------------------------------");
+		
+		System.out.println("Bitte gib deine Email Adresse ein:");
+		String email = keyboardInput.nextLine();
+		
+		String[] split = email.split("@");
+		System.out.println("Benutzername: " + split[0] + "\nHostname: " + split[1]);
 		
 		/*
 		Aufgabe 2:
@@ -36,31 +36,31 @@ public class StringsAufgaben {
 		Schweinelatein ausgibt.
 		*/
 		
-//		System.out.println("\n2: Schweinelatein");
-//		System.out.println("----------------------------------------");
-//		
-//		System.out.println("Bitte gib deinen Vor- und Nachnamen ein:");
-//		String inputStr = keyboardInput.nextLine();
-//		
-//		String[] words = inputStr.split("\\s");
-//		String outputStr = "";
-//		
-//		for(int i=0; i<words.length; i++) {
-//			// Ersten Buchstaben nach hinten
-//			String newWord = words[i].substring(1, words[i].length()) + words[i].substring(0, 1).toLowerCase();
-//			
-//			// Ersten Buschstaben groß falls er bei words[i] Groß war
-//			if(Character.isUpperCase(words[i].charAt(0))) {
-//				newWord = newWord.substring(0, 1).toUpperCase() + newWord.substring(1, newWord.length());
-//			}
-//			
-//			// oink anhängen
-//			newWord += "oink";
-//			
-//			outputStr += newWord + (i == words.length-1 ? "" : " ");
-//		}
-//		
-//		System.out.println(outputStr);
+		System.out.println("\n2: Schweinelatein");
+		System.out.println("----------------------------------------");
+		
+		System.out.println("Bitte gib deinen Vor- und Nachnamen ein:");
+		String inputStr = keyboardInput.nextLine();
+		
+		String[] words = inputStr.split("\\s");
+		String outputStr = "";
+		
+		for(int i=0; i<words.length; i++) {
+			// Ersten Buchstaben nach hinten
+			String newWord = words[i].substring(1, words[i].length()) + words[i].substring(0, 1).toLowerCase();
+			
+			// Ersten Buschstaben groß falls er bei words[i] Groß war
+			if(Character.isUpperCase(words[i].charAt(0))) {
+				newWord = newWord.substring(0, 1).toUpperCase() + newWord.substring(1, newWord.length());
+			}
+			
+			// oink anhängen
+			newWord += "oink";
+			
+			outputStr += newWord + (i == words.length-1 ? "" : " ");
+		}
+		
+		System.out.println(outputStr);
 		
 		/*
 		Aufgabe 3:
@@ -83,24 +83,24 @@ public class StringsAufgaben {
 		Wohnort: Tettnang
 		*/
 		
-//		System.out.println("\n3: AddressReader");
-//		System.out.println("----------------------------------------");
-//		
-//		System.out.println("Bitte gib deinen Vornamen Nachnamen und Alter ein:");
-//		String nameAndAge = keyboardInput.nextLine();
-//		System.out.println("Bitte gib deine Adresse ein: (Straße Hausnummer, PLZ Wohnort)");
-//		String fullAdress = keyboardInput.nextLine();
-//		
-//		String[] nameSplit = nameAndAge.split("\\s");
-//		String[] adressSplit = fullAdress.split(",?\\s");
-//		
-//		System.out.println("Vorname: " + nameSplit[0] + "\n"
-//				+ "Nachname: " + nameSplit[1] + "\n"
-//				+ "Alter: " + nameSplit[2] + "\n"
-//				+ "Strasse: " + adressSplit[0] + "\n"
-//				+ "Hausnummer: " + adressSplit[1] + "\n"
-//				+ "PLZ: " + adressSplit[2] + "\n"
-//				+ "Wohnort: " + adressSplit[3]);
+		System.out.println("\n3: AddressReader");
+		System.out.println("----------------------------------------");
+		
+		System.out.println("Bitte gib deinen Vornamen Nachnamen und Alter ein:");
+		String nameAndAge = keyboardInput.nextLine();
+		System.out.println("Bitte gib deine Adresse ein: (Straße Hausnummer, PLZ Wohnort)");
+		String fullAdress = keyboardInput.nextLine();
+		
+		String[] nameSplit = nameAndAge.split("\\s");
+		String[] adressSplit = fullAdress.split(",?\\s");
+		
+		System.out.println("Vorname: " + nameSplit[0] + "\n"
+				+ "Nachname: " + nameSplit[1] + "\n"
+				+ "Alter: " + nameSplit[2] + "\n"
+				+ "Strasse: " + adressSplit[0] + "\n"
+				+ "Hausnummer: " + adressSplit[1] + "\n"
+				+ "PLZ: " + adressSplit[2] + "\n"
+				+ "Wohnort: " + adressSplit[3]);
 		
 		/*
 		Aufgabe 4:
@@ -113,31 +113,31 @@ public class StringsAufgaben {
 		b) Geben Sie das Alter der Person in Jahren und Monaten aus.
 		 */
 		
-//		System.out.println("\n3: Alter");
-//		System.out.println("----------------------------------------");
-//		
-//		System.out.println("Bitte gib dein Geburtsdatum ein: (dd.mm.yyyy)");
-//		String birthdayStr = keyboardInput.nextLine();
-//		
-//		System.out.println("Bitte gib das heutige Datum ein: (dd.mm.yyyy)");
-//		String todayStr = keyboardInput.nextLine();
-//		
-//		String[] birthdaySplit = birthdayStr.split("\\.");
-//		String[] todaySplit = todayStr.split("\\.");
-//		
-//		int birthdayYear = Integer.valueOf(birthdaySplit[2]);
-//		int birthdayMonth = Integer.valueOf(birthdaySplit[1]);
-//		
-//		int todayYear = Integer.valueOf(todaySplit[2]);
-//		int todayMonth = Integer.valueOf(todaySplit[1]);
-//		
-//		int ageInYears = todayYear - birthdayYear;
-//		if(birthdayMonth > todayMonth) ageInYears--;
-//		
-//		int monthsDif = birthdayMonth > todayMonth ? todayMonth + 12 - birthdayMonth : todayMonth - birthdayMonth;
-//		
-//		System.out.println("a) Alter in Jahre: " + ageInYears);
-//		System.out.println("b) Alter in Jahre, Monate: " + ageInYears + " J, " + monthsDif + " M");
+		System.out.println("\n3: Alter");
+		System.out.println("----------------------------------------");
+		
+		System.out.println("Bitte gib dein Geburtsdatum ein: (dd.mm.yyyy)");
+		String birthdayStr = keyboardInput.nextLine();
+		
+		System.out.println("Bitte gib das heutige Datum ein: (dd.mm.yyyy)");
+		String todayStr = keyboardInput.nextLine();
+		
+		String[] birthdaySplit = birthdayStr.split("\\.");
+		String[] todaySplit = todayStr.split("\\.");
+		
+		int birthdayYear = Integer.valueOf(birthdaySplit[2]);
+		int birthdayMonth = Integer.valueOf(birthdaySplit[1]);
+		
+		int todayYear = Integer.valueOf(todaySplit[2]);
+		int todayMonth = Integer.valueOf(todaySplit[1]);
+		
+		int ageInYears = todayYear - birthdayYear;
+		if(birthdayMonth > todayMonth) ageInYears--;
+		
+		int monthsDif = birthdayMonth > todayMonth ? todayMonth + 12 - birthdayMonth : todayMonth - birthdayMonth;
+		
+		System.out.println("a) Alter in Jahre: " + ageInYears);
+		System.out.println("b) Alter in Jahre, Monate: " + ageInYears + " J, " + monthsDif + " M");
 		
 		/*
 		Schreiben Sie ein Programm, das vom Benutzer Kontonummer und Bankleitzahl einliest und die
@@ -177,7 +177,6 @@ public class StringsAufgaben {
 		String blzStr = keyboardInput.nextLine();
 		
 		String countryCode = "DE";
-		String pruefZiffer = "00";
 		
 		/*
 		Berechnung der Prüfziffer
@@ -232,7 +231,6 @@ public class StringsAufgaben {
 		}};
 		
 		String countryCodeAsNumber = countryCodeMap.get(countryCode.charAt(0)) + "" + countryCodeMap.get(countryCode.charAt(1));
-		String ibanStrWithNumericCountryCode = blzStr + kontoNrStr + countryCodeAsNumber + pruefZiffer; 
 		
 		/*
 		Schritt 3
@@ -244,7 +242,13 @@ public class StringsAufgaben {
 		2: wenn z =a*b+c , dann z mod n=(( a mod n)*(b mod n)+(c mod n))mod n
 		*/
 		
-		int pz1 = (int)(Long.valueOf(ibanStrWithNumericCountryCode) % 97);
+		
+		// ibanStrWithNumericCountryCode = blz*10^16 + kontonr*10^6 + countrycode*10^2
+		//                               = blz*10^8*10^8 + kontonr*10^6 + countrycode*10^2
+		// nötig, da sonst wertebereich von long überschritten wird
+		int pz1 = (int)(
+				(Long.valueOf(blzStr) % 97 * 100000000L % 97 * 100000000L % 97 + Long.valueOf(kontoNrStr) % 97 * 1000000L % 97 + Long.valueOf(countryCodeAsNumber) % 97 * 100L % 97)
+				% 97);
 		
 		/*
 		Schritt 4
