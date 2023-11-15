@@ -4,7 +4,7 @@
 create database EST;
 ```
 
-### 2.Legen Sie den Benutzer „master“ mit einem Passwort Ihrer Wahl an. Beschränken Sie den Benutzer auf einen Login am Datenbankserver.
+### 2. Legen Sie den Benutzer „master“ mit einem Passwort Ihrer Wahl an. Beschränken Sie den Benutzer auf einen Login am Datenbankserver.
 
 ```sql
 create user 'master'@'localhost' identified by 'masterpw';
