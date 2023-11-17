@@ -94,6 +94,30 @@ public class ErsteEingabe {
 }
 ```
 
+### Varianten für verschiedene Datentypen:
+
+```java
+int ganzezahl = keyboardInput.nextInt();     // Liest eine ganze Zahl 
+                                             // von der Tastatur ein.
+                                             
+double komma  = keyboardInput.nextDouble();  // Liest eine Dezimalzahl
+                                             // von der Tastatur ein.
+                                             // Das Komma muss bei einem
+                                             // auf deutsch eingestelltem
+                                             // Betriebssystem mit Komma
+                                             // anstatt Punkt eingegeben
+                                             // werden.
+                                             
+String zeile  = keyboardInput.nextLine();    // Liest eine Zeile Text 
+                                             // von der Tastatur ein.
+                                             
+String wort   = keyboardInput.next();        // Liest ein Wort 
+                                             // von der Tastatur ein.
+                                             
+boolean wert  = keyboardInput.nextBoolean(); // Liest true oder false 
+                                             // von der Tastatur ein.
+```
+
 ## Variablen
 
 Eine Variable ist ein Container in dem Daten während der Laufzeit des Programms gespeichert werden kann.
