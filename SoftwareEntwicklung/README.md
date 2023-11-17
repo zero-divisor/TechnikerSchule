@@ -118,6 +118,16 @@ boolean wert  = keyboardInput.nextBoolean(); // Liest true oder false
                                              // von der Tastatur ein.
 ```
 
+### Sonderfall:
+
+Wird nach dem Einlesen einer Zahl `nextLine()` aufgerufen, so liest `nextLine()` das nochnichtgelesene Newline-Zeichen der Zahleingabe.
+
+```java
+int zahl = keyboard.nextInt();      // Die Zahl wird ohne Newline gelesen
+keyboard.nextLine();                // Newline der Zahleingabe wird gelesen
+String zeile = keyboard.nextLine(); // Die Zeile Text kann gelesen werden
+```
+
 ## Variablen
 
 Eine Variable ist ein Container in dem Daten während der Laufzeit des Programms gespeichert werden kann.
