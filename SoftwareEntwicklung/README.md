@@ -4,7 +4,7 @@
 ## Index
 
 * [Hello World](#hello-world)
-* [Eingabe von Text über die Tastatur](#eingabe-von-text-über-die-tastatur)
+* [Eingabe über die Tastatur](#eingabe-über-die-tastatur)
 * [Variablen](#variablen)
 * [Operatoren](#operatoren)
 * [Kommentare in Java](#kommentare-in-java)
@@ -53,18 +53,37 @@ Da Ihre "HelloWorld.class" nun durch den Compiler erstellt ist, können Sie Ihr 
 java HelloWorld
 ```
 
-## Eingabe von Text über die Tastatur
+## Eingabe über die Tastatur
 
 ```java
+/*
+Scanner gehört nicht zu den von
+Grund auf verfügbaren Klassen.
+Scanner muss daher importiert
+werden.
+*/
 import java.util.Scanner;
 
 public class ErsteEingabe {
 
     public static void main(String[] args) {
         int zahl;
+        /*
+        Diese Zeile erzeugt eine Variable
+        vom Typ Scanner mit dem Namen
+        keyboard. Diese stellt die
+        Funktionalität zum Einlesen über
+        die Tastatur zur Verfügung.
+        */
         Scanner keyboardInput = new Scanner(System.in);
 
         System.out.println("Bitte gib eine Zahl ein:");
+        /*
+        Hier erfolgt das eigentliche Einlesen
+        der Eingabe über die Tastatur. Das
+        Programm wird angehalten und
+        wartet auf die Benutzereingabe.
+        */
         zahl = keyboardInput.nextInt();
 
         System.out.println("Deine eingegebene Zahl lautet: " + zahl);
