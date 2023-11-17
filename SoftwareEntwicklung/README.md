@@ -9,6 +9,7 @@
 * [Operatoren](#operatoren)
 * [Kommentare in Java](#kommentare-in-java)
 * [Strings](#strings)
+* [Ausgabe am Bildschirm](#ausgabe-am-bildschirm)
 
 
 ## Hello World
@@ -347,3 +348,38 @@ String text = "Hello World";
 String neuerText = text.replace('W','w');
 System.out.println(neuerText);
 ```
+
+## Ausgabe am Bildschirm
+
+```java
+System.out.print("Mein Text");         // Erzeugt die Ausgabe "Mein Text"
+                                       // (ohne die Anführungszeichen).
+
+System.out.println("Mein Text");       // Genau wie print, aber fügt am Ende 
+                                       // einen Zeilenumbruch hinzu.
+
+System.out.print("Ergebnis: " + zahl); // Mit einem + Zeichen können zwei Texte
+                                       // zusammengehängt werden.
+                                       // Z.B. der Text „Ergebnis“ und 
+                                       // der Inhalt der Variablen zahl
+```
+
+### Ausgabe von Sonderzeichen – Escape Sequenzen
+
+<s>System.out.print("Der heutige Tag ist "Samstag"");</s>
+
+Die Anführungszeichen um das Wort Samstag herum haben für den Compiler bereits die Bedeutung, dass eine Zeichenkette anfängt bzw. aufhört. Sie können deshalb im Ausgabetext nicht verwendet werden.
+
+Man muss für bestimmte Sonderzeichen daher eine Escapesequenz verwenden. Diese besteht aus einem Backslash und einem zusätzlichen Zeichen:
+
+```java
+System.out.print("Der heutige Tag ist \"Samstag\"");
+```
+
+**Wichtige Escape-Sequenzen für die Ausgabe von Sonderzeichen:**
+
++ \\" Anführungszeichen
++ \\' Hochkomma
++ \\n Zeilenumbruch
++ \\t Tabulator
++ \\\\ Ein einziger Backslash
