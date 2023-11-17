@@ -51,6 +51,11 @@ _Indizes fangen bei 0 an._
 byte firstValue = mcpin[0];
 ```
 
+<img src="images/Arduino_Schleifen_for_array_1.jpeg" width="80%">
+
+### 2-dimensionale Arrays
+
+<img src="images/Array_2dim.jpg" width="80%">
 
 ## Kontrollstrukturen
 
