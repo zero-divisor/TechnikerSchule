@@ -19,7 +19,7 @@
 
 ## Rechtsformen
 
-__Personengesellschaften__
+### Personengesellschaften
 
 | Rechtsform/Merkmale | Gründung | Mindestkapital | Geschäftsführung | Haftung | Gewinn | Verlust |
 |-|-|-|-|-|-|-|
@@ -28,7 +28,7 @@ __Personengesellschaften__
 | OHG (Offene Handelsgesellschaft) | mind. 2 Personen schließen Gesellschaftsvertrag ab | 0€ | jeder Mitinhaber | unbeschränkt | abhängig vom Anteil, Überschuss nach Köpfen verteilt | nach Köpfen verteilt |
 | KG (Kommanditgesellschaft) | mind. 2 Personen | 0€ | vollhaftender Komplementär hate eintscheidungsrecht, teilhaftender Kommandantist hat Widerspruchsrecht bei außergewöhnlichen Geschäften | vollhaftender Komplementär mit privatvermögen, teilhaftender Kommandantist nur mit Kapitaleinlage | nach Anteilen | nach Anteilen |
 
-__Kapitalgesellschaften__
+### Kapitalgesellschaften
 
 | Rechtsform/Merkmale | Gründung | Mindestkapital | Geschäftsführung | Haftung | Gewinn | Verlust |
 |-|-|-|-|-|-|-|
