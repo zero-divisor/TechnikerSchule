@@ -9,6 +9,7 @@
 * [Operatoren](#operatoren)
 * [Kommentare in Java](#kommentare-in-java)
 * [Strings](#strings)
+* [Zahlen](#zahlen)
 * [Ausgabe am Bildschirm](#ausgabe-am-bildschirm)
 
 
@@ -348,6 +349,18 @@ String text = "Hello World";
 String neuerText = text.replace('W','w');
 System.out.println(neuerText);
 ```
+
+## Zahlen
+
+### Datentypen für ganze Zahlen
+
+| Typ          | Größe im Hauptspeicher | Wertebereich | Beispielliteral |
+|--------------|------------------------|--------------|-----------------|
+| `byte`       | 1 Byte         | -128 bis +127 | `34` |
+| `short`      | 2 Bytes        | -32768 bis +32767 |`34` |
+| `int`        | 4 Bytes        | -2.147.483.648 bis +2.147.483.647 | `34` |
+| `long`       | 8 Bytes        | -9.223.372.036.854.775.808 bis +9.223.372.036.854.775.807 | `34l` oder `34L`
+| `BigInteger` | mind. 24 Bytes | -2<sup>2.147.483.647</sup> bis +2<sup>2.147.483.647</sup> | - |
 
 ## Ausgabe am Bildschirm
 
