@@ -417,6 +417,10 @@ __Testen Sie folgenden Code:__
 System.out.println(0.1 + 0.2);
 ```
 
+### Festkommazahlen
+
+Das Komma ist hier immer an der gleichen Stelle. Java bietet dafür den Datentyp BigDecimal. Es können beliebig große Zahlen, mit beliebiger Genauigkeit dargestellt werden, bis der Hauptspeicher voll ist. Die zwingend notwendige Genauigkeit bei Berechnungen, z.B. zwei Nachkommastellen für Geldbeträge, kann angegeben werden.
+
 ## Ausgabe am Bildschirm
 
 ```java
