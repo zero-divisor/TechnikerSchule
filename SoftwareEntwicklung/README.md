@@ -362,6 +362,61 @@ System.out.println(neuerText);
 | `long`       | 8 Bytes        | -9.223.372.036.854.775.808 bis +9.223.372.036.854.775.807 | `34l` oder `34L`
 | `BigInteger` | mind. 24 Bytes | -2<sup>2.147.483.647</sup> bis +2<sup>2.147.483.647</sup> | - |
 
+### Kodierung negativer Zahlen - Zweierkomplement
+
+Negative Zahlen werden in Zweierkomplementdarstellung gespeichert.
+
+__Ein Beispiel: Die Zahl -23 kann mit einem Byte gespeichert werden:__
+
+1. Positive Zahl bitweise aufschreiben: +23 entspricht binär 0001 0111.
+2. Binäre Zahl invertieren (jedes Bit wird umgedreht): 1110 1000.
+3. Eins hinzuaddieren: 1110 1000 + 0000 0001 = 1110 1001
+
+__Merke:__
+
++ Führende Nullen einer positiven Zahl ändern deren Wert nicht.
++ Führende Einsen einer negativen Zahl im Zweierkomplement ändern deren Wert nicht.
++ Negative Zahlen können mit der Zweierkomplementbildung wieder in positive Zahlen überführt werden.
+
+__So liegen 4 Bit Zahlen im Zweierkomplement im Speicher:__
+
+<img src="images/zweierkomplement.PNG" width="50%">
+
+### Datentypen für Dezimalzahlen (Kommazahlen)
+
+__Man unterscheidet:__
+
++ Gleitkommazahlen: Die Anzahl der Vorkomma- und Nachkommastellen ist variabel. Das Komma wandert bei höheren Werten von links nach rechts, um mehr Vorkommastellen zur Verfügung zu haben. Dadurch verliert man Nachkommastellen für die Genauigkeit.
++ Festkommazahlen: Die Anzahl der Vorkomma- und Nachkommastellen ist fest. Der Speicherplatzbedarf ist größer.
+
+### Gleitkommazahlen
+
+__Datentypen in Java:__
+
+| Typ          | Größe im Hauptspeicher | Wertebereich | Beispielliteral |
+|--------------|------------------------|--------------|-----------------|
+| `float`      | 4 Bytes | -3,4\*10<sup>38</sup> bis +3,4\*10<sup>38</sup> | `5.2f` oder `5.2F` |
+| `double`     | 8 Bytes | -1,7\*10<sup>308</sup> bis +1,7\*10<sup>308</sup> | `5.2` |
+
+__Gleitkommazahlen im Speicher sind folgendermaßen aufgebaut:__
+
++ Vorzeichenbit: 0 = positiv, 1 = negativ
++ Mantisse: geltende Ziffern
++ Exponent: Verschiebung des Kommas
+
+_Geltende Ziffern_ sind alle von `Null` verschiedenen Ziffern sowie Zwischen- und Endnullen. Dabei wird dasKomma nicht beachtet.
+
++ __float:__ Vorzeichenbit + 8 Bits Exponent + 23 Bit Mantisse
++ __double:__ Vorzeichenbit + 11 Bits Exponent + 52 Bit Mantisse
+
+Gleitkommazahlen sollten wegen ihren Ungenauigkeiten nicht für Geldbeträge verwendet werden.
+
+__Testen Sie folgenden Code:__ 
+
+```java
+System.out.println(0.1 + 0.2);
+```
+
 ## Ausgabe am Bildschirm
 
 ```java
