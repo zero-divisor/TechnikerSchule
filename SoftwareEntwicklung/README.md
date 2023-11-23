@@ -11,6 +11,7 @@
 * [Strings](#strings)
 * [Zahlen](#zahlen)
 * [Ausgabe am Bildschirm](#ausgabe-am-bildschirm)
+* [Verzweigungen](#verzweigungen)
 
 
 ## Hello World
@@ -455,3 +456,54 @@ System.out.print("Der heutige Tag ist \"Samstag\"");
 + \\n Zeilenumbruch
 + \\t Tabulator
 + \\\\ Ein einziger Backslash
+
+## Verzweigungen
+
+__Drei verschiedene Möglichkeiten zur Verwendung einer Verzweigung in Java__
+
+<img src="images/if_else.PNG" width="100%">
+
+```java
+if (zahl < 0) {
+    System.out.println("negativ");
+}
+```
+
+```java
+if (zahl < 0) {
+    System.out.println("negativ");
+} else {
+    System.out.println("nicht negativ");
+}
+```
+
+```java
+if (zahl < 0) {
+    System.out.println("negativ");
+} else if (zahl > 0) {
+    System.out.println("positiv");
+} else {
+    System.out.println("muss also 0 sein");
+}
+```
+
+### Vergleichsoperatoren:
+
+```
+== Gleichheit               Beispiel: if (zahl == 5)
+!= Ungleichheit             Beispiel: if (zahl != 5)
+< kleiner als               Beispiel: if (zahl < 5)
+<= kleiner als oder gleich  Beispiel: if (zahl <= 5)
+> größer als                Beispiel: if (zahl > 5)
+>= größer als oder gleich   Beispiel: if (zahl >= 5)
+```
+
+__Sonderfall Strings vergleichen:__
+
+```java
+if (text1.equals(text2))
+```
+
+__Merke:__
++ Hinter jedem `if/else` kommt ein Anweisungsblock der zwischen geschweiften Klammern steht.
++ Hinter einem `if/else` kommt kein Semikolon.
