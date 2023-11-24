@@ -3,7 +3,7 @@ package schuljahr1;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class ArbeitsblattVariablen {
+public class VariablenAufgaben {
 	
 	public static void main(String[] args) {
 		/*

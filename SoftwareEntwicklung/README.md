@@ -492,9 +492,9 @@ if (zahl < 0) {
 ```
 == Gleichheit               Beispiel: if (zahl == 5)
 != Ungleichheit             Beispiel: if (zahl != 5)
-< kleiner als               Beispiel: if (zahl < 5)
+<  kleiner als              Beispiel: if (zahl < 5)
 <= kleiner als oder gleich  Beispiel: if (zahl <= 5)
-> größer als                Beispiel: if (zahl > 5)
+>  größer als               Beispiel: if (zahl > 5)
 >= größer als oder gleich   Beispiel: if (zahl >= 5)
 ```
 
