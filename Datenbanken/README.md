@@ -18,6 +18,7 @@
 * [Daten sortieren](#daten-sortieren)
 * [Aggregatfunktionen](#aggregatfunktionen)
 * [Limit](#limit)
+* [SQL-Skript im MySQL-Client ausführen](#sql-skript-im-mysql-client-ausführen)
 
 
 ## Datenbank
@@ -348,6 +349,18 @@ select count(*)
 
 um die Anzahl der Datensätze einer Tabelle auszugeben.
 
+### Aggregatfunktionen gruppieren
+
+Mit group by können die Aggregatfunktionen auf Untermengen angewandt werden. Hier werden alle Werte zusammengefasst, deren Gruppenfeld(er) den gleichen Wert haben.
+
+__Beispiel__
+
+```sql
+select position, avg(gehalt)
+    from mitarbeiter
+    group by position;
+```
+
 ## Limit
 
 ### SQL Server / MS Access Syntax:
@@ -373,4 +386,22 @@ SELECT column_name(s)
 SELECT column_name(s)
     FROM table_name
     WHERE ROWNUM <= number;
+```
+
+## SQL-Skript im MySQL-Client ausführen
+
+```
+source <PFAD>/<DATEINAME>;
+```
+
+### Direkt beim Aufruf von mysql
+
+```
+mysql --user=BENUTZER --password=PASSWORT DATENBANK < PFAD/DATEINAME
+```
+
+### Per Kommandozeile SQL-Befehl ausführen
+
+```
+echo "select * from tabelle;" | mysql --user=BENUTZER --password=PASSWORT DATENBANK
 ```
