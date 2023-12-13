@@ -19,7 +19,12 @@
 * [Aggregatfunktionen](#aggregatfunktionen)
 * [Limit](#limit)
 * [SQL-Skript im MySQL-Client ausführen](#sql-skript-im-mysql-client-ausführen)
-
+* [Die Tabelle dual](#die-tabelle-dual)
+* [Zufallszahlen](#zufallszahlen)
+* [NULL-Wert](#null-wert)
+* [Daten mit select in Tabelle einfügen](#daten-mit-select-in-tabelle-einfügen)
+* [Klonen einer Tabelle](#klonen-einer-tabelle)
+* [Primärschlüssel und Auto-Inkrement](#primärschlüssel-und-auto-inkrement)
 
 ## Datenbank
 
@@ -404,4 +409,114 @@ mysql --user=BENUTZER --password=PASSWORT DATENBANK < PFAD/DATEINAME
 
 ```
 echo "select * from tabelle;" | mysql --user=BENUTZER --password=PASSWORT DATENBANK
+```
+
+## Die Tabelle dual
+
+Die Tabelle "dual" ist eine virtuelle Tabelle mit einem Datensatz ohne Wert.\ Sie wird verwendet, um Abfragen ohne Tabellenbezug auszuführen, z.B. mathematische Berechnungen.
+
+Beispiele
+```sql
+select version()
+  from dual;
+
+select sin(pi()/2)
+  from dual;
+
+select 4 * atan(1)
+  from dual;
+```
+
+-> bei MySQL: "from dual" nicht nötig!
+
+## Zufallszahlen
+
+Zufall ist für einen Computer sehr schwierig. Letztendlich wird eine "zufällige" Zahl aus einer verfügbaren Tabelle mit "Zufallszahlen" entnommen. Arbeitet man diese "Zufallstabelle" der Reihe nach durch, so würde man bei jedem Durchlauf identische Zufallszahlen bekommen. Die einzige Einflussnahme ist der Offset, also die Stelle, an der man sich in der Zufallstabelle befindet. Sehr gebräuchlich ist hier die aktuelle Uhrzeit (oder Zeit seit Rechnerstart). Da es nahezu unmöglich ist, ein Programm zur exakt gleichen Zeit (bzw. Zeit nach Rechnerstart) aufzurufen, erricht man über einen zeitlich gewählten Offset in der Zufallstabelle eine relative gute "Zufälligkeit". Bei Microcontrollern funktioniert diese Methode in der Regel nicht. Zum einen steht keine aktuelle Uhrzeit zur Verfügung, zum anderen muss kein Betriebssystem geladen werden. Somit startet das Programm exakt zur gleichen Zeit nach dem Einschalten. Hier behilft man sich mit einem unbeschalteten Analogeingang. Da hier der Wert, der sich durch die Analog-Digital-Wandung ergibt, etwas schwankt, kann dies zu einem unterschiedlichen Offset in der Zufallstabelle führen. Verbessert wird dies, indem zusätzlich ein Kabel angeschlossen wird. Dies wirkt als Antenne, was zu einem stärker schwankenden Wert am Analog-Eingang führt.
+
+- Funktion `RAND()`: Liefert einen Wert zwischen 0 (inklusiv) und 1 (exklusiv).
+- Als Parameter kann ein Offset in der Wertetabelle angegeben werden.
+- Formel zur Berechnung von Zahlen zwischen 2 Werten: \
+`FLOOR(RAND()*(max - min + 1) + min);`
+- Wird der Parameter angegeben `RAND(SEED)`, dann werden wiederholt die gleichen Zufallszahlen gebildet.
+
+## NULL-Wert
+
+- Ganz wichtiger Wert bei Datenbanken.
+- Das Feld hat keinen Inhalt.
+- 0 bzw. ein leerer Sting '' sind NICHT NULL!
+- Abfrage mit IS NULL bzw. IS NOT NULL.
+- create table: NOT NULL hinter Datentyp bedeutet, dass das Feld zwingend einen Wert enthalten muss (Default: NULL - leere Werte sind zulässig).
+
+__Beispiel__
+
+```sql
+create table nulltest(nr int not null, text varchar(20));
+
+insert into nulltest(text) values ("Blabla");
+-- Führt zu einem Fehler, da das Feld nr nicht leer (NULL) sein darf.
+
+insert into nulltest(nr) values (1);
+-- Funktioniert, da das Text-Feld mit NULL (Default) gefüllt werden darf.
+```
+
+## Daten mit select in Tabelle einfügen
+
+Anstatt mit `VALUES` eine Datenliste anzugeben, die in eine Tabelle eingetragen werden sollen, können mit `SELECT` Daten aus einer Abfrage anstatt auf dem Bildschirm in eine Tabelle eingefügt werden.
+
+```sql
+insert into TABELLE1(FELDNAME1, FELDNAME2)
+    select FELD1, FELD2
+    from TABELLE2;
+```
+
+## Klonen einer Tabelle
+
+In 2 Schritten können Sie eine Tabelle samt Daten kopieren.\
+In Schritt 1 wird eine weitere Tabelle mit identischer Struktur angelegt.\
+In Schritt 2 werden die Daten kopiert.
+
+```sql
+create table TABELLE2 like TABELLE1;
+insert into TABELLE2 select * from TABELLE1;
+```
+
+## Primärschlüssel und Auto-Inkrement
+
+### Primärschlüssel (Primary Key)
+
+- Ein Feld oder mehrere Felder die (zusammen) einen eindeutigen Schlüssel für jeden Datensatz einer Tabelle ergeben.
+- Schlüsselfelder dürfen nicht NULL sein
+- Schlüsselwerte müssen eindeutig (unique) sein.
+
+__Beispiel__
+
+```sql
+create table KUNDEN (KUNDENNUMMER int primary key, FIRMA varchar(30), ORT varchar(30));
+
+-- oder
+
+create table KUNDEN (KUNDENNUMMER int, FIRMA varchar(30), ORT varchar(30), primary key(KUNDENNUMMER));
+
+-- oder nachträglich:
+
+alter table KUNDEN add primary key(KUNDENNUMMER);
+```
+
+### Autoincrement
+
+- Feld dessen Wert sich bei jedem Datensatz erhöht.
+- Nur ein Feld je Tabelle möglich.
+- Nur beim Primärschlüsselfeld möglich.
+
+
+__Beispiel__
+
+```sql
+create table KUNDEN(KUNDENNUMMER int primary key auto_increment, FIRMA varchar(30), ORT varchar(30));
+```
+ 
+Autoincrementwert manuell auf einen Wert setzen
+
+```sql
+alter table KUNDEN auto_increment=100;
 ```
