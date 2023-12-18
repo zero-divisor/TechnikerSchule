@@ -16,7 +16,7 @@ select FLOOR(RAND()*49 + 1) as zahl1,
 
 #### Ohne Duplikate:
 
-Um 6 Zufallszahlen zwischen 0 und 49 ohne Duplikate zu generieren, weisen wir den Zahlen 1 bis 49 eine zufällige zahl zu und wählen die 6 ergebnisse mit den höchsten Zufallszahlen.
+Um 6 Zufallszahlen zwischen 1 und 49 ohne Duplikate zu generieren, weisen wir den Zahlen 1 bis 49 eine zufällige zahl zu und wählen die 6 ergebnisse mit den höchsten Zufallszahlen.
 
 __Tabelle mit 2 Spalten erstellen__
 ```sql
@@ -273,24 +273,35 @@ MariaDB [est]> select * from lottozahlen2;
 ### 9.) Geben Sie die Lottozahlen sortiert nach Zahlen innerhalb der Ziehung aus.
 
 ```sql
-select gezogene_zahl
-    from lottozahlen2 
-    where ziehungs_nr = 1 
-    order by gezogene_zahl asc;
+select ziehungs_nr, gezogene_zahl
+    from lottozahlen2
+    order by ziehungs_nr, gezogene_zahl asc;
 ```
 
 ```
-+---------------+
-| gezogene_zahl |
-+---------------+
-|             1 |
-|             2 |
-|             5 |
-|             9 |
-|            16 |
-|            43 |
-+---------------+
-6 rows in set (0.000 sec)
++-------------+---------------+
+| ziehungs_nr | gezogene_zahl |
++-------------+---------------+
+|           1 |             1 |
+|           1 |             2 |
+|           1 |             5 |
+|           1 |             9 |
+|           1 |            16 |
+|           1 |            43 |
+|           2 |             7 |
+|           2 |            19 |
+|           2 |            25 |
+|           2 |            27 |
+|           2 |            29 |
+|           2 |            49 |
+|           3 |             6 |
+|           3 |             9 |
+|           3 |            14 |
+|           3 |            22 |
+|           3 |            30 |
+|           3 |            31 |
++-------------+---------------+
+18 rows in set (0.000 sec)
 ```
 
 ### 10.) Geben Sie die Häufigkeit der gezogenen Zahlen aus sortiert nach der Zahl.
