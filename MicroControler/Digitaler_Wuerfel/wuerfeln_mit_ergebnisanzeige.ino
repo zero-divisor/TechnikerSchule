@@ -48,7 +48,7 @@ void setup()
   // initialisiert serielle Schnittstelle mit 9600 Baud
   Serial.begin(9600);
   // Schalter-Pin als input deklarieren
-  pinMode(schalter, OUTPUT);
+  pinMode(schalter, INPUT);
   
   // LED-Pins als outputs deklarieren
   for(byte i=0; i<wuerfelLedsSize; i++){

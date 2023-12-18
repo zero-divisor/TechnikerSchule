@@ -221,7 +221,7 @@ create table artikel (artikelnummer integer, benennung varchar(30));
 __Datensatz in eine Tabelle einfügen:__
 
 ```sql
-insert into artikel values (1, "Blauer Gummiball");
+insert into artikel (artikelnummer, benennung) values (1, "Blauer Gummiball");
 ```
  
 __Alle Datensätze einer Tabelle anzeigen:__
