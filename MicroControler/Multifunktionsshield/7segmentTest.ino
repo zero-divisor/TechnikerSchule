@@ -50,7 +50,7 @@ void loop() {
   while(!digitalRead(schalter)){
     // Wert zwischen 0 und 9999 generieren
     wuerfelWert = milis() % 10000;
-	displayNumberOn7SegmentDisplay(wuerfelWert, 50);
+    displayNumberOn7SegmentDisplay(wuerfelWert, 50);
   }
   displayNumberOn7SegmentDisplay(wuerfelWert, 200);
 }
@@ -62,10 +62,10 @@ void displayNumberOn7SegmentDisplay(int number, long duration){
   byte digits[4] = {(number/1000)%10, (number/100)%10, (number/10)%10, number%10};
   
   while(milis() < startMilis + duration){
-	for(int i=0; i<4; i++){
+    for(int i=0; i<4; i++){
       writeDigitToSegment(digits[i], i);
-	  delay(50);
-	}
+      delay(50);
+    }
   }
 }
 
