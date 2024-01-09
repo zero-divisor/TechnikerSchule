@@ -12,3 +12,10 @@ Erstellen Sie ein PDF mit einer Tabelle zur Übersicht der bisher behandelten Li
 | cat      |
 | find     |
 | locate   |
+| head     |
+| tail     |
+| cut      |
+| sort     |
+| uniq     |
+| od       |
+| paste    |
