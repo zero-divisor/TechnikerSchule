@@ -2,13 +2,25 @@
 
 Die fünfte Zeile der Datei /etc/passwd soll in eine Datei namens x kopiert werden.
 
+```
+sed -n 5p /etc/passwd > x
+```
+
 ### Aufgabe 2
 
 Erstellen Sie aus /etc/passwd eine Datei namens accounts.list, in der alle Accounts des Systems alphabetisch sortiert und nummeriert sind.
 
+```
+sort /etc/passwd | awk -F : '{print NR " " $1}' > accounts.list
+```
+
 ### Aufgabe 3
 
 Erstellen Sie eine Liste files.list aller derjenigen Dateien im Schulnetz, die Ihnen gehören. Vor dem Dateinamen und Pfad soll die Dateigröße (in K, M, G, ...) "human readable" angezeigt werden.
+
+```
+sudo find / -user $(whoami) -type f -exec ls -lh {} + | tr -s ' ' | cut -d' ' -f5,9- > files.list
+```
 
 ### Aufgabe 4
 
