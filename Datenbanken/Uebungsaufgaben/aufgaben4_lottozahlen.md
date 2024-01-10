@@ -167,7 +167,7 @@ MariaDB [est]> select * from lottozahlen;
 
 Man könnte die Gezogenen Zahlen schon sortiert in die Tabelle eintragen.
 
-Alternativ falls es nicht möglich ist die Zahlen schon sortirert anzulegen, kann man jede Zahl in eine eigene Zeile schreiben.
+Alternativ falls es nicht möglich ist die Zahlen schon sortiert anzulegen, kann man jede Zahl in eine eigene Zeile schreiben.
 
 ### 7.) Wie könnte eine Tabellenstruktur aussehen, mit der eine sortierte Ausgabe der Lottozahlen möglich ist. Erstellen Sie die Tabelle mit Namen „lottozahlen2“.
 
@@ -386,6 +386,14 @@ group by ziehungs_nr
 order by ziehungs_nr asc;
 ```
 
+Einfachere Lösung:
+
+```sql
+select ziehungs_nr, count(*) as richtige from lottozahlen2 
+    where zahl in (1,2,3,4,5,6) group by ziehungs_nr
+    order by ziehungs_nr;
+```
+
 ```
 +-------------+---------+
 | ziehungs_nr | treffer |
@@ -395,4 +403,13 @@ order by ziehungs_nr asc;
 |           3 |       1 |
 +-------------+---------+
 3 rows in set (0.000 sec)
+```
+
+Nur zehungen mit mind. 3 richtige:
+
+```sql
+select ziehungs_nr, count(*) as richtige from lottozahlen2 
+    where zahl in (1,2,3,4,5,6) group by ziehungs_nr
+    having richtige >= 3 
+    order by ziehungs_nr;
 ```
