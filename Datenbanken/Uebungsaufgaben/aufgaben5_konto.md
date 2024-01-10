@@ -193,17 +193,63 @@ select month(datum) as m, year(datum) as y, sum(-betrag*0.19) as mwst_sum
 
 ```sql
 insert into konto (datum, verwendung, betrag)
-    select datum, verwendung, betrag
+    select date_add(datum, interval 1 year), verwendung, betrag
     from konto;
-    
-    #########################################
-    todo
 ```
 
 ### 10. Erhöhen Sie alle Beträge des Jahres 2021 um 10%.
 
+```sql
+update konto
+    set betrag = betrag*1.1
+    where year(datum) = 2021;
+```
+
 ### 11. Passen Sie die Verwendungstexte in ihrer Jahreszahl an (alle Vorkommen von 2020 in 2021 ändern).
+
+```sql
+update konto
+    set verwendung = replace(verwendung, '2020', '2021')
+    where year(datum) = 2021;
+```
 
 ### 12. Geben Sie die Ersparnisse (Einkünfte – Ausgaben) nach Jahren aus.
 
+```sql
+select year(datum) as jahr, sum(betrag) as ersparnisse 
+    from konto 
+    group by year(datum);
+```
+
+```
++------+-------------+
+| jahr | ersparnisse |
++------+-------------+
+| 2020 |     4884.36 |
+| 2021 |     5372.78 |
++------+-------------+
+```
+
 ### 13. Geben Sie alle Einnahmen und Ausgaben gruppiert nach Verwendung aus (ohne Berücksichtigung des Monats/Jahres durch Beschränkung auf die ersten 6 Zeichen).
+
+```sql
+select left(verwendung, 6), sum(betrag)
+    from konto
+    group by left(verwendung, 6);
+```
+
+```
++---------------------+-------------+
+| left(verwendung, 6) | sum(betrag) |
++---------------------+-------------+
+| Einkau              |    -1792.19 |
+| Essen               |     -332.22 |
+| Gehalt              |    22825.48 |
+| Heizun              |     -252.00 |
+| Miete               |    -7140.00 |
+| Strom               |     -415.80 |
+| Tanken              |    -1155.17 |
+| Versic              |    -1165.96 |
+| Wasser              |     -315.00 |
++---------------------+-------------+
+```
