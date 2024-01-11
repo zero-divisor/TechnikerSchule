@@ -26,13 +26,27 @@ sudo find / -user $(whoami) -type f -exec ls -lh {} + | tr -s ' ' | cut -d' ' -f
 
 Lassen Sie sich eine alphabetisch sortierte Liste aller aktuell eingeloggten User anzeigen. Ein mehrfach eingeloggter User soll nur einmal in der Liste auftreten.
 
+```
+users | sed s/\\s/\\n/g | sort | uniq
+```
+
 ### Aufgabe 5
 
 Erstellen Sie sich eine leicht veränderte Version einer Datei, die Sourcecode enthält. Lassen Sie sich eine Datei changes.txt erzeugen, die nur die geänderten Zeilen enthält.
 
+```
+diff <original_file> <changed_file> | grep -G ^[0-9] > changes.txt
+```
+
+Grep um nur die Zeilennummern zu sehen nich den geänderten Inhalt
+
 ### Aufgabe 6
 
 Es soll gezählt werden, wie oft ein bestimmtes Wort im Zweig des aktuellen Verzeichnisbaums vorkommt. Die Summe soll ausgegeben werden.
+
+```
+pwd | grep -oi <wort> | wc -l
+```
 
 ### Aufgabe 7
 
@@ -41,3 +55,7 @@ Erzeugen Sie mithilfe von /dev/urandom eine unendliche Folge von 16-bit Zufallsz
 Beispiel:
 
 d994;7fa6;a182;9936;83df;bd7e;da9b;77d5;1459;9607;1d2a;...
+
+```
+hexdump -x /dev/urandom | awk '{printf "%s;", $2}'
+```
