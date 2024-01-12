@@ -12,6 +12,7 @@
 * [Zahlen](#zahlen)
 * [Ausgabe am Bildschirm](#ausgabe-am-bildschirm)
 * [Verzweigungen](#verzweigungen)
+* [Schleifen](#schleifen)
 
 
 ## Hello World
@@ -507,3 +508,55 @@ if (text1.equals(text2))
 __Merke:__
 + Hinter jedem `if/else` kommt ein Anweisungsblock der zwischen geschweiften Klammern steht.
 + Hinter einem `if/else` kommt kein Semikolon.
+
+## Schleifen
+
+### while-Schleife
+
+<img src="images/while-loop.PNG" width="70%">
+
+Eine while-Schleife wiederholt den Code innerhalb der geschweiften { } Klammern, bis die Bedingung in den runden Klammern nicht mehr wahr ist.
+
+Um die Schleife zu verlassen, muss der Wert der Bedingung innerhalb der geschweiften { } Klammern geändert werden.
+
+Programmcode:
+
+```java
+while(bedingung) {
+    // Schleifenkörper
+}
+```
+
+### do-while-Schleife
+
+<img src="images/do-while-loop.PNG" width="40%">
+
+Die do-while-Schleife verhält sich wie die while-Schleife, jedoch wird die Bedingung erst am Ende der Schleife überprüft.\
+Die do-while-Schleife wird also immer mindestens 1x durchlaufen.
+
+Programmcode:
+
+```java
+do {
+    // Schleifenkörper
+} while(bedingung)
+```
+
+### for-Schleife
+
+<img src="images/for-loop.PNG" width="70%">
+
+Die for-Schleife wird dann benutzt, wenn zu Beginn feststeht wie oft die Schleife durchlaufen werden soll.
+
+Programmcode:
+
+```java
+for(int i=0; i<10; i++) {
+    // Schleifenkörper
+}
+
+// "int i=0;"  Initialisierung: Startwert festlegen (Variable)
+// "i<10;"     Bedingung:       Wann soll die Schleife abgebrochen werden?
+// "i++"       Postoperation:   Behandlung des Schleifenzählers 
+//                              nach einem Schleifendurchlauf
+```
