@@ -1,7 +1,5 @@
 package schuljahr1;
 
-import java.nio.charset.StandardCharsets;
-
 public class Schleifen {
 	public static void main(String[] args) {
 		/*
@@ -61,10 +59,32 @@ public class Schleifen {
 		Guthaben am Ende der Anlage.
 		*/
 		
+		System.out.println("\n4: Geldanlage");
+		System.out.println("----------------------------------------");
+		
+		double initialMoney = 1000;
+		int years = 5;
+		
+		for(int i=0; i<years; i++) {
+			initialMoney = initialMoney*1.25;
+		}
+		System.out.println("Anlage = " + initialMoney + "€");
+		
 		/*
 		Zusatzaufgabe:
 		Berechnen Sie wie hoch Ihr Guthaben jetzt wäre, wenn sie das Geld im Jahr 0 angelegt hätten.
 		*/
+		
+		System.out.println("\n4: Zusatzaufgabe Geldanlage");
+		System.out.println("----------------------------------------");
+		
+		initialMoney = 1000;
+		years = 2024;
+		
+		for(int i=0; i<years; i++) {
+			initialMoney = initialMoney*1.25;
+		}
+		System.out.println("Anlage ab Jahr 0 = " + initialMoney + "€");
 		
 		/*
 		Aufgabe 5: Eingabeüberprüfung
@@ -107,6 +127,14 @@ public class Schleifen {
 				System.out.printf("%3d %2x %s%n", i, i, "\\r");
 				continue;
 			}
+			if(c == '\b') {
+				System.out.printf("%3d %2x %2s%n", i, i, "\\b");
+				continue;
+			}
+			if(c == '\t') {
+				System.out.printf("%3d %2x %2s%n", i, i, "\\t");
+				continue;
+			}
 			System.out.printf("%3d %2x %c%n", i, i, c);
 			
 		}
@@ -121,16 +149,26 @@ public class Schleifen {
 		System.out.println("\n7: ASCII-Tabelle ausgeben b)");
 		System.out.println("----------------------------------------");
 		
-		for(int i=0; i<256; i++) {
-			char c = (char) i;
+		int line_nr = 22;
+		for(int i=0; i<line_nr; i++) {
 			
-			if(c == '\n') {
-				System.out.printf("%3d %2x %s%n", i, i, "\\n");
-			}else if(c == '\r') {
-				System.out.printf("%3d %2x %s%n", i, i, "\\r");
-			}else {
-				System.out.printf("%3d %2x %c%n", i, i, c);
-			}	
+			for(int j=0; j<=256/line_nr; j++) {
+				if(i+j*line_nr >= 256) break;
+				char c = (char) (i+j*line_nr);
+				
+				if(c == '\n') {
+					System.out.printf("%3d %2x %2s \t", i+j*line_nr, i+j*line_nr, "\\n");
+				}else if(c == '\r') {
+					System.out.printf("%3d %2x %2s \t", i+j*line_nr, i+j*line_nr, "\\r");
+				}else if(c == '\b') {
+					System.out.printf("%3d %2x %2s \t", i+j*line_nr, i+j*line_nr, "\\b");
+				}else if(c == '\t') {
+					System.out.printf("%3d %2x %2s \t", i+j*line_nr, i+j*line_nr, "\\t");
+				}else {
+					System.out.printf("%3d %2x %2c \t", i+j*line_nr, i+j*line_nr, c);
+				}
+			}
+			System.out.println();
 		}
 		
 		/*
@@ -146,6 +184,18 @@ public class Schleifen {
 		xxxxxxxx
 		*/
 		
+		System.out.println("\n8: Noch ein Muster");
+		System.out.println("----------------------------------------");
+		
+		int maxWidht = 8;
+		
+		for(int i=1; i<=maxWidht; i++) {
+			for(int j=0; j<i; j++) {
+				System.out.print("x");
+			}
+			System.out.println();
+		}
+		
 		/*
 		Aufgabe 9: Quadratwurzel
 		Schreiben Sie ein Programm, das die Quadratwurzel einer beliebigen Fließkommazahl bis auf zwei Stellen
@@ -154,5 +204,17 @@ public class Schleifen {
 		Zusatzaufgabe: Erweitern Sie Ihr Programm, indem Sie nun anstatt der Quadratwurzel die dritte Wurzel
 		aus der Eingabe berechnen.
 		 */
+		
+		System.out.println("\n9: Quadratwurzel");
+		System.out.println("----------------------------------------");
+		
+		double inputNumber = 5.12;
+		double root = 0.0;
+		
+		while(root*root < inputNumber) {
+			root += 0.01;
+		}
+		                                          // -0.01 für abgerundetes ergebnis
+		System.out.printf("sqrt(%.2f) = %.2f", inputNumber, root-0.01);
 	}
 }
