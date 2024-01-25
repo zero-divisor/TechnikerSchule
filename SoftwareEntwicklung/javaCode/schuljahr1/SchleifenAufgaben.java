@@ -1,6 +1,6 @@
 package schuljahr1;
 
-public class Schleifen {
+public class SchleifenAufgaben {
 	public static void main(String[] args) {
 		/*
 		Aufgabe 1: Zahlen aufzählen
