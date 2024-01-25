@@ -174,7 +174,7 @@ select sum(-betrag*0.19) as mwst_sum
 select month(datum) as m, year(datum) as y, sum(-betrag*0.19) as mwst_sum 
     from konto 
     where betrag < 0
-    group by month(datum), year(datum)
+    group by year(datum), month(datum)
     order by datum;
 ```
 

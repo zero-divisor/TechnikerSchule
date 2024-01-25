@@ -9,6 +9,8 @@
 * [Erstellen, Verschieben und Löschen von Dateien](#erstellen-verschieben-und-löschen-von-dateien)
 * [Suchen und Finden von Dateien](#suchen-und-finden-von-dateien)
 * [Streams](#streams)
+* [Stream Editor sed](#stream-editor-sed)
+* [Vim](#vim)
 
 ## Grundlagen der Befehlszeile
 
@@ -92,3 +94,17 @@ Standardoutput von Programm1 zu Standardinput von Programm2 leiten
 ```
 Prgoramm1 | Programm2
 ```
+
+## Stream Editor sed
+
+
+
+## Vim
+
+Mode verlassen/zurück zu command mode: `Esc`.
+Input mode: `i,I,a,A,o,O`
+Replace mode: `r,R`
+Ex mode: `:`
+
+Zeile Löschen: `dd`
+Wort löschen: `dw`

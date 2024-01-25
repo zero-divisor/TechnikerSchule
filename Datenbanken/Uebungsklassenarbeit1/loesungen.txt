@@ -1,0 +1,102 @@
+===============================================================================
+Fach.............: Datenbanken (DB)
+Klassenarbeit Nr.: 1
+Datum............: 14.01.2020
+Klasse...........: FTIT19
+Nachname.........: 
+Vorname..........: 
+===============================================================================
+Lösungen.........:
+-------------------------------------------------------------------------------
+Aufgabe 1
+
+create or replace table tanken (
+	nr int primary key auto_increment,
+	zeitstempel datetime not null,
+	land varchar(2) not null,
+	spritart varchar(1) not null,
+	getankt decimal(5, 2) not null,
+	preis decimal(4, 3) not null,
+	kennzeichen varchar(10) not null,
+	gefahren int not null
+);
+
+load data local infile 'C:/Users/ale040/Git/TechnikerSchule/Datenbanken/Uebungsklassenarbeit1/tanken.csv'
+	into table tanken
+	fields terminated by ';'
+	ignore 1 rows;
+	
+-------------------------------------------------------------------------------
+Aufgabe 2
+
+select * from tanken;
+
+-------------------------------------------------------------------------------
+Aufgabe 3
+
+select count(*) as nr_of_rows from tanken;
+
+-------------------------------------------------------------------------------
+Aufgabe 4
+
+select sum(gefahren) as strecke 
+	from tanken;
+
+-------------------------------------------------------------------------------
+Aufgabe 5
+
+select kennzeichen, sum(gefahren) as strecke 
+	from tanken 
+	group by kennzeichen;
+
+-------------------------------------------------------------------------------
+Aufgabe 6
+
+update tanken
+	set kennzeichen = 'FN-D4444'
+	where kennzeichen = 'FN-C333';
+
+-------------------------------------------------------------------------------
+Aufgabe 7
+
+delete from tanken where zeitstempel = '2019-07-23 18:35:00';
+
+-------------------------------------------------------------------------------
+Aufgabe 8
+
+select spritart, round(sum(preis*getankt), 2) as spritkosten 
+	from tanken group by spritart;
+
+-------------------------------------------------------------------------------
+Aufgabe 9
+
+select land, month(zeitstempel) as monat, round(sum(preis*getankt), 2) as spritkosten 
+	from tanken group by land, monat
+	order by land, monat;
+
+-------------------------------------------------------------------------------
+Aufgabe 10
+
+select round(sum(getankt/gefahren)*100, 2) as verbrauch_pro_100km
+	from tanken 
+	where kennzeichen = 'RV-Y888';
+
+-------------------------------------------------------------------------------
+Aufgabe 11
+
+insert into tanken (zeitstempel, land, spritart, getankt, preis, kennzeichen, gefahren)
+	values
+	('2019-12-04 11:47:00', 'D', 'D', 44.44, 1.089, 'FN-A111', 458),
+	('2019-12-07 16:12:00', 'A', 'S', 77.77, 1.379, 'RV-X777', 525);
+
+-------------------------------------------------------------------------------
+Aufgabe 12
+
+alter table tanken auto_increment = 101;
+
+-------------------------------------------------------------------------------
+Aufgabe 13
+
+source C:/Users/ale040/Git/TechnikerSchule/Datenbanken/Uebungsklassenarbeit1/programm.sql
+
+-------------------------------------------------------------------------------

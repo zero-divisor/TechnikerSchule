@@ -49,7 +49,7 @@ void setup() {
 void loop() {
   while(!digitalRead(schalter)){
     // Wert zwischen 0 und 9999 generieren
-    wuerfelWert = milis() % 10000;
+    wuerfelWert = millis() % 10000;
     displayNumberOn7SegmentDisplay(wuerfelWert, 50);
   }
   displayNumberOn7SegmentDisplay(wuerfelWert, 200);
@@ -77,14 +77,14 @@ void writeDigitToSegment(byte digit, byte segmentNr){
 
 // segNr 0-3
 void enableSegment(byte segNr){
-  for(byte i=7; i>=0; i--){
+  for(int i=7; i>=0; i--){
     writeBitToRegister(i==segNr);
   }
 }
 
 // num 0-9
 void writeNumberToRegister(byte num){
-  for(byte i=7; i>=0; i--){
+  for(int i=7; i>=0; i--){
     writeBitToRegister(werte[num][i]);
   }
 }
@@ -92,14 +92,13 @@ void writeNumberToRegister(byte num){
 void writeBitToRegister(boolean bit){
   digitalWrite(shift, LOW);
   digitalWrite(latch, LOW);
-  //delay(10);
+  
   digitalWrite(data, bit);
-  //delay(10);
+  
   digitalWrite(shift, HIGH);
-  //delay(10);
+  
   digitalWrite(shift, LOW);
   digitalWrite(latch, HIGH);
-  //delay(10);
+  
   digitalWrite(latch, LOW);
-  //delay(10);
 }

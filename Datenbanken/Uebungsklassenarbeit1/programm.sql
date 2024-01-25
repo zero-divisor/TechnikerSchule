@@ -1,0 +1,1 @@
+select "Glückwunsch, das war die letzte Aufgabe." as Meldung;

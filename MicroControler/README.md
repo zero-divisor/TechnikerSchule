@@ -10,6 +10,7 @@
 * [Kontrollstrukturen](#kontrollstrukturen)
 * [Schleifen](#schleifen)
 * [Funktionen](#funktionen)
+* [Analoge Signale](#analoge-Signale)
 
 ## Vergleichsoperatoren
 
@@ -200,3 +201,7 @@ void funktionsName(int uebergabeWert){
     // someCode
 }
 ```
+
+## Analoge Signale
+
+<img src="images/Analoge_Signale.jpeg" width="70%">
