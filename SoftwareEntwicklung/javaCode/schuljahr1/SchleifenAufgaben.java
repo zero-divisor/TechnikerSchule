@@ -258,10 +258,13 @@ public class SchleifenAufgaben {
 		System.out.println("\n11: Tannenbaum");
 		System.out.println("----------------------------------------");
 		
-		for(int i=0; i<8; i++) {
-			for(int j=0; j<15; j++) {
-				int inset = (15-2*i)/2;
-				System.out.print(j>=inset && j<15-inset ? "x" : " ");
+		int numberOfLines = 10;
+		int maxWidth = 2*numberOfLines-1;
+		
+		for(int i=0; i<numberOfLines; i++) {
+			for(int j=0; j<maxWidth; j++) {
+				int inset = (maxWidth-2*i)/2;
+				System.out.print(j>=inset && j<maxWidth-inset ? "x" : " ");
 			}
 			System.out.println();
 		}
