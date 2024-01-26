@@ -216,5 +216,54 @@ public class SchleifenAufgaben {
 		}
 		                                          // -0.01 für abgerundetes ergebnis
 		System.out.printf("sqrt(%.2f) = %.2f", inputNumber, root-0.01);
+		System.out.println();
+		
+		/*
+		Aufgabe 10: Noch ein Muster
+		Schreiben Sie ein Programm mit for-Schleifen, welches folgende Bildschirmausgabe erzeugt:
+		       x
+		      xx
+		     xxx
+		    xxxx
+		   xxxxx
+		  xxxxxx
+		 xxxxxxx
+		xxxxxxxx
+		*/
+		
+		System.out.println("\n10: Noch ein Muster");
+		System.out.println("----------------------------------------");
+		
+		for(int i=7; i>=0; i--) {
+			String line = "";
+			for(int j=0; j<8; j++) {
+				line += j<i ? " " : "x";
+			}
+			System.out.println(line);
+		}
+		
+		/*
+		Aufgabe 11: Tannenbaum
+		Schreiben Sie ein Programm mit for-Schleifen, welches folgende Bildschirmausgabe erzeugt:
+		       x
+		      xxx
+		     xxxxx
+		    xxxxxxx
+		   xxxxxxxxx
+		  xxxxxxxxxxx
+		 xxxxxxxxxxxxx
+		xxxxxxxxxxxxxxx
+		 */
+		
+		System.out.println("\n11: Tannenbaum");
+		System.out.println("----------------------------------------");
+		
+		for(int i=0; i<8; i++) {
+			for(int j=0; j<15; j++) {
+				int inset = (15-2*i)/2;
+				System.out.print(j>=inset && j<15-inset ? "x" : " ");
+			}
+			System.out.println();
+		}
 	}
 }
