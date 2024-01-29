@@ -205,3 +205,78 @@ void funktionsName(int uebergabeWert){
 ## Analoge Signale
 
 <img src="images/Analoge_Signale.jpeg" width="70%">
+
+### analogRead()
+
+__Beschreibung:__
+
+Liest den angegebenen Analogeingang aus. Der ARDUINO hat einen 6-Kanal (8 beim Mini und Nano, 16 beim Mega) 10-bit ADC, \
+dass bedeutet der ARDUINO UNO z.B. wandelt Spannungen von 0V bis 5V in Zahlen von 0 bis 1023 um.\
+Bei 5V Referenzspannung ist das eine Auflösung von 5V / 1024 = 0.0049V = 4,9mV.\
+Es dauert ungefähr 100µs einen Analogwert zu lesen, somit ergibt sich eine theoretische, maximale Frequenz von 10.000 Abfragen pro Sekunde.
+
+__Syntax:__
+
+```c
+analogRead(pin);
+```
+
+__Parameter:__\
+pin: die Pinnummer des Pins, der konfiguriert werden soll (`A0` bis `A5` bei den meisten Boards, `A0` bis `A7` beim Mini und Nano, `A0` bis `A15` beim Mega)
+
+__Rückgabewert:__\
+int (Integer-Wert) zwischen 0 und 1023
+
+__Beispiel:__
+```c
+int analogPin = 3; // Potentiometer Schleifer am Pin A3
+int val = 0;       // Variable um Messergebnis zu speichern
+
+void setup()
+{
+    Serial.begin(9600); // serielle Kommunikation einschalten
+}
+
+void loop()
+{
+    val = analogRead(analogPin); // Eingang auslesen
+    Serial.println(val);         // Messwert über serielle Verbindung senden
+}
+```
+
+### analogWrite()
+
+__Beschreibung:__\
+Gibt eine PWM (Pulsweitenmodulation, Rechteckspannung) am definierten Pin aus. Diese PWM kann z.B. benutzt werden um eine LED zu dimmen oder einen Motor in der Geschwindigkeit zu regeln (natürlich über einen Treiber). Die PWM wird solange ausgegeben bis die Pulsweite durch einen weiteren Aufruf von `analogWrite()` geändert wird oder `digitalWrite()` bzw. `digitalRead()` für diesen Pin aufgerufen wird.
+
+Die PWM-Frequenz liegt beim ARDUINO UNO (und den ATMega328-basierten Boards) bei ca. 490Hz an den Pins 3,9,10,11 und ca. 980Hz an Pins 5 und 6. Diese kann aber auch geändert werden. Die Spannung am Ausgang liegt jedoch immer entweder bei 0V oder 5V.
+
+`analogWrite()` funktioniert nur bei den Pins, die für PWM vorgesehen sind. Das sind im Allgemeinen 3, 5, 6, 9, 10, 11. Es gibt aber noch mehr Möglichkeiten per Software (bei Bedarf im Netz nachlesen)
+
+__Syntax:__
+```c
+analogWrite(pin, pulsweite);
+```
+
+__Parameter:__\
+pin: die Pinnummer des Pins, an dem die PWM ausgegeben werden soll\
+pulsweite: zwischen 0 und 255
+
+__Beispiel:__
+```c
+int ledPin = 9;    // LED an Pin 9
+int analogPin = 3; // Potentiometer an A3
+int val = 0;       // Variable um den Analogwert zu speichern
+
+void setup()
+{
+    pinMode(ledPin, OUTPUT); // den Pin als Ausgang konfigurieren
+}
+
+void loop()
+{
+    val = analogRead(analogPin);  // Pin A3 lesen
+    analogWrite(ledPin, val / 4); // analogRead Werte reichen von 0 bis 1023,
+                                  // analogWrite Werte von 0 bis 255
+}
+```
