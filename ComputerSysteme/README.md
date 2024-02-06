@@ -11,6 +11,7 @@
 * [Streams](#streams)
 * [Stream Editor sed](#stream-editor-sed)
 * [Vim](#vim)
+* [Reguläre Ausdrücke](#reguläre-ausdrücke)
 
 ## Grundlagen der Befehlszeile
 
@@ -167,3 +168,6 @@ Ex mode: `:`
 
 Zeile Löschen: `dd`\
 Wort löschen: `dw`
+
+## Reguläre Ausdrücke
+
