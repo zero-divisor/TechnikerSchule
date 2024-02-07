@@ -171,3 +171,18 @@ Wort löschen: `dw`
 
 ## Reguläre Ausdrücke
 
+Regular Expressions (regex) sind Zeichenketten, die Zeichenketten beschreiben.
+
+__z.B.__ 
+- `Tag` beschreibt die Zeichenkette Tag.
+- `[0-3]` eine Zahl zwischen 0 und 3
+- `[Tt]` T oder t
+
+```
+grep [Tt]est fileName
+```
+
+Regex sind universell und werden durch alle gängigen Skript- und Programmiersprachen unterstützt.
+
+__Vorsicht :__ Es gibt verschiedene Dialekte.\
+__Vorsicht2:__ Regex können schnell unübersichtlich werden
