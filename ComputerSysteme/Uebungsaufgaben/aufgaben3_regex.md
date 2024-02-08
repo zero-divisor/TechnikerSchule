@@ -3,6 +3,7 @@
 Erstellen Sie reguläre Ausdrücke, die folgende Zeichenketten beschreiben.
 
 ### Deutsche KFZ-Kennzeichen
+
 ### Datum im Format TT.MM.JJJJ
 
 __Einfache Version__
@@ -25,11 +26,13 @@ __Einfache Version__
 (0[1-9]|[1-2][0-9]|3[0-1])\.(0[1-9]|1[0-2])\.([0-9]{4})
 ```
 
-Bei verwendung mit `grep` müssen '(', ')', '{', '}' und '|' escaped werden.
+Bei verwendung mit `grep` müssen die Metacharacters '(', ')', '{', '}' und '|' escaped werden.
 
 ```
 grep "\(0[1-9]\|[1-2][0-9]\|3[0-1]\)\.\(0[1-9]\|1[0-2]\)\.\([0-9]\{4\}\)" filename
 ```
+
+Eine Regex, die berücksichtigt, dass Monate unterschiedlich viele Tage haben, ist dem Leser als Übungsaufgabe überlassen.
 
 ### IPv4-Adresse
 
@@ -51,13 +54,56 @@ __IPv4:__ Zeilenanfang + (0-255 + Punkt) 3 mal + 0-255 + Zeilenende.
 ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$
 ```
 
-Bei verwendung mit `grep` müssen '(', ')', '{', '}' und '|' escaped werden.
+Bei verwendung mit `grep` müssen die Metacharacters '(', ')', '{', '}' und '|' escaped werden.
 
 ```
 grep "^\(\([0-9]\|[1-9][0-9]\|1[0-9][0-9]\|2[0-4][0-9]\|25[0-5]\)\.\)\{3\}\([0-9]\|[1-9][0- 9]\|1[0-9][0-9]\|2[0-4][0-9]\|25[0-5]\)$" filename
 ```
 
 ### MAC-Adresse
+
++ 6 Bytes Hexadezimal
++ getrennt durch ':', '-' oder ohne trennzeichen
+
+| Trennzeichen (':', '-' oder nichts) | 2-Stellige Hexadezimalzahl |
+|--------------|------------------|
+|`[:-]?`       |`[:xdigit:]{2}`   |
+
+__MAC:__ (byte + Trennzeichen) 5 mal + Byte
+
+```
+^([:xdigit:]{2}[:-]?){5}[:xdigit:]{2}$
+```
+
+Bei verwendung mit `grep` müssen die Metacharacters '(', ')', '{', '}' und '?' escaped werden, und die Syntax für `[:xdigit:]` ist `[[:xdigit:]]`
+
+```
+grep "^\([[:xdigit:]]\{2\}[:-]\?\)\{5\}[[:xdigit:]]\{2\}$" filename
+```
+
+__Test Strings__
+
+```
+// Matches
+d7:bd:db:00:c6:02
+ef-3b-de-e2-44-2d
+ae76f5fadf83
+9c:7b:13:f1:04:94
+1c:e5:e8:8b:d7:21
+D7:BD:DB:00:c6:02
+ef-3b-de-e2-44-2d
+Ae76f5fadf83
+9C:7B:13:F1:04:94
+1c:e5:e8:8b:d7:21
+
+// Matches nicht
+D7:HD:DB:00:c6:02
+ef-3j-de-e2-44-2d
+Ae76f5fadf83ab
+9C:7B:13:F1:04:94:94
+1c:e5:e8:8b:d7
+```
+
 ### Überschriften in HTML
 
 + Beginnt mit \<h1\> bis \<h6\> oder \<H1\> bis \<H6\>
@@ -94,6 +140,51 @@ __Test Strings__
 ```
 
 ### Gleitkommazahlen (z.B. -2.5e12)
+
++ Beginnt mit '+' oder '-' oder ohne Vorzeichen
++ ene Ziffer 
++ dann Dezimalpunkt
++ dann beliebig viele Nachkommastellen (min. 1)
++ danach 'e' oder 'E'
++ dann '+' oder '-' oder kein Vorzeichen
++ dann exponent 0 bis Unendlich bzw. 1 bis Unendlich bei negativem Vorzeichen
+
+|e oder E|+, - oder nichts|Ziffer|Punkt|1 bis Unendlich|0 bis Unendlich|0 bis Unendlich ohne voranstehende nullen|
+|--------|----------------|------|-----|---------------|---------------|---------------|
+|`[Ee]`|`[\+-]?`|`[0-9]`|`\.`|`[1-9][0-9]*`|`[0-9]+`|`(0\|[1-9][0-9]*)`|
+
+```
+^[\+-]?[0-9]\.[0-9]+[Ee](-[1-9][0-9]*|\+?(0|[1-9][0-9]*))$
+```
+
+Bei verwendung mit `grep` müssen die Metacharacters '(', ')', '?', '+' und '|' escaped werden.
+
+```
+grep "^[\+-]\?[0-9]\.[0-9]\+[Ee]\(-[1-9][0-9]*\|+\?\(0\|[1-9][0-9]*\)\)$" filename
+```
+
+__Test Strings__
+
+```
+// Matches
+-2.5e12
+2.5e120
+-2.5e-12
+2.5344E12
+2.0000005e1
+2.5e+12
+1.0E1
+0.0e-1234
+
+// Keine Matches
+-21.5e12
+1.5e-0
+2.5e012
+2.5E-01
+2e12
+2e-12
+```
+
 ### Klassenbezeichnungen an der Elektronikschule
 
 ## Aufgabe 2
