@@ -186,7 +186,7 @@ __Test Strings__
 ### Gleitkommazahlen (z.B. -2.5e12)
 
 + Beginnt mit '+' oder '-' oder ohne Vorzeichen
-+ ene Ziffer 
++ eie Ziffer 
 + dann Dezimalpunkt
 + dann beliebig viele Nachkommastellen (min. 1)
 + danach 'e' oder 'E'
@@ -258,3 +258,24 @@ Laden Sie sich den Linux-Sourcecode herunter.
 Falls das nicht funktioniert, zuvor in `/etc/apt/sources.list` das #-Zeichen vor den Zeilen mit deb-src entfernen.
 
 Verwenden Sie den grep-Befehl um den kompletten Sourcecode des Linux-Kernels nach Schimpfwörtern zu durchsuchen.
+
+|Shit|Fuck|Crap|
+|-|-|-|
+|Maintainer: Ronen Shitrit|If you don't see why, please stay the fuck away from my code.|Note: This driver is really crappy.|
+|Author: Dmitry Lifshitz|fucking magic, making the target busy from rmdir POV|This is a POC (proof of concept or piece of crap, take your pick)|
+|CPU(0, "Matsushita - MN10501")|/* fuck i hate envyas */|# crappy Perl way to pass in hashes.|
+|this shit off... nice job Fujitsu.|avoid fucking up the memory controller (somehow)|in order to workaround certain crappy HW designs|
+|in Microelectronics who refused to fix this shit.|Some Athlon laptops have really fucked PST tables.|workqueue locking issues. It's not meant for executing random crap|
+|give up.  I'm serious, I am going to kick the living shit|Only Sun can take such nice parts and fuck up the programming interface| Old crap is replaced with new one.|
+|And people will even see that as true leadership (\*cough\* bullshit|These chips are basically fucked by design|/* Some "Extended Security" crap. */|
+|Some dipshit decided to store some other bit of information|Wirzenius wrote this portably, Torvalds fucked it up :-)|else { /* Some other crap */|
+|all the algo is pure shit and should be replaced|master list of VME vectors -- don't fuck with this|TSC to be unstable, any computation will be computing crap|
+|all this shit doesn't belong into sysfs anyway||(or just really crappy memories). Regardless, this is really annoying|
+|Remember: "Different name, same old buggy as shit hardware."||0x21000-0x40000: padding and some unknown crap|
+|Some (ENE) controllers go apeshit on some ios operation||`u8 junk[8]; /* other crap for block control */`|
+|`__adb_probe_task(struct work_struct *bullshit)`||it turns out to be unreliable in the face of crappy BIOSes|
+|SCR registers on vt6420 are pieces of shit||`if (pnp_bios_is_utter_crap) {`|
+|shit unusable forever||/* Oh, crap */|
+|||Piles of crap below pretend to be a parser for module and kernel|
+|||`pr_info("This system has a very crappy BIOS: It doesn't even list the DIMMS.\n");`|
+|||/* We don't need no stinkin' I/O port allocation crap. */|
