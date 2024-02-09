@@ -268,7 +268,7 @@ Verwenden Sie den grep-Befehl um den kompletten Sourcecode des Linux-Kernels nac
 |in Microelectronics who refused to fix this shit.|Some Athlon laptops have really fucked PST tables.|workqueue locking issues. It's not meant for executing random crap|
 |give up.  I'm serious, I am going to kick the living shit|Only Sun can take such nice parts and fuck up the programming interface| Old crap is replaced with new one.|
 |And people will even see that as true leadership (\*cough\* bullshit|These chips are basically fucked by design|/* Some "Extended Security" crap. */|
-|Some dipshit decided to store some other bit of information|Wirzenius wrote this portably, Torvalds fucked it up :-)|else { /* Some other crap */|
+|Some dipshit decided to store some other bit of information|Wirzenius wrote this portably, Torvalds fucked it up :-)|`else { /* Some other crap */`|
 |all the algo is pure shit and should be replaced|master list of VME vectors -- don't fuck with this|TSC to be unstable, any computation will be computing crap|
 |all this shit doesn't belong into sysfs anyway||(or just really crappy memories). Regardless, this is really annoying|
 |Remember: "Different name, same old buggy as shit hardware."||0x21000-0x40000: padding and some unknown crap|
