@@ -4,6 +4,50 @@ Erstellen Sie reguläre Ausdrücke, die folgende Zeichenketten beschreiben.
 
 ### Deutsche KFZ-Kennzeichen
 
+__Bei Normalen Kennzeichen:__
+
++ Verwaltungsbezirk 1-3 Buchstaben
++ Erkennungsnummer 1-2 Buchstaben dann 1-4 Ziffern ohne voranstehende 0
++ Insgesamt nicht länger als 8 Zeichen
+
+|Verwaltungsbezirk|Erkennungsnummer Buchstaben|Erkennungsnummer Ziffern|
+|-|-|-|
+|`[A-Z]{1,3}`|`[A-Z]{1,2}`|`[1-9][0-9]{0,3}`|
+
+Positiver lookahead `^(?=.{1,8}$)` am Anfang der regex matched nur Zeilen, die zwischen 1 und 8 Zeichen lang sind.
+
+```
+^(?=.{1,10}$)^[A-Z]{1,3}\s[A-Z]{1,2}\s[1-9][0-9]{0,3}$
+```
+
+Hier wird die Länge auf 10 Character beschränkt um die Leerzeichen zu berücksichtigen.
+
+Bei verwendung mit `grep` muss die `-P` option für Pearl rexeg verwendet werden, da standard `grep` keine lookaheads kann. In der Pearl Variante müssen Metacharacter wie Klammern nicht escaped werden.
+
+```
+grep -P "^(?=.{1,10}$)^[A-Z]{1,3}\s[A-Z]{1,2}\s[1-9][0-9]{0,3}$" filename
+```
+
+__Test Strings__
+
+```
+// Matches
+S V 1
+N SN 2345
+LK K 234
+VM KL 23
+OIR Z 4567
+LSD JT 123
+
+// Matches nicht
+SV 1
+N SN2345
+D JD
+LK K 23434
+SKG LS 1251
+XC WEI 1
+```
+
 ### Datum im Format TT.MM.JJJJ
 
 __Einfache Version__
@@ -186,6 +230,24 @@ __Test Strings__
 ```
 
 ### Klassenbezeichnungen an der Elektronikschule
+
++ 3 Buchstaben Kürzel für den Fachbereich (Upper Case)
++ 'T' bei Teilzeitklassen
++ 2-Stelliges Jahr
+
+|3 Upper Case Zeichen|Optionales T|2 Ziffern|
+|--------------------|------------|---------|
+| `[A-Z]{3}`         |`T?`        |`[0-9]{2}`|
+
+```
+[A-Z]{3}T?[0-9]{2}
+```
+
+Bei verwendung mit `grep` müssen die Metacharacters '{', '}' und '?' escaped werden.
+
+```
+grep "[A-Z]\{3\}T\?[0-9]\{2\}" filename
+```
 
 ## Aufgabe 2
 
