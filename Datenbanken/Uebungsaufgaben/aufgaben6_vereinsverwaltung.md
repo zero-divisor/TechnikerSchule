@@ -136,11 +136,46 @@ insert into sparten_zuordnung (mnr, snr)
 
 ### 6.) Nachdem nun die Sparten übernommen wurden löschen Sie die entsprechende Spalte aus der Mitgliedertabelle.
 
+```sql
+alter table mitglieder
+    drop column sparte;
+```
+
 ### 7.) Nun müssen noch die doppelten Mitgliedsnamen entfernt werden. Gehen Sie dabei wie folgt vor (in den SQL-Statements kommen keine Daten vor!):
 
 + Erstellen einer Tabelle „mitglieder2“, Übernahme der Struktur von „mitglieder“!
+
+```sql
+create table mitglieder2 like mitglieder;
+```
+
 + Übernahme der Mitglieder in die neue Tabelle ohne Duplikate.
+
+```sql
+insert into mitglieder2 
+    (name, vorname, strasse, plz, ort) 
+    select distinct name, vorname, strasse, plz, ort
+    from mitglieder;
+```
+
+```
++-----+---------+---------+-----------------------+-------+----------------+
+| mnr | name    | vorname | strasse               | plz   | ort            |
++-----+---------+---------+-----------------------+-------+----------------+
+|   1 | Maier   | Hans    | Veilchenweg 5         | 12345 | Glückstadt     |
+|   2 | Müller  | Josef   | Rosenweg 8            | 12346 | Neu-Glückstadt |
+|   3 | Schmid  | Karl    | Im Löwenzahn 12       | 12346 | Neu-Glückstadt |
+|   4 | Schulze | Michael | Sonnenblumenstraße 34 | 12345 | Glückstadt     |
+|   5 | Schmid  | Udo     | Sonnenblumenstraße 54 | 12345 | Glückstadt     |
++-----+---------+---------+-----------------------+-------+----------------+
+```
+
 + Korrektur der der Mitgliedernummer in der Verknüpfungstabelle zu den Sparten.
+
+```sql
+
+```
+
 + Löschen der Tabelle „mitglieder“.
 + Umbenennen der Tabelle „mitglieder2“ in „mitglieder“.
 
