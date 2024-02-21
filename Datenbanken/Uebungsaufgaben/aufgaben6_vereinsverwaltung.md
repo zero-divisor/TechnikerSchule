@@ -243,4 +243,47 @@ on (mitglieder.mnr = spt.mnr);
 
 ### 9.) Lassen Sie sich Name und Vorname von allen Mitgliedern ausgeben, die Tennis spielen.
 
+```sql
+select mitglieder.name, vorname 
+    from mitglieder
+    inner join sparten_zuordnung
+    on (mitglieder.mnr = sparten_zuordnung.mnr)
+    where sparten_zuordnung.snr = (
+        select sparten.snr from sparten where sparten.name = 'Tennis'
+    );
+```
+
+```
++--------+---------+
+| name   | vorname |
++--------+---------+
+| Maier  | Hans    |
+| Müller | Josef   |
+| Schmid | Karl    |
++--------+---------+
+```
+
 ### 10.) Lassen Sie sich die Anzahl Mitglieder je Sparte ausgeben (Spartennummer, Spartenname, Anzahl Mitglieder).
+
+```sql
+select
+    sparten.snr, 
+    name as spartenname, 
+    count(mnr) as anzahl
+from sparten
+left join sparten_zuordnung
+on (sparten.snr = sparten_zuordnung.snr)
+group by sparten.snr;
+```
+
+```
++-----+-------------+--------+
+| snr | spartenname | anzahl |
++-----+-------------+--------+
+|   1 | Tennis      |      3 |
+|   2 | Fußball     |      1 |
+|   3 | Kegeln      |      3 |
+|   4 | Volleyball  |      2 |
+|   5 | Tischtennis |      1 |
++-----+-------------+--------+
+```
