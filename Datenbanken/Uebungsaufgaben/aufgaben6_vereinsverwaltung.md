@@ -173,16 +173,73 @@ insert into mitglieder2
 + Korrektur der der Mitgliedernummer in der Verknüpfungstabelle zu den Sparten.
 
 ```sql
+update sparten_zuordnung
+    set sparten_zuordnung.mnr = (
+        select mitglieder2.mnr as newmnr
+        from mitglieder
+        inner join mitglieder2
+        on (
+            mitglieder.name = mitglieder2.name
+            and mitglieder.vorname = mitglieder2.vorname
+            and mitglieder.strasse = mitglieder2.strasse
+            and mitglieder.plz = mitglieder2.plz
+            and mitglieder.ort = mitglieder2.ort
+        )
+        where sparten_zuordnung.mnr = mitglieder.mnr
+    );
+```
 
+```
++-----+-----+
+| mnr | snr |
++-----+-----+
+|   1 |   1 |
+|   1 |   3 |
+|   2 |   1 |
+|   2 |   2 |
+|   2 |   3 |
+|   2 |   4 |
+|   3 |   1 |
+|   4 |   3 |
+|   4 |   4 |
+|   5 |   5 |
++-----+-----+
 ```
 
 + Löschen der Tabelle „mitglieder“.
+
+```sql
+drop table mitglieder;
+```
+
 + Umbenennen der Tabelle „mitglieder2“ in „mitglieder“.
 
+```sql
+alter table mitglieder2 rename to mitglieder;
+```
 
 ## Auswertungen
 
 ### 8.) Erzeugen Sie die gleiche Ausgabe wie die ursprüngliche Tabelle.
+
+```sql
+select 
+    mitglieder.mnr, 
+    mitglieder.name, 
+    vorname, 
+    strasse, 
+    plz, 
+    ort, 
+    spt.name as sparte
+from mitglieder 
+left join (
+    select mnr, sparten.name 
+        from sparten_zuordnung
+        left join sparten
+        on (sparten_zuordnung.snr = sparten.snr)
+    ) as spt 
+    on (mitglieder.mnr = spt.mnr);
+```
 
 ### 9.) Lassen Sie sich Name und Vorname von allen Mitgliedern ausgeben, die Tennis spielen.
 
