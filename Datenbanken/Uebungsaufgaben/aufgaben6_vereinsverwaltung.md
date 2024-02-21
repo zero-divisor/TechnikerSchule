@@ -11,7 +11,7 @@ So machen Sie es sich zur Aufgabe, den bestehenden Datenbestand in eine vernünf
 
 ```sql
 -- hatte bei mir Probleme mit den Umlauten
-source /pfad/zur/datei.sql;
+source /pfad/zur/datei/verein.sql;
 ```
 
 ```sql
@@ -55,11 +55,84 @@ select * from mitglieder;
 
 ### 2.) Erstellen Sie eine Tabelle zur Speicherung der Sparten (snr (primary key, auto_increment), name (not null)).
 
+```sql
+create table sparten (
+    snr int primary key auto_increment,
+    name varchar(20) not null
+);
+```
+
+```
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| snr   | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(20) | NO   |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+```
+
 ### 3.) Füllen Sie die Sparten-Tabelle mit den Sparten aus der Mitglieder-Tabelle. Achten Sie darauf, dass jeder Sparte nur 1x angelegt wird.
+
+```sql
+insert into sparten (name) select distinct sparte from mitglieder;
+```
+
+```
++-----+-------------+
+| snr | name        |
++-----+-------------+
+|   1 | Tennis      |
+|   2 | Fußball     |
+|   3 | Kegeln      |
+|   4 | Volleyball  |
+|   5 | Tischtennis |
++-----+-------------+
+```
 
 ### 4.) Erstellen Sie eine Tabelle zur Verknüpfung der Mitglieder mit den Sparten (mnr, snr). Beide Felder zusammen sollen den PK bilden.
 
+```sql
+create table sparten_zuordnung (
+    mnr int not null,
+    snr int not null,
+    primary key (mnr, snr)
+);
+```
+
+```
++-------+---------+------+-----+---------+-------+
+| Field | Type    | Null | Key | Default | Extra |
++-------+---------+------+-----+---------+-------+
+| mnr   | int(11) | NO   | PRI | NULL    |       |
+| snr   | int(11) | NO   | PRI | NULL    |       |
++-------+---------+------+-----+---------+-------+
+```
+
 ### 5.) Füllen Sie die Verknüpfungstabelle für Mitglieder und Sparten mit den Werten aus der Mitgliedertabelle.
+
+```sql
+insert into sparten_zuordnung (mnr, snr)
+    select mnr, snr from mitglieder 
+    inner join sparten
+    on (sparten.name = sparte);
+```
+
+```
++-----+-----+
+| mnr | snr |
++-----+-----+
+|   1 |   1 |
+|   2 |   2 |
+|   3 |   1 |
+|   4 |   1 |
+|   5 |   3 |
+|   6 |   3 |
+|   7 |   4 |
+|   8 |   4 |
+|   9 |   3 |
+|  10 |   5 |
++-----+-----+
+```
 
 ### 6.) Nachdem nun die Sparten übernommen wurden löschen Sie die entsprechende Spalte aus der Mitgliedertabelle.
 
