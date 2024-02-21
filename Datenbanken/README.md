@@ -25,6 +25,7 @@
 * [Daten mit select in Tabelle einfügen](#daten-mit-select-in-tabelle-einfügen)
 * [Klonen einer Tabelle](#klonen-einer-tabelle)
 * [Primärschlüssel und Auto-Inkrement](#primärschlüssel-und-auto-inkrement)
+* [Joins](#joins)
 
 ## Datenbank
 
@@ -520,3 +521,26 @@ Autoincrementwert manuell auf einen Wert setzen
 ```sql
 alter table KUNDEN auto_increment=100;
 ```
+
+## Joins
+
+Syntax
+
+```sql
+select <felder> from <tabelle1> 
+   inner join <tabelle2> on (<tabelle1.feld> = <tabelle2.feld>);
+```
+
++ inner join
++ left join
++ right join
+
+(full join von MySQL nicht unterstützt!)
+
+Kommt in beiden Tabellen ein Feld mit dem gleichen Namen vor, so muss zur eindeutigen Identifizierung der Tabellenname mit Punkt getrennt vorangestellt werden.
+
+### Inner join, left/right (outer) join 
+
++ __inner join:__ Nur Datensätze, die in beiden Tabellen vorkommen.
++ __left join:__ Alle Datensätze der 1. (linken) Tabelle und wenn vorhanden zugehörige Daten aus der 2. (rechten) Tabelle. Wenn nicht vorhanden: NULL-Werte.
++ __right join:__ Alle Datensätze der 2. (rechten) Tabelle und wenn vorhanden zugehörige Daten aus der 1. (linken) Tabelle. Wenn nicht vorhanden: NULL-Werte.

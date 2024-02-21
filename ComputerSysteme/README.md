@@ -10,7 +10,6 @@
 * [Suchen und Finden von Dateien](#suchen-und-finden-von-dateien)
 * [Streams](#streams)
 * [Stream Editor sed](#stream-editor-sed)
-* [Vim](#vim)
 * [Reguläre Ausdrücke](#reguläre-ausdrücke)
 
 ## Grundlagen der Befehlszeile
@@ -159,15 +158,6 @@ sed [options] sed-command [input-file]
 | `g`     | Copy hold space to pattern space                             |
 | `G`     | Append hold space to pattern space                           |
 
-## Vim
-
-Mode verlassen/zurück zu command mode: `Esc`.\
-Input mode: `i,I,a,A,o,O`\
-Replace mode: `r,R`\
-Ex mode: `:`
-
-Zeile Löschen: `dd`\
-Wort löschen: `dw`
 
 ## Reguläre Ausdrücke
 
