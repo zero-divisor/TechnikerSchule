@@ -234,11 +234,11 @@ select
 from mitglieder 
 left join (
     select mnr, sparten.name 
-        from sparten_zuordnung
-        left join sparten
-        on (sparten_zuordnung.snr = sparten.snr)
-    ) as spt 
-    on (mitglieder.mnr = spt.mnr);
+    from sparten_zuordnung
+    left join sparten
+    on (sparten_zuordnung.snr = sparten.snr)
+) as spt 
+on (mitglieder.mnr = spt.mnr);
 ```
 
 ### 9.) Lassen Sie sich Name und Vorname von allen Mitgliedern ausgeben, die Tennis spielen.
