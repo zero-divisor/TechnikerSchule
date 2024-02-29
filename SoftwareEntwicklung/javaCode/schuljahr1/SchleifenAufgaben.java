@@ -268,5 +268,180 @@ public class SchleifenAufgaben {
 			}
 			System.out.println();
 		}
+	
+		/*
+		Aufgabe 12: Multiplikationstabelle
+		Schreiben Sie ein Programm, das eine Multiplikationstabelle ausgibt:
+		1 2 3 4 . . .
+		2 4 6 8 . . .
+		3 6 9 12 . . .
+		: : : :
+		: : : :
+		Die Anzahl der Zeilen und die Anzahl der Spalten sollen vom Nutzer eingegeben werden können.
+		D.h. das Programm fragt zunächst nach der Anzahl der Spalten, dann nach der Anzahl der
+		Zeilen. Anschließend zeigt das Programm die Tabelle am Bildschirm an.
+		*/
+		System.out.println("\n12: Multiplikationstabelle");
+		System.out.println("----------------------------------------");
+		
+		int rows = 12;
+		int cols = 10;
+		
+		for(int i=1; i<=rows; i++) {
+			for(int j=1; j<=cols; j++) {
+				System.out.print(i*j + " ");
+			}
+			System.out.println();
+		}
+		
+		/*
+		Aufgabe 13: Spielfelder
+		Schreiben Sie ein Programm, das mittels verschachtelter Schleifen folgende Spielfelder ausgibt:
+		a) Tic Tac Toe
+		1 2 3
+		4 5 6
+		7 8 9
+		*/
+		
+		System.out.println("\n13a: Spielfelder");
+		System.out.println("----------------------------------------");
+		
+		int number = 1;
+		for(int i=0; i<3; i++) {
+			for(int j=0; j<3; j++) {
+				System.out.print(number++ + " ");
+			}
+			System.out.println();
+		}
+		
+		/*
+		b) Schach
+		  A B C D E F G H
+		8   ##  ##  ##  ##
+		7 ##  ##  ##  ##
+		6   ##  ##  ##  ##
+		5 ##  ##  ##  ##
+		4   ##  ##  ##  ##
+		3 ##  ##  ##  ##
+		2   ##  ##  ##  ##
+		1 ##  ##  ##  ##
+		
+		Ihr Programm sollte für die schwarzen und weißen Spielfelder nur die folgenden drei Ausgabeanweisungen
+		beinhalten:
+		System.out.print("##");
+		System.out.print("  ");
+		System.out.println();
+		*/
+		
+		System.out.println("\n13b: Schach");
+		System.out.println("----------------------------------------");
+		
+		System.out.println("  A B C D E F G H");
+		int size = 8;
+		
+		for(int i=0; i<size; i++) {
+			System.out.print((size-i) + " ");
+			
+			for(int j=i; j<i+size; j++) {
+				if(j%2 == 0) {
+					System.out.print("  ");
+				}else {
+					System.out.print("##");
+				}
+			}
+			System.out.println();
+		}
+		
+		/*
+		Aufgabe 14: Figuren
+		Schreiben Sie ein Programm, das die folgenden Figuren am Bildschirm ausgibt. Der Benutzer soll am
+		Anfang jeweils nach der Höhe (Anzahl der Zeilen) der Figur gefragt werden.
+		*/
+		int height = 10;
+		/*
+		a)
+		xxxxxxxx
+		xxxxxxx
+		xxxxxx
+		xxxxx
+		xxxx
+		xxx
+		xx
+		x
+		*/
+		
+		System.out.println("\n14a: Figuren");
+		System.out.println("----------------------------------------");
+		
+		for(int i=0; i<height; i++) {
+			for(int j=height-i; j>0; j--) {
+				System.out.print("x");
+			}
+			System.out.println();
+		}
+		
+		/*
+		b)
+		              x
+		            xxxxx
+		          xxxxxxxxx
+		        xxxxxxxxxxxxx
+		      xxxxxxxxxxxxxxxxx
+		    xxxxxxxxxxxxxxxxxxxxx
+		  xxxxxxxxxxxxxxxxxxxxxxxxx
+		xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+		*/
+		
+		System.out.println("\n14b: Figuren");
+		System.out.println("----------------------------------------");
+		
+		for(int i=0; i<height; i++) {
+			for(int j=height-i; j>0; j--) {
+				System.out.print("  ");
+			}
+			for(int j=0; j<=4*i; j++) {
+				System.out.print("x");
+			}
+			System.out.println();
+		}
+		
+		/*
+		c)
+		x                        x
+		 xx                    xx
+		  xxx                xxx
+		   xxxx            xxxx
+		    xxxxx        xxxxx
+		     xxxxxx    xxxxxx
+		      xxxxxxxxxxxxxx
+		*/
+		
+		System.out.println("\n14c: Figuren");
+		System.out.println("----------------------------------------");
+		
+		for(int i=0; i<height; i++) {
+			
+			// leading spaces
+			for(int j=0; j<i; j++) {
+				System.out.print(" ");
+			}
+			
+			// x
+			for(int j=0; j<=i; j++) {
+				System.out.print("x");
+			}
+			
+			// middle spaces
+			for(int j=0; j<(height-i-1)*4; j++) {
+				System.out.print(" ");
+			}
+			
+			// x
+			for(int j=0; j<=i; j++) {
+				System.out.print("x");
+			}
+			
+			System.out.println();
+		}
 	}
 }
