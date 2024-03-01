@@ -563,6 +563,40 @@ for(int i=0; i<10; i++) {
 
 ### `break` und `continue`
 
-```java
+`break` verlässt die Schleife und springt aus ihr heraus.
 
+Beispiel:
+```java
+int i = 0;
+while (i < 5) {
+    if (i == 2) {
+        break;
+    }
+    System.out.println(i++);
+}
+
+/* Der Output dieser Schleife wäre:
+0
+1
+*/
+```
+
+`continue` springt in den nächsten Schleifendurchgang.
+
+Beispiel:
+```java
+int i = 0;
+while (i < 5) {
+    if (i == 2) {
+        break;
+    }
+    System.out.println(i++);
+}
+
+/* Der Output dieser Schleife wäre:
+0
+1
+3
+4
+*/
 ```
