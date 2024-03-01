@@ -563,7 +563,7 @@ for(int i=0; i<10; i++) {
 
 ### `break` und `continue`
 
-`break` verlässt die Schleife und springt aus ihr heraus.
+Wird die Anweisung `break` innerhalb einer Schleife notiert, so bewirkt sie, dass deren Ausführung an dieser Stelle beendet und die Programmausführung sofort nach der Schleife fortgesetzt wird. Das folgende Beispiel demonstriert dies.
 
 Beispiel:
 ```java
@@ -581,7 +581,7 @@ while (i < 5) {
 */
 ```
 
-`continue` springt in den nächsten Schleifendurchgang.
+Die Anweisung `continue` bewirkt im Gegensatz zum break, dass lediglich der aktuelle Schleifendurchlauf (und nicht die vollständige Schleife!) an der Stelle der Anweisung verlassen und der Programmablauf dann mit dem nächsten Schleifendurchlauf fortgesetzt wird. 
 
 Beispiel:
 ```java
