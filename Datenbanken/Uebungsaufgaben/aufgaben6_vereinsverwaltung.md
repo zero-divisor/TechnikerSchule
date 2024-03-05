@@ -189,6 +189,24 @@ update sparten_zuordnung
     );
 ```
 
+__Alternativ:__
+
+```sql
+update sparten_zuordnung 
+    inner join mitglieder on (
+        mitglieder.mnr = sparten_zuordnung.mnr
+    ) 
+    inner join mitglieder2 on (
+        mitglieder2.name = mitglieder.name
+        and mitglieder2.vorname = mitglieder.vorname
+        and mitglieder.strasse = mitglieder2.strasse
+        and mitglieder.plz = mitglieder2.plz
+        and mitglieder.ort = mitglieder2.ort
+    )
+    set sparten_zuordnung.mnr = mitglieder2.mnr
+    where sparten_zuordnung.mnr = mitglieder.mnr;
+```
+
 ```
 +-----+-----+
 | mnr | snr |
@@ -241,6 +259,41 @@ left join (
 on (mitglieder.mnr = spt.mnr);
 ```
 
+__Alternativ:__
+
+```sql
+select 
+    mitglieder.mnr, 
+    mitglieder.name, 
+    vorname, 
+    strasse, 
+    plz, 
+    ort, 
+    sparten.name as sparte
+from mitglieder 
+inner join sparten_zuordnung
+    on (sparten_zuordnung.mnr = mitglieder.mnr)
+inner join sparten 
+    on (sparten.snr = sparten_zuordnung.snr);
+```
+
+```
++-----+---------+---------+-----------------------+-------+----------------+-------------+
+| mnr | name    | vorname | strasse               | plz   | ort            | sparte      |
++-----+---------+---------+-----------------------+-------+----------------+-------------+
+|   1 | Maier   | Hans    | Veilchenweg 5         | 12345 | Glückstadt     | Tennis      |
+|   1 | Maier   | Hans    | Veilchenweg 5         | 12345 | Glückstadt     | Kegeln      |
+|   2 | Müller  | Josef   | Rosenweg 8            | 12346 | Neu-Glückstadt | Tennis      |
+|   2 | Müller  | Josef   | Rosenweg 8            | 12346 | Neu-Glückstadt | Fußball     |
+|   2 | Müller  | Josef   | Rosenweg 8            | 12346 | Neu-Glückstadt | Kegeln      |
+|   2 | Müller  | Josef   | Rosenweg 8            | 12346 | Neu-Glückstadt | Volleyball  |
+|   3 | Schmid  | Karl    | Im Löwenzahn 12       | 12346 | Neu-Glückstadt | Tennis      |
+|   4 | Schulze | Michael | Sonnenblumenstraße 34 | 12345 | Glückstadt     | Kegeln      |
+|   4 | Schulze | Michael | Sonnenblumenstraße 34 | 12345 | Glückstadt     | Volleyball  |
+|   5 | Schmid  | Udo     | Sonnenblumenstraße 54 | 12345 | Glückstadt     | Tischtennis |
++-----+---------+---------+-----------------------+-------+----------------+-------------+
+```
+
 ### 9.) Lassen Sie sich Name und Vorname von allen Mitgliedern ausgeben, die Tennis spielen.
 
 ```sql
@@ -251,6 +304,17 @@ select mitglieder.name, vorname
     where sparten_zuordnung.snr = (
         select sparten.snr from sparten where sparten.name = 'Tennis'
     );
+```
+
+__Alternativ:__
+
+```sql
+select mitglieder.name, vorname from mitglieder 
+inner join sparten_zuordnung 
+    on (mitglieder.mnr = sparten_zuordnung.mnr) 
+inner join sparten 
+    on (sparten_zuordnung.snr = sparten.snr) 
+where sparten_zuordnung.name = "Tennis";
 ```
 
 ```

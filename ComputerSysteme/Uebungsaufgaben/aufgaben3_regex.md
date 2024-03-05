@@ -186,7 +186,7 @@ __Test Strings__
 ### Gleitkommazahlen (z.B. -2.5e12)
 
 + Beginnt mit '+' oder '-' oder ohne Vorzeichen
-+ eie Ziffer 
++ enie Ziffer 
 + dann Dezimalpunkt
 + dann beliebig viele Nachkommastellen (min. 1)
 + danach 'e' oder 'E'

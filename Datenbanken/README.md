@@ -26,6 +26,8 @@
 * [Klonen einer Tabelle](#klonen-einer-tabelle)
 * [Primärschlüssel und Auto-Inkrement](#primärschlüssel-und-auto-inkrement)
 * [Joins](#joins)
+* [Fremdschlüssel](#fremdschlüssel)
+* [Check-Constraints](#check-constraints)
 
 ## Datenbank
 
@@ -544,3 +546,104 @@ Kommt in beiden Tabellen ein Feld mit dem gleichen Namen vor, so muss zur eindeu
 + __inner join:__ Nur Datensätze, die in beiden Tabellen vorkommen.
 + __left join:__ Alle Datensätze der 1. (linken) Tabelle und wenn vorhanden zugehörige Daten aus der 2. (rechten) Tabelle. Wenn nicht vorhanden: NULL-Werte.
 + __right join:__ Alle Datensätze der 2. (rechten) Tabelle und wenn vorhanden zugehörige Daten aus der 1. (linken) Tabelle. Wenn nicht vorhanden: NULL-Werte.
+
+## Fremdschlüssel
+
+Verknüpfung mit Feld aus einer anderen Tabelle --> Nur Werte aus der Fremdtabelle sind zulässig.
+
+```sql
+create table tabelle2 (
+    feld1, … feldn, 
+    foreign key (feld1) references tabelle1(feld1)
+);
+-- Name wird automatisch vergeben
+
+create table tabelle2 (
+    feld1, … feldn, 
+    constraint contraint-name foreign key (feld1) references tabelle1(feld1)
+);
+-- Name selber gewählt
+```
+ 
+
+__Oder nachträglich:__
+
+```sql
+alter table tabelle2 
+    add foreign key (feld1) 
+    references tabelle1(feld1);
+
+alter table tabelle2 
+    add constraint constraint-name 
+    foreign key (feld1) 
+    references tabelle1(feld1);
+```
+ 
+
+__Löschen:__
+
+```sql
+alter table tabelle2 drop foreign key constraint-name;
+```
+
+__Ermitteln des Constraint-Namen:__
+
+```sql
+show create table <TABELLENNAME>;
+```
+
+## Check-Constraints
+
+Über Check können Feldinhalte auf gültige Werte geprüft werden.
+
+```sql
+create table tabelle (
+    feld1, … feldn, 
+    check(BEDIGUNG)
+);
+-- Name wird automatisch vergeben
+
+create table tabelle (
+    feld1, … feldn, 
+    constraint contraint-name check(BEDINGUNG)
+);
+-- Name selber gewählt
+```
+
+Es können auch Checks direkt ans Feld gehängt werden:
+
+```sql
+create table <tabelle>(<feld> <datentyp> check(BEDINGUNG));
+```
+
+__Oder nachträglich:__
+
+```sql
+alter table tabelle add check(BEDINGUNG);
+alter table tabelle add constraint constraint-name check(BEDINGUNG);
+```
+
+__Löschen:__
+
+```sql
+alter table tabelle drop contraint constraint-name;
+```
+
+__Ermitteln des Constraint-Namen:__
+
+```sql
+show create table <TABELLENNAME>;
+```
+
+__Beispiel:__
+
+```sql
+create table test_check(
+    nr int, 
+    text varchar(20), 
+    check(nr < 10), 
+    check(text = "Hallo" or text = "Ciao")
+);
+-- Im Nummernfeld sind nur Zahlen kleiner 10 zugelassen, 
+-- im Textfeld darf nur Hallo oder Ciao stehen.
+```
