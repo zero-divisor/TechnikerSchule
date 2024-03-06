@@ -1,10 +1,44 @@
 ### 1.) Die Verknüpfungstabelle zwischen Mitglied und Sparte darf nur Schlüsselnummern aus der entsprechenden Stammdatentabelle enthalten.
 
-Sichern Sie die Verknüpfungstabelle entsprechend ab. Testen Sie anschließend was passiert, wenn Sie einen nicht vorhandenen Schlüssel einfügen oder wenn Sie versuchen, eine Sparte zu löschen, die ein Mitglied enthält.
++ Sichern Sie die Verknüpfungstabelle entsprechend ab.
+
+```sql
+alter table sparten_zuordnung 
+    add constraint fk_mnr 
+    foreign key (mnr) 
+    references mitglieder(mnr);
+
+alter table sparten_zuordnung 
+    add constraint fk_snr 
+    foreign key (snr) 
+    references sparten(snr);
+```
+
++ Testen Sie anschließend was passiert, wenn Sie einen nicht vorhandenen Schlüssel einfügen oder wenn Sie versuchen, eine Sparte zu löschen, die ein Mitglied enthält.
+
+__Nicht vorhandenen Schlüssel einfügen:__
+
+```sql
+insert into sparten_zuordnung values(10,10);
+```
+
+```
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`est`.`sparten_zuordnung`, CONSTRAINT `fk_mnr` FOREIGN KEY (`mnr`) REFERENCES `mitglieder` (`mnr`))
+```
+
+__Sparte löschen, die ein Mitglied enthält:__
+
+```sql
+delete from sparten where snr=1;
+```
+
+```
+ERROR 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`est`.`sparten_zuordnung`, CONSTRAINT `fk_snr` FOREIGN KEY (`snr`) REFERENCES `sparten` (`snr`))
+```
 
 ### 2.) Erstellen Sie eine neue Tabelle zur Erfassung der Mitgliedsbeiträge je Kalenderjahr.
 
-+  Welche Felder und Datentypen muss diese Tabelle enthalten? 
++ Welche Felder und Datentypen muss diese Tabelle enthalten? 
 + Wie wählen Sie den Primary Key? 
 + Sollten Sie auch hier einen Constraint anlegen?
 
