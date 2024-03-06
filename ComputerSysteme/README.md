@@ -11,6 +11,7 @@
 * [Streams](#streams)
 * [Stream Editor sed](#stream-editor-sed)
 * [Reguläre Ausdrücke](#reguläre-ausdrücke)
+* [Lokale Benutzerverwaltung](#lokale-benutzerverwaltung)
 
 ## Grundlagen der Befehlszeile
 
@@ -176,3 +177,11 @@ Regex sind universell und werden durch alle gängigen Skript- und Programmierspr
 
 __Vorsicht :__ Es gibt verschiedene Dialekte.\
 __Vorsicht2:__ Regex können schnell unübersichtlich werden
+
+## Lokale Benutzerverwaltung
+
+### Zugriffsrechte auf Dateien
+
+[Ubuntu Wiki Rechte](https://wiki.ubuntuusers.de/Rechte/)
+
+[Crash Course File & Directory Permissions](https://www.youtube.com/watch?v=4e669hSjaX8)
