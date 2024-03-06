@@ -560,7 +560,7 @@ create table tabelle2 (
 
 create table tabelle2 (
     feld1, … feldn, 
-    constraint contraint-name foreign key (feld1) references tabelle1(feld1)
+    constraint contraint_name foreign key (feld1) references tabelle1(feld1)
 );
 -- Name selber gewählt
 ```
@@ -574,7 +574,7 @@ alter table tabelle2
     references tabelle1(feld1);
 
 alter table tabelle2 
-    add constraint constraint-name 
+    add constraint constraint_name 
     foreign key (feld1) 
     references tabelle1(feld1);
 ```
@@ -605,7 +605,7 @@ create table tabelle (
 
 create table tabelle (
     feld1, … feldn, 
-    constraint contraint-name check(BEDINGUNG)
+    constraint contraint_name check(BEDINGUNG)
 );
 -- Name selber gewählt
 ```
@@ -620,13 +620,13 @@ __Oder nachträglich:__
 
 ```sql
 alter table tabelle add check(BEDINGUNG);
-alter table tabelle add constraint constraint-name check(BEDINGUNG);
+alter table tabelle add constraint constraint_name check(BEDINGUNG);
 ```
 
 __Löschen:__
 
 ```sql
-alter table tabelle drop contraint constraint-name;
+alter table tabelle drop contraint constraint_name;
 ```
 
 __Ermitteln des Constraint-Namen:__
