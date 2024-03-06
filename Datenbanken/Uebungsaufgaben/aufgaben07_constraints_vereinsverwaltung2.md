@@ -38,9 +38,19 @@ ERROR 1451 (23000): Cannot delete or update a parent row: a foreign key constrai
 
 ### 2.) Erstellen Sie eine neue Tabelle zur Erfassung der Mitgliedsbeiträge je Kalenderjahr.
 
-+ Welche Felder und Datentypen muss diese Tabelle enthalten? 
-+ Wie wählen Sie den Primary Key? 
-+ Sollten Sie auch hier einen Constraint anlegen?
+1. Welche Felder und Datentypen muss diese Tabelle enthalten? 
+
+   + mnr int not null
+   + jahr int not null
+   + beitrag decimal(8, 2) not null
+
+1. Wie wählen Sie den Primary Key?
+
+   + mnr + jahr
+
+1. Sollten Sie auch hier einen Constraint anlegen?
+
+   + Constraints sing gefährlich, da Mitglieder, die den Verein verlassen in der Mitgliedsbeiträge-Tabelle bleiben sollten, aber nicht in der Mitglieder-Tabelle.
 
 ### 3.) Erweitern Sie die Tabelle Sparten um den Jahresbeitrag.
 
