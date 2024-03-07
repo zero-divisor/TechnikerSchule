@@ -136,14 +136,82 @@ Sehr geehrter Herr Michael Schulze, bitte überweisen Sie den Betrag von 75.00 a
 Sehr geehrter Herr Udo Schmid, bitte überweisen Sie den Betrag von 30.00 auf unser Konto.
 ```
 
+```sql
+select 
+    concat(
+        'Sehr geehrter Herr ', 
+        vorname, 
+        ' ', 
+        mitglieder.name, 
+        ', bitte überweisen Sie den Betrag von ',
+        sum(jahresbeitrag),
+        ' auf unser Konto.'
+    ) as message
+    from mitglieder
+    join sparten_zuordnung 
+    on (mitglieder.mnr = sparten_zuordnung.mnr)
+    join sparten
+    on (sparten.snr = sparten_zuordnung.snr)
+    group by mitglieder.mnr;
+```
+
+```
++------------------------------------------------------------------------------------------------+
+| message                                                                                        |
++------------------------------------------------------------------------------------------------+
+| Sehr geehrter Herr Hans Maier, bitte überweisen Sie den Betrag von 135.00 auf unser Konto.     |
+| Sehr geehrter Herr Josef Müller, bitte überweisen Sie den Betrag von 195.00 auf unser Konto.   |
+| Sehr geehrter Herr Karl Schmid, bitte überweisen Sie den Betrag von 95.00 auf unser Konto.     |
+| Sehr geehrter Herr Michael Schulze, bitte überweisen Sie den Betrag von 75.00 auf unser Konto. |
+| Sehr geehrter Herr Udo Schmid, bitte überweisen Sie den Betrag von 30.00 auf unser Konto.      |
++------------------------------------------------------------------------------------------------+
+```
 
 ### 6.) Nun tritt die erste Frau in Ihren Verein ein. Die Anrede der Jahresrechnung passt so nicht mehr. 
 
-+ Erweitern Sie die Tabelle Mitglieder um das Feld „geschlecht“ und setzen Sie die Werte der bestehenden Mitglieder auf „m“. 
++ Erweitern Sie die Tabelle Mitglieder um das Feld „geschlecht“ und setzen Sie die Werte der bestehenden Mitglieder auf „m“.
 
-+ Richten Sie das Feld "geschlecht" so ein, dass nur "m" und "w" zulässig sind. Fügen Sie anschließend ein weibliches Mitglied ein und weisen Sie sie einer Sparte zu.
+```sql
+alter table mitglieder add geschlecht char(1) not null;
+
+update mitglieder set geschlecht = 'm';
+```
+
++ Richten Sie das Feld "geschlecht" so ein, dass nur "m" und "w" zulässig sind. 
+
+```sql
+alter table mitglieder 
+    add constraint check_mw 
+    check(geschlecht = 'm' or geschlecht = 'w');
+```
+
++ Fügen Sie anschließend ein weibliches Mitglied ein und weisen Sie sie einer Sparte zu.
+
+```sql
+insert into mitglieder(
+    name,
+    vorname,
+    strasse,
+    plz,
+    ort,
+    geschlecht
+)Values(
+    'Müller',
+    'Maria',
+    'Rosenweg 8',
+    12346,
+    'Neu-Glückstadt',
+    'w'
+);
+
+insert into sparten_zuordnung(mnr, snr) values(6, 1);
+```
 
 ### 7.) Nun muss die Tabelle „beitraege“ aktualisiert werden. Erstellen Sie dazu einen insert-Befehl, der nur noch Mitglieder berücksichtigt, die noch nicht in der Beitrags-Tabelle vorhanden sind.
+
+```sql
+
+```
 
 ### 8.) Zuletzt passen Sie den Select für die Jahresrechnung an um die korrekte Anrede auszugeben.
 
