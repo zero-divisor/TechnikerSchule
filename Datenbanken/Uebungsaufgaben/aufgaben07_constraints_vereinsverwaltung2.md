@@ -210,16 +210,37 @@ insert into sparten_zuordnung(mnr, snr) values(6, 1);
 ### 7.) Nun muss die Tabelle „beitraege“ aktualisiert werden. Erstellen Sie dazu einen insert-Befehl, der nur noch Mitglieder berücksichtigt, die noch nicht in der Beitrags-Tabelle vorhanden sind.
 
 ```sql
-
+insert into mitglieds_beitraege(mnr, jahr, name, vorname, beitrag)
+    select mitglieder.mnr, 2021, mitglieder.name, vorname, sum(jahresbeitrag)
+    from mitglieder
+    join sparten_zuordnung 
+    on (mitglieder.mnr = sparten_zuordnung.mnr)
+    join sparten
+    on (sparten.snr = sparten_zuordnung.snr)
+    where mitglieder.mnr not in (
+        select mitglieds_beitraege.mnr from mitglieds_beitraege
+    )
+    group by mitglieder.mnr;
 ```
 
 ### 8.) Zuletzt passen Sie den Select für die Jahresrechnung an um die korrekte Anrede auszugeben.
 
-```
-Sehr geehrter Herr Hans Maier, bitte überweisen Sie den Betrag von 135.00 auf unser Konto.
-Sehr geehrter Herr Josef Müller, bitte überweisen Sie den Betrag von 195.00 auf unser Konto.
-Sehr geehrter Herr Karl Schmid, bitte überweisen Sie den Betrag von 95.00 auf unser Konto.
-Sehr geehrter Herr Michael Schulze, bitte überweisen Sie den Betrag von 75.00 auf unser Konto.
-Sehr geehrter Herr Udo Schmid, bitte überweisen Sie den Betrag von 30.00 auf unser Konto.
-Sehr geehrte Frau Beate Maier, bitte überweisen Sie den Betrag von 40.00 auf unser Konto.
+```sql
+select 
+    concat(
+        'Sehr geehrte', 
+        if(geschlecht = 'm','r Herr ', ' Frau '),
+        vorname, 
+        ' ', 
+        mitglieder.name, 
+        ', bitte überweisen Sie den Betrag von ',
+        sum(jahresbeitrag),
+        ' auf unser Konto.'
+    ) as message
+    from mitglieder
+    join sparten_zuordnung 
+    on (mitglieder.mnr = sparten_zuordnung.mnr)
+    join sparten
+    on (sparten.snr = sparten_zuordnung.snr)
+    group by mitglieder.mnr;
 ```
