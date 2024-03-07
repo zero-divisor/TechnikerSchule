@@ -244,3 +244,16 @@ select
     on (sparten.snr = sparten_zuordnung.snr)
     group by mitglieder.mnr;
 ```
+
+```
++------------------------------------------------------------------------------------------------+
+| message                                                                                        |
++------------------------------------------------------------------------------------------------+
+| Sehr geehrter Herr Hans Maier, bitte überweisen Sie den Betrag von 135.00 auf unser Konto.     |
+| Sehr geehrter Herr Josef Müller, bitte überweisen Sie den Betrag von 195.00 auf unser Konto.   |
+| Sehr geehrter Herr Karl Schmid, bitte überweisen Sie den Betrag von 95.00 auf unser Konto.     |
+| Sehr geehrter Herr Michael Schulze, bitte überweisen Sie den Betrag von 75.00 auf unser Konto. |
+| Sehr geehrter Herr Udo Schmid, bitte überweisen Sie den Betrag von 30.00 auf unser Konto.      |
+| Sehr geehrte Frau Maria Müller, bitte überweisen Sie den Betrag von 95.00 auf unser Konto.     |
++------------------------------------------------------------------------------------------------+
+```
