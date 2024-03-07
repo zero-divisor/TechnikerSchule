@@ -40,17 +40,30 @@ ERROR 1451 (23000): Cannot delete or update a parent row: a foreign key constrai
 
 1. Welche Felder und Datentypen muss diese Tabelle enthalten? 
 
-   + mnr int not null
-   + jahr int not null
-   + beitrag decimal(8, 2) not null
+   + `mnr int not null`
+   + `jahr int not null`
+   + `vorname` + `nachname` wie bei `mitglieder`. Falls ein mitglied den Verein verlässt sollten Name und Vorname immer noch in der DB stehen, um alte Beiträge zuordnen zu können. Eventuell entstehende Abweichungen, falls ein Mitglied seinen Namen ändert, sind ok, da die Einträge in dieser Tabelle reflektieren, was zu einem bestimmten Zeitpunkt war.
+   + `beitrag decimal(8, 2) not null`
 
 1. Wie wählen Sie den Primary Key?
 
-   + mnr + jahr
+   + `mnr` + `jahr`
 
 1. Sollten Sie auch hier einen Constraint anlegen?
 
-   + Constraints sing gefährlich, da Mitglieder, die den Verein verlassen in der Mitgliedsbeiträge-Tabelle bleiben sollten, aber nicht in der Mitglieder-Tabelle.
+   + Constraints sind ungeschickt, da Mitglieder, die den Verein verlassen in der Mitgliedsbeiträge-Tabelle bleiben sollten, aber nicht in der Mitglieder-Tabelle.
+
+```sql
+create table mitglieds_beitraege(
+    mnr int not null,
+    jahr int not null,
+    name varchar(20) not null,
+    vorname varchar(20) not null,
+    beitrag decimal(8, 2) not null,
+    primary key (mnr, jahr)
+);
+```
+
 
 ### 3.) Erweitern Sie die Tabelle Sparten um den Jahresbeitrag.
 
@@ -62,9 +75,56 @@ Tragen Sie dazu die folgenden Werte ein:
 + Volleyball: 35,-€
 + Tischtennis: 30,-€
 
+```sql
+alter table sparten add jahresbeitrag decimal(5, 2);
+
+update sparten set jahresbeitrag = 95.00 where snr = 1;
+update sparten set jahresbeitrag = 25.00 where snr = 2;
+update sparten set jahresbeitrag = 40.00 where snr = 3;
+update sparten set jahresbeitrag = 35.00 where snr = 4;
+update sparten set jahresbeitrag = 30.00 where snr = 5;
+```
+
+```
++-----+-------------+---------------+
+| snr | name        | jahresbeitrag |
++-----+-------------+---------------+
+|   1 | Tennis      |         95.00 |
+|   2 | Fußball     |         25.00 |
+|   3 | Kegeln      |         40.00 |
+|   4 | Volleyball  |         35.00 |
+|   5 | Tischtennis |         30.00 |
++-----+-------------+---------------+
+```
+
 ### 4.) Füllen Sie die Tabelle für die Mitgliedsbeiträge mit den Beiträgen für das Jahr 2021. 
 
 Schaffen Sie das mit einer SQL-Anweisung unter Verwendung der existierenden Daten?
+
+```sql
+insert into mitglieds_beitraege(mnr, jahr, name, vorname, beitrag)
+    select mitglieder.mnr, 2021, mitglieder.name, vorname, sum(jahresbeitrag)
+    from mitglieder
+    join sparten_zuordnung 
+    on (mitglieder.mnr = sparten_zuordnung.mnr)
+    join sparten
+    on (sparten.snr = sparten_zuordnung.snr)
+    group by mitglieder.mnr;
+```
+
+`select * from mitgliedsbeitraege;`
+
+```
++-----+------+---------+---------+---------+
+| mnr | jahr | name    | vorname | beitrag |
++-----+------+---------+---------+---------+
+|   1 | 2021 | Maier   | Hans    |  135.00 |
+|   2 | 2021 | Müller  | Josef   |  195.00 |
+|   3 | 2021 | Schmid  | Karl    |   95.00 |
+|   4 | 2021 | Schulze | Michael |   75.00 |
+|   5 | 2021 | Schmid  | Udo     |   30.00 |
++-----+------+---------+---------+---------+
+```
 
 ### 5.) Erstellen Sie die Jahresrechnung für Ihre Mitglieder. Dazu soll über einen Select die folgende die Ausgabe erzeugt werden.
 
