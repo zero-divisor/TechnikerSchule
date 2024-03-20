@@ -583,7 +583,7 @@ alter table tabelle2
 __Löschen:__
 
 ```sql
-alter table tabelle2 drop foreign key constraint-name;
+alter table tabelle2 drop foreign key constraint_name;
 ```
 
 __Ermitteln des Constraint-Namen:__
