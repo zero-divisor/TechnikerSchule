@@ -1,8 +1,8 @@
-create table team(tnr int primary key, 
+create or replace table team(tnr int primary key, 
                   tname varchar(20) not null
 );
 
-create table fahrer(
+create or replace table fahrer(
   fnr int primary key,
   fname varchar(50) not null,
   land varchar(20) not null,
@@ -10,7 +10,7 @@ create table fahrer(
   tnr int not null
 );
 
-create table rennen(
+create or replace table rennen(
     rnr int primary key,
     sname varchar(50) not null,
     land varchar(30) not null,
@@ -20,7 +20,7 @@ create table rennen(
     datum date not null
 );
 
-create table platzierung(
+create or replace table platzierung(
   rnr int, 
   platz int, 
   fnr int not null, 
