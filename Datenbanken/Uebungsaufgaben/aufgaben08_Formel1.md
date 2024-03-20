@@ -78,16 +78,39 @@ select * from platzierung;
 ### 3.) Ergänzen Sie die fehlenden foreign keys.
 
 ```sql
+alter table fahrer 
+    add constraint fk_team_nr 
+    foreign key (tnr) 
+    references team(tnr);
 
+alter table platzierung 
+    add constraint fk_race_nr 
+    foreign key (rnr) 
+    references rennen(rnr),
+    add constraint fk_fahrer_nr 
+    foreign key (fnr) 
+    references fahrer(fnr);
 ```
 
 ### 4.) Lassen Sie sich die Anzahl der Fahrer ausgeben.
 
-Erwartete Ausgabe: 20
+```sql
+select count(*) from fahrer;
+```
+
+__Erwartete Ausgabe:__ 20
 
 ### 5.) Lassen Sie sich Name und Land aller Fahrer anzeigen, die älter als 29 sind, sortiert nach dem Fahrernamen.
 
-Erwartete Ausgabe:
+```sql
+select fname, land 
+    from fahrer 
+    where falter > 29 
+    order by fname;
+```
+
+__Erwartete Ausgabe:__
+
 ```
 +-------------------+-----------------+
 | fname             | land            |
@@ -103,8 +126,15 @@ Erwartete Ausgabe:
 
 ### 6.) Lassen Sie sich das minimale, das durchschnittliche und das maximale Alter aller Fahrer ausgeben.
 
-Erwartete Ausgabe:
+```sql
+select min(falter), avg(falter), max(falter) from fahrer;
 ```
+
+__Erwartete Ausgabe:__
+
+```
++-------------+-------------+-------------+
+| min(falter) | avg(falter) | max(falter) |
 +-------------+-------------+-------------+
 |          21 |     27.7500 |          41 |
 +-------------+-------------+-------------+
@@ -112,7 +142,11 @@ Erwartete Ausgabe:
 
 ### 7.) Lassen Sie sich die Strecken mit Nummer, Name, Land und Länge des Rennens (Streckenlänge * Rundenanzahl) ausgeben.
 
-Erwartete Ausgabe:
+```sql
+select rnr, sname, land, laenge*runden from rennen order by rnr;
+```
+
+__Erwartete Ausgabe:__
 
 ```
 +-----+------------------------------------+------------------------------+-----------------+
@@ -144,11 +178,21 @@ Erwartete Ausgabe:
 
 ### 8.) Lassen Sie sich die Gesamtlänge aller Rennen ausgeben (Summe der Rennenlänge).
 
+```sql
+select sum(laenge*runden) from rennen;
+```
+
 Erwartete Ausgabe: 7023.796
 
 ### 9.) Lassen Sie sich den Fahrernamen mit dem Teamnamen ausgeben, sortiert nach dem Fahrernamen.
 
-Erwartete Ausgabe:
+```sql
+select fname, tname from fahrer 
+    join team on (fahrer.tnr = team.tnr) 
+    order by fname;
+```
+
+__Erwartete Ausgabe:__
 
 ```
 +-------------------+--------------+
@@ -179,7 +223,13 @@ Erwartete Ausgabe:
 
 ### 10.) Lassen Sie sich die Platzierung mit Name des Fahrers und Rang ausgeben, sortiert nach dem Rang absteigend (letzter Platz zuerst).
 
-Erwartete Ausgabe:
+```sql
+select fname, platz from platzierung
+    join fahrer on (fahrer.fnr = platzierung.fnr)
+    order by platz desc;
+```
+
+__Erwartete Ausgabe:__
 
 ```
 +-------------------+-------+
@@ -207,6 +257,26 @@ Erwartete Ausgabe:
 
 ### 11.) Setzen Sie in der Tabelle platzierung die Punkte des Erstplatzierten auf 0.
 
+```sql
+update platzierung
+    set punkte = 0
+    where platz = 1;
+```
+
 ### 12.) Löschen Sie den Letztplatzierten (Platz 17) aus der Tabelle platzierung.
 
+```sql
+delete from platzierung
+    where platz = (
+        select max(platz) from platzierung
+    );
+```
+
 ### 13.) Fügen Sie den Erstplatzierten des 2. Rennens in die Tabelle platzierung ein. Es soll der Fahrer mit dem Namen Sergio Perez sein und er bekommt 25 Punkte.
+
+```sql
+insert into platzierung
+    (rnr, platz, fnr, punkte)
+    values
+    (2, 1, 11, 25);
+```
