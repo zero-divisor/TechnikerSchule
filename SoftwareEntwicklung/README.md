@@ -13,6 +13,7 @@
 * [Ausgabe am Bildschirm](#ausgabe-am-bildschirm)
 * [Verzweigungen](#verzweigungen)
 * [Schleifen](#schleifen)
+* [Typumwandlung](#Typumwandlung)
 
 
 ## Hello World
@@ -600,4 +601,51 @@ while (i < 5) {
 3
 4
 */
+```
+
+## Typumwandlung
+
+### Implizite Typumwandlung (der kleinere Wertebereich ist im größeren enthalten)
+
+`char` → `int` → `long` → `float` → `double`
+
+__Beispiele:__
+
+```java
+int zeichen = '1';     // char wird automatisch in int umgewandelt
+double kommazahl = 49; // int wird automatisch in double umgewandelt
+double kommazahl2 = 49.0F;
+```
+
+### Ansonsten: Explizite Typumwandlung mit cast-()-Operatoren
+
+__Compiler-Fehler:__ incompatible types: possibly lossy conversion
+
+`double` → `float` → `long` → `int` → `char`
+
+__Beispiele:__
+
+```java
+int zahl = (int)49.7;          // der cast-Operator rundet ab
+float kommazahl = (float)49.7; // double muss in float gecastet werden
+long zahl2 = (long)49.7F;      // float zu long wird abgerundet
+char zeichen = (char)100000;   // Überlauf: zeichen = 100000 – 65536
+int zahl3 = (int)49L;          // long zu int muss gecastet werden
+```
+
+### Ansonsten: Explizite Typumwandlung mit Methoden
+
+`String` → `int`, `String` → `long`, `String` → `float`, `String` → `double`
+
+```java
+int zahl = Integer.parseInt("49");
+double kommazahl = Double.parseDouble("49.0");
+```
+
+`int` → `String`, `long` → `String`, `float` → `String`, `double` → `String`
+
+```java
+String textFromInt = String.valueOf(49);
+String textFromDouble = String.valueOf(49.0);
+String textFromChar = String.valueOf('1');
 ```
