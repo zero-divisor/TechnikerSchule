@@ -461,6 +461,8 @@ System.out.print("Der heutige Tag ist \"Samstag\"");
 
 ## Verzweigungen
 
+### if-else
+
 __Drei verschiedene Möglichkeiten zur Verwendung einer Verzweigung in Java__
 
 <img src="images/if_else.PNG" width="100%">
@@ -509,6 +511,31 @@ if (text1.equals(text2))
 __Merke:__
 + Hinter jedem `if/else` kommt ein Anweisungsblock der zwischen geschweiften Klammern steht.
 + Hinter einem `if/else` kommt kein Semikolon.
+
+### switch-case
+
+Eine switch-case-Anweisung vergleicht den Wert einer Variablen mit den Werten aus den case-Anweisungen.
+
+Wenn eine Übereinstimmung gefunden wird, wird das Programm ab der jeweiligen case-Anweisung bis zum nächsten `break;` ausgeführt.
+
+Programmcode:
+
+```java
+switch(variable) {
+    case wert1:
+        // Anweisung 1
+        break;
+    case wert2:
+        // Anweisung 2
+        break;
+    case wert3:
+        // Anweisung 3
+        break;
+    default:
+        // Anweisung 4
+        break;
+}
+```
 
 ## Schleifen
 
@@ -626,11 +653,11 @@ __Compiler-Fehler:__ incompatible types: possibly lossy conversion
 __Beispiele:__
 
 ```java
-int zahl = (int)49.7;          // der cast-Operator rundet ab
-float kommazahl = (float)49.7; // double muss in float gecastet werden
-long zahl2 = (long)49.7F;      // float zu long wird abgerundet
-char zeichen = (char)100000;   // Überlauf: zeichen = 100000 – 65536
-int zahl3 = (int)49L;          // long zu int muss gecastet werden
+int zahl = (int) 49.7;          // der cast-Operator rundet ab
+float kommazahl = (float) 49.7; // double muss in float gecastet werden
+long zahl2 = (long) 49.7F;      // float zu long wird abgerundet
+char zeichen = (char) 100000;   // Überlauf: zeichen = 100000 – 65536
+int zahl3 = (int) 49L;          // long zu int muss gecastet werden
 ```
 
 ### Ansonsten: Explizite Typumwandlung mit Methoden
