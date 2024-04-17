@@ -105,8 +105,6 @@ where zimmer_nr=401;
 
 ### 7. Sichern Sie die Datenbank so gut wie möglich gegen fehlende Werte ab mit den bekannten Methoden.
 
-fk: zimmer-zimmer_kategorie(kategorie), buchung-zimmer(zimmer_nr)
-
 ```sql
 alter table buchung 
     add constraint check_ez_dz 
