@@ -28,6 +28,7 @@
 * [Joins](#joins)
 * [Fremdschlüssel](#fremdschlüssel)
 * [Check-Constraints](#check-constraints)
+* [Entity-Relationship-Model](#entity-relationship-model)
 
 ## Datenbank
 
@@ -646,4 +647,105 @@ create table test_check(
 );
 -- Im Nummernfeld sind nur Zahlen kleiner 10 zugelassen, 
 -- im Textfeld darf nur Hallo oder Ciao stehen.
+```
+
+## Entity-Relationship-Model
+
+Das Entity-Relationship-Model (kurz: ERM) dient der Darstellung eines Datenmodells aus Sicht der zu speichernden Daten und den Beziehungen, die zwischen den Daten bestehen.
+
+__Das ERM hat 3 grafische Darstellungselemente:__
+
+<img src="images/erm1.PNG">
+
+### 1. Entität
+
+Unter der Entität versteht man den logischen Überbegriff von zu speichernden Daten eines bestimmten Typ, z.B. Kunden, Aufträge oder Artikel. Letztendlich verbirgt sich hinter einer Entität eine Datenbanktabelle(n-Struktur).
+
+### 2. Beziehung
+
+Die Beziehung stellt den logischen Zusammenhang zwischen zwei Entitäten her. Hier muss allerdings durch die Kardinalität unterschieden werden, ob im Datenmodell die Beziehung lediglich über ein weiteres Feld hergestellt wird (bei 1:1- und bei 1:n-Beziehungen) oder ob eine zusätzliche Verknüpfungstabelle erstellt werden muss (bei m:n-Beziehungen). Zusätzlich können an einer Verknüpfungstabelle weitere Attribute hängen.
+
+### 3. Attribut
+
+Ein Attribut ist ein Datenfeld in einer Datenbanktabelle. Z.B. Kundennummer, Vorname, Nachname, Schuhgröße,...
+
+### Kardinalität
+
+Unter Kardinalität versteht man die Anzahl der an einer Beziehung beteiligten Entitäten. Für die Kardinalität gibt es verschiedene Schreibweisen, wir beschränken uns auf die min/max-Schreibweise welche die folgenden 3 Kombinationen bietet:
+
++ 1:1 - Eine Entität auf der einen Seite steht exakt eine Entität auf der anderen Seite gegenüber.
+
+<img src="images/erm2.PNG">
+
++ 1:n- Einer Entität auf der einen Seite steht keine, eine oder mehrere Entitäten auf der anderen Seite gegenüber.
+
+<img src="images/erm3.PNG">
+
++ m:n- Auf beiden Seiten stehen beliebig viele Entitäten in einer Beziehung.
+
+<img src="images/erm4.PNG">
+
+### ERM zu obigem Beispiel mit dem passenden Datenbankschema und den SQL-Kommandos zum Erstellen
+
+#### 1:1
+
+<img src="images/erm5.PNG">
+<img src="images/erm6.PNG">
+
+```sql
+create table Ehepartner(
+    ID_Ehemann int primary key,
+    Name_Ehemann varchar(30),
+    ID_Ehefrau int,
+    Name_Ehefrau varchar(30),
+    Hochzeitsdatum date
+);
+```
+
+Wobei man hier auch darüber diskutieren kann, ob es die ID_Ehefrau benötig. Alternativ könnte man ID und Name neutral anlegen und eine ID_Ehefrau verwenden, die dann eben nur bei den verheirateten Männern ausgefüllt wird. In dem Fall würde der Name_Ehefrau entfallen.
+
+#### 1:n
+
+<img src="images/erm7.PNG">
+<img src="images/erm8.PNG">
+
+```sql
+create table Ehemänner(
+    ID int primary key,
+    Name varchar(30)
+);
+
+create table Ehefrauen(
+    ID int primary key,
+    Name varchar(30),
+    ID_Ehemann int,
+    Hochzeitsdatum date,
+    foreign key(ID_Ehemann) references Ehemänner(ID)
+);
+```
+
+#### m:n
+
+<img src="images/erm9.PNG">
+<img src="images/erm10.PNG">
+
+```sql
+create table Ehemänner(
+    ID int primary key,
+    Name varchar(30)
+);
+
+create table Ehefrauen(
+    ID int primary key,
+    Name varchar(30)
+);
+
+create table Hochzeit(
+    ID_Ehemann int,
+    ID_Ehefrau int,
+    Hochzeitsdatum date,
+    primary key(ID_Ehemann, ID_Ehefrau),
+    foreign key(ID_Ehemann) references Ehemänner(ID),
+    foreign key(ID_Ehefrau) references Ehefrauen(ID)
+);
 ```
