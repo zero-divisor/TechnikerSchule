@@ -62,12 +62,39 @@ create table buchung(
 ### 5. Beim Auschecken soll zum Gast der passende Rechnungsbetrag ermittelt werden.
 
 ```sql
-select buchungs_id, gast_id, zimmer_nr, belegung, 
+insert into buchung(
+    gast_id,
+    zimmer_nr,
+    belegung,
+    date_beginn,
+    date_end
+)values(
+    1,
+    401,
+    'EZ',
+    '2020-09-01',
+    '2020-09-04'
+);
 
-from buchung where buchungs_id = 1
+select 
+    buchungs_id, 
+    gast_id, 
+    zimmer.zimmer_nr, 
+    belegung, 
+    floor(datediff(date_end, date_beginn)) as dauer,
+    if(belegung='EZ', preis_ez, preis_dz) as preis_pro_nacht,
+    floor(datediff(date_end, date_beginn))*if(belegung='EZ', preis_ez, preis_dz) as preis_gesamt
+from buchung
+inner join zimmer on (zimmer.zimmer_nr = buchung.zimmer_nr)
+inner join zimmer_kategorie on (zimmer.kategorie = zimmer_kategorie.kategorie)
+where buchungs_id = 1;
 ```
 
 ### 6. Vor dem Buchen soll es möglich sein, ein bestimmtes Zimmer auf Belegung innerhalb eines vorgegebenen Zeitraums zu prüfen (Antwort "belegt" oder "frei").
+
+```sql
+
+```
 
 ### 7. Sichern Sie die Datenbank so gut wie möglich gegen fehlende Werte ab mit den bekannten Methoden.
 
