@@ -93,9 +93,36 @@ where buchungs_id = 1;
 ### 6. Vor dem Buchen soll es möglich sein, ein bestimmtes Zimmer auf Belegung innerhalb eines vorgegebenen Zeitraums zu prüfen (Antwort "belegt" oder "frei").
 
 ```sql
-
+-- ist Zimmer 401 zwischen 2020-09-02 und 2020-09-08 frei?
+select if(
+    '2020-09-02' > date_end 
+    or
+    '2020-09-08' < date_beginn, 
+    'frei', 'belegt') as status
+from buchung
+where zimmer_nr=401;
 ```
 
 ### 7. Sichern Sie die Datenbank so gut wie möglich gegen fehlende Werte ab mit den bekannten Methoden.
 
-buchung: check belegung, check_dates
+fk: zimmer-zimmer_kategorie(kategorie), buchung-zimmer(zimmer_nr)
+
+```sql
+alter table buchung 
+    add constraint check_ez_dz 
+    check(belegung = 'EZ' or belegung = 'DZ');
+
+alter table buchung 
+    add constraint check_dates 
+    check(date_beginn < date_end);
+
+alter table zimmer 
+    add constraint fk_kategorie 
+    foreign key (kategorie) 
+    references zimmer_kategorie(kategorie);
+
+alter table buchung 
+    add constraint fk_zimmer_nr 
+    foreign key (zimmer_nr) 
+    references zimmer(zimmer_nr);
+```
