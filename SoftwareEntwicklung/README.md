@@ -7,6 +7,7 @@
 * [Eingabe über die Tastatur](#eingabe-über-die-tastatur)
 * [Variablen](#variablen)
 * [Operatoren](#operatoren)
+* [Boolesche Ausdrücke](#boolesche-ausdrücke)
 * [Kommentare in Java](#kommentare-in-java)
 * [Strings](#strings)
 * [Zahlen](#zahlen)
@@ -255,6 +256,90 @@ __Beispiele:__
 11 % 3     // hat den Wert 2 , da 11 : 3 = 3 Rest 2
 2 % 3      // hat den Wert 2 , da  2 : 3 = 0 Rest 2
 10.1 % 3.1 // hat den Wert 0.8 , da 10,1 : 3,1 = 9,3 Rest 0,8
+```
+
+## Boolesche Ausdrücke
+
+### Boolesche Auswertung
+
+Verwendet man zwischen Ausdrücken boolesche Operatoren (&&, ||, !) oder Vergleichsoperatoren (<, <=, >, >=, ==, !=) werden diese boolesch ausgewertet. 
+
+Das bedeutet das den ausgewerteten Ausdrücken ein Wahrheitswert (WAHR oder FALSCH) zugeordnet wird und nennt sich boolesche Auswertung. In Java
+werden zur Repräsentation von WAHR und FALSCH der Datentyp boolean verwendet. Dieser kann die beiden Werte `true` oder `false` annehmen. Einem wahren Ausdruck wird bei boolescher Auswertung somit der Wert `true` zugeordnet. Ein falscher Ausdruck hat den Wert `false`.
+
+### Logische (boolesche) Operatoren: &&, ||, !
+
+#### Der UND-Operator &&
+
+|a|b|a && b|
+|-|-|----|
+|`false`|`false`|`false`|
+|`false`|`true`|`false`|
+|`true`|`false`|`false`|
+|`true`|`true`|`true`|
+
+```java
+if(a && b) // a && b ist wahr, wenn
+           // a und b wahr ist
+
+// z.B.
+while(a && b){
+    // some code
+}
+
+for(i = 0; a && b; i++){
+    // some code
+}
+
+c = a && b;
+```
+
+#### Der ODER-Operator ||
+
+|a|b|a \|\| b|
+|-|-|----|
+|`false`|`false`|`false`|
+|`false`|`true`|`true`|
+|`true`|`false`|`true`|
+|`true`|`true`|`true`|
+
+```java
+if(a || b) // a || b ist wahr, wenn
+           // a oder b wahr ist
+
+// z.B.
+while(a || b){
+    // some code
+}
+
+for(i = 0; a || b; i++){
+    // some code
+}
+
+c = a || b;
+```
+
+#### Der NEGATIONS-Operator !
+
+|a|!a|
+|-|-|
+|`false`|`true`|
+|`true`|`false`|
+
+```java
+if(!a) // !a ist wahr, wenn a
+       // falsch ist
+
+// z.B.
+while(!a){
+    // some code
+}
+
+for(i = 0; !a; i++){
+    // some code
+}
+
+c = !a;
 ```
 
 ## Kommentare in Java

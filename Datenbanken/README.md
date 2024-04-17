@@ -710,7 +710,7 @@ Wobei man hier auch darüber diskutieren kann, ob es die ID_Ehefrau benötig. Al
 <img src="images/erm8.png">
 
 ```sql
-create table Ehemänner(
+create table Ehemaenner(
     ID int primary key,
     Name varchar(30)
 );
@@ -720,7 +720,7 @@ create table Ehefrauen(
     Name varchar(30),
     ID_Ehemann int,
     Hochzeitsdatum date,
-    foreign key(ID_Ehemann) references Ehemänner(ID)
+    foreign key(ID_Ehemann) references Ehemaenner(ID)
 );
 ```
 
@@ -730,7 +730,7 @@ create table Ehefrauen(
 <img src="images/erm10.png">
 
 ```sql
-create table Ehemänner(
+create table Ehemaenner(
     ID int primary key,
     Name varchar(30)
 );
@@ -745,7 +745,7 @@ create table Hochzeit(
     ID_Ehefrau int,
     Hochzeitsdatum date,
     primary key(ID_Ehemann, ID_Ehefrau),
-    foreign key(ID_Ehemann) references Ehemänner(ID),
+    foreign key(ID_Ehemann) references Ehemaenner(ID),
     foreign key(ID_Ehefrau) references Ehefrauen(ID)
 );
 ```

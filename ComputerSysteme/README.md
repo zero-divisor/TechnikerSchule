@@ -185,3 +185,22 @@ __Vorsicht2:__ Regex können schnell unübersichtlich werden
 [Ubuntu Wiki Rechte](https://wiki.ubuntuusers.de/Rechte/)
 
 [Crash Course File & Directory Permissions](https://www.youtube.com/watch?v=4e669hSjaX8)
+
+### Grundsätzliche Forderungen der IT-Sicherheit an Accounts und Passwörter
+
++ __Probleme mit dem root-Verfahren:__
+    + Wenn es mehr als einen Administrator gibt, teilen sich mehrere Personen     ein Password/Account! -> NO GO!
+    + Aktionen auf dem System sind nicht auf den Verursacher rückführbar -> NO GO!
+    + Jeder, der das Passwort hat und den Account nutzt, hat *alle* Rechte, egal ob er sich braucht oder nicht -> NO GO!
++ __Forderungen der IT-Sicherheit:__
+    + Hinter jedem für Menschen zugänglichen Benutzeraccount darf nur *EINE* menschliche Person stehen!
+    + Jede Aktion muss (technisch) auf genau diesen EINZELNEN Benutzer zurückführbar sein.
+    + Rechte dürfen nur so sparsam wie möglich vergeben werden (d.h. wenn jemand z.B. nur für die Softwareinstallationen zuständig ist, dann darf er keinen Zugriff auf die Benutzeradministration haben)
++ __Lösung der Problematik:__
+    + sudo ("Super-User Do")
+    + RBAC (Role-based Access Control)
+    + Mittlerweile bei gängigen Distributionen der Standard
+    + Bei Ubuntu: Erster Benutzer, der angelegt wird ist eine sogenannter "sudoer"
+    + Wer sudoers ist, wird in der Datei /etc/sudoers festgelegt
+    + Editieren nur mit visudo, nicht mit dem "blanken" vi
+    + Vorsicht: Man kann sich "aussperren"!
