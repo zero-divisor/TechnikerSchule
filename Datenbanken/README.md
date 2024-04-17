@@ -655,7 +655,7 @@ Das Entity-Relationship-Model (kurz: ERM) dient der Darstellung eines Datenmodel
 
 __Das ERM hat 3 grafische Darstellungselemente:__
 
-<img src="images/erm1.PNG">
+<img src="images/erm1.png">
 
 ### 1. Entität
 
@@ -675,22 +675,22 @@ Unter Kardinalität versteht man die Anzahl der an einer Beziehung beteiligten E
 
 + 1:1 - Eine Entität auf der einen Seite steht exakt eine Entität auf der anderen Seite gegenüber.
 
-<img src="images/erm2.PNG">
+<img src="images/erm2.png">
 
 + 1:n- Einer Entität auf der einen Seite steht keine, eine oder mehrere Entitäten auf der anderen Seite gegenüber.
 
-<img src="images/erm3.PNG">
+<img src="images/erm3.png">
 
 + m:n- Auf beiden Seiten stehen beliebig viele Entitäten in einer Beziehung.
 
-<img src="images/erm4.PNG">
+<img src="images/erm4.png">
 
 ### ERM zu obigem Beispiel mit dem passenden Datenbankschema und den SQL-Kommandos zum Erstellen
 
 #### 1:1
 
-<img src="images/erm5.PNG">
-<img src="images/erm6.PNG">
+<img src="images/erm5.png">
+<img src="images/erm6.png">
 
 ```sql
 create table Ehepartner(
@@ -706,8 +706,8 @@ Wobei man hier auch darüber diskutieren kann, ob es die ID_Ehefrau benötig. Al
 
 #### 1:n
 
-<img src="images/erm7.PNG">
-<img src="images/erm8.PNG">
+<img src="images/erm7.png">
+<img src="images/erm8.png">
 
 ```sql
 create table Ehemänner(
@@ -726,8 +726,8 @@ create table Ehefrauen(
 
 #### m:n
 
-<img src="images/erm9.PNG">
-<img src="images/erm10.PNG">
+<img src="images/erm9.png">
+<img src="images/erm10.png">
 
 ```sql
 create table Ehemänner(
