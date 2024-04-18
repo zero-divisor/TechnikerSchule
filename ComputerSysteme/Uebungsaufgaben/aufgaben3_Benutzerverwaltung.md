@@ -55,12 +55,34 @@ groupdel - löscht eine Gruppe
 
 #### 2.2 Verwenden Sie die o.g. Werkzeuge um einen weiteren Benutzer namens linus anzulegen.
 
+```
+linux@LinuxMint:~$ sudo useradd -m linus
+linux@LinuxMint:~$ sudo passwd linus
+Geben Sie ein neues Passwort ein:
+Geben Sie das neue Passwort erneut ein:
+passwd: Passwort erfolgreich geändert
+```
+
 + Loggen Sie sich danach komplett aus und als Benutzer linus wieder ein. Welche Unterschiede zum zuvor manuell angelegten Benutzer tux können Sie finden?
+
+1. Home Verzeichnis existiert.
+2. Default Dotfiles sind im Home Verzeichnis angelegt
+3. Default Shell ist /bin/sh nicht /bin/bash
+
 
 ### Aufgabe 3
 
 #### 3.1 Untersuchen Sie das Verzeichnis /etc/skel. Welche Bedeutung hat es für die Benutzerverwaltung?
 
+/etc/skel enthält die Ordner und Dateien, die beim Erstellen eines Benutzers mit useradd im Home Verzeichnis angelegt wurden.
+
 #### 3.2 Sperren Sie als Administrator den Benutzer tux mithilfe des Befehls passwd.
 
+```
+sudo passwd -l tux
+```
+
 + Untersuchen Sie die Auswirkungen auf den Benutzer und suchen Sie in der Datei /etc/shadow und /etc/passwd nach entsprechenden Veränderungen.
+
+1. Passworthash in /etc/shadow beginnt mit '!'
+2. /etc/passwd ist unverändert
