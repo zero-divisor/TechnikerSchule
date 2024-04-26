@@ -15,6 +15,7 @@
 * [Verzweigungen](#verzweigungen)
 * [Schleifen](#schleifen)
 * [Typumwandlung](#Typumwandlung)
+* [Arrays](#arrays)
 
 
 ## Hello World
@@ -760,4 +761,23 @@ double kommazahl = Double.parseDouble("49.0");
 String textFromInt = String.valueOf(49);
 String textFromDouble = String.valueOf(49.0);
 String textFromChar = String.valueOf('1');
+```
+
+## Arrays
+
+Ein Array sind mehrere Werte des selben Datentyps, auf sie über einen Index zugegriffen werden kann.
+
+__Bsp.:__ Deklaration eines Arrays
+
+```java
+int[] values = {2, 3, 4, 5, 6, 7, 8};
+// oder
+int[] values = new int[7];
+```
+
+__Bsp.:__ Zugriff über Index
+
+_Indizes fangen bei 0 an._
+```java
+int firstValue = values[0];
 ```
