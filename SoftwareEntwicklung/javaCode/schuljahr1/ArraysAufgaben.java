@@ -141,6 +141,8 @@ public class ArraysAufgaben {
 		System.out.println("\n4 c)");
 		System.out.println("----------------------------------------");
 		
+//		double rand1 = Math.random()*(maxtemp - minTemp) + minTemp;
+		
 		sc.close();
 	}
 
