@@ -1,5 +1,8 @@
 package schuljahr1;
 
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class ArraysAufgaben {
 
 	public static void main(String[] args) {
@@ -10,12 +13,40 @@ public class ArraysAufgaben {
 		anschlieﬂend (um die Eingabe zu kontrollieren) mit Hilfe einer Schleife wieder aus.
 		*/
 		
+		System.out.println("\n1: Messwerte eingeben und ausgeben");
+		System.out.println("----------------------------------------");
+		
+		Scanner sc = new Scanner(System.in);
+		int[] values = new int[7];
+		
+		System.out.println("Gib 7 integers ein:");
+		
+		for(int i=0; i<values.length; i++) {
+			values[i] = sc.nextInt();
+		}
+		
+		for(int out : values) System.out.println(out);
+		
 		/*
 		Aufgabe 2: Beliebige Anzahl an Messwerten
 		Ein Nachteil des Programms aus Aufgabe 1 ist, dass es nur 7 Messwerte speichern kann. Erweitern Sie nun
 		Ihr Programm aus Aufgabe 1: Es soll zus‰tzlich beim Start des Programms vom Benutzer die Anzahl der zu
 		erfassenden Messwerte eingegeben werden kˆnnen.
 		*/
+		
+		System.out.println("\n2: Beliebige Anzahl an Messwerten");
+		System.out.println("----------------------------------------");
+		
+		System.out.println("Gib die anzahl der Werte ein:");
+		int length = sc.nextInt();
+		int[] values2 = new int[length];
+		
+		System.out.println("Gib " + values2.length + " integers ein:");
+		for(int i=0; i<values2.length; i++) {
+			values2[i] = sc.nextInt();
+		}
+		
+		for(int out : values2) System.out.println(out);
 		
 		/*
 		Aufgabe 3: Durchschnittswert, Hˆchstwert, Tiefstwert
@@ -27,28 +58,90 @@ public class ArraysAufgaben {
 		ermittelt und am Ende ausgegeben werden.
 		*/
 		
+		System.out.println("\n3: Durchschnittswert, Hˆchstwert, Tiefstwert");
+		System.out.println("----------------------------------------");
+		
+		int max=0, min=0, avg=0;
+		
+		for(int val : values2) {
+			max = Math.max(max, val);
+			min = Math.min(min, val);
+			avg += val;
+		}
+		
+		System.out.println("Max = " + max);
+		System.out.println("Min = " + min);
+		System.out.println("Avg = " + avg/values2.length);
+		
 		/*
 		Aufgabe 4: Messwertprogramm f¸r die Profis
+		
 		Teil a)
 		Ver‰ndern Sie Ihr Programm aus Aufgabe 3, in dem nicht der Benutzer die Temperaturwerte eingibt, sondern
 		f¸r ein Jahr lang jeden Tag diese zu Testzwecken von einem Zufallsgenerator generiert werden. Dabei sind
 		Temperaturwerte zwischen -30 Grad und +30 Grad zul‰ssig.
 		Zur Erinnerung: Eine Zufallszahl zwischen 0,0 und 1,0 kann in Java folgendermaﬂen erzeugt werden:
 		double zahl = Math.random();
-		*/
 		
-		/*
 		Teil b)
 		Erweitern Sie Ihr Programm aus Aufgabenteil a), in dem Sie zu jeweils 7 Temperaturwerten (eine Woche)
 		den Durchschnittswert berechnen und die Durchschnittswerte der Reihe nach in ein zus‰tzliches Array
 		schreiben. Geben Sie die Wochendurchschnittswerte am Ende des Programms am Bildschirm aus.
 		*/
 		
+		System.out.println("\n4 a), b)");
+		System.out.println("----------------------------------------");
+		
+		double maxRand=0, minRand=0, avgRand=0;
+		
+		double weeklyMax=0, weeklyMin=0, weeklyAvg=0;
+		double[] weeklyMaxArr = new double[365/7];
+		double[] weeklyMinArr = new double[365/7];
+		double[] weeklyAvgArr = new double[365/7];
+		int weekCounter = 0;
+		
+		for(int i=0; i<365; i++) {
+			double rand = Math.random()*60-30;
+			
+			System.out.println(rand);
+			maxRand = Math.max(maxRand, rand);
+			minRand = Math.min(minRand, rand);
+			avgRand += rand;
+			
+			weeklyMax = Math.max(weeklyMax, rand);
+			weeklyMin = Math.min(weeklyMin, rand);
+			weeklyAvg += rand;
+			
+			if(i%7 == 6) {
+				weeklyMaxArr[weekCounter] = weeklyMax;
+				weeklyMinArr[weekCounter] = weeklyMin;
+				weeklyAvgArr[weekCounter] = weeklyAvg/7;
+				
+				weeklyMax=0;
+				weeklyMin=0;
+				weeklyAvg=0;
+				weekCounter++;
+			}
+		}
+		
+		System.out.println("Max = " + maxRand);
+		System.out.println("Min = " + minRand);
+		System.out.println("Avg = " + avgRand/365);
+		
+		System.out.println("weeklyMax = " + Arrays.toString(weeklyMaxArr));
+		System.out.println("weeklyMin = " + Arrays.toString(weeklyMinArr));
+		System.out.println("weeklyAvg = " + Arrays.toString(weeklyAvgArr));
+		
 		/*
 		Teil c)
 		-30 Grad im Juli und +30 Grad im Januar sind unrealistisch. Generieren Sie f¸r jeden Monat oder Jahreszeit
 		realistische Zufallswerte.
 		*/
+		
+		System.out.println("\n4 c)");
+		System.out.println("----------------------------------------");
+		
+		sc.close();
 	}
 
 }
