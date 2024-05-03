@@ -1,1 +1,2 @@
-BWL Aufgaben + Abgabe
+BWL: Aufgaben + Abgabe
+CS: Aufgaben + SUID, SGID and Sticky-Bit
