@@ -12,7 +12,7 @@
 * [Stream Editor sed](#stream-editor-sed)
 * [Reguläre Ausdrücke](#reguläre-ausdrücke)
 * [Lokale Benutzerverwaltung](#lokale-benutzerverwaltung)
-* [Special permissions SUID, SGID and sticky bit](#special-permissions-suid,-sgid-and-sticky-bit)
+* [Special permissions SUID SGID and sticky bit](#special-permissions-suid-sgid-and-sticky-bit)
 
 ## Grundlagen der Befehlszeile
 
@@ -206,4 +206,4 @@ __Vorsicht2:__ Regex können schnell unübersichtlich werden
     + Editieren nur mit visudo, nicht mit dem "blanken" vi
     + Vorsicht: Man kann sich "aussperren"!
  
- ## Special permissions SUID, SGID and sticky bit
+ ## Special permissions SUID SGID and sticky bit
