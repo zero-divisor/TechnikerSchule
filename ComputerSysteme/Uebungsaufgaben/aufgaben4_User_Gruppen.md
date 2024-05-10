@@ -11,7 +11,15 @@ Die Befehle `adduser` und `addgroup` richten im System Benutzer und Gruppen ein,
 `deluser` und `delgroup` entfernen Benutzer und Gruppen aus dem System. Ihr Vorgehen richtet sich nach den auf der Befehlszeile übergebenen Optionen und Konfigurationsinformationen in `/etc/deluser.conf` und `/etc/adduser.conf`. Sie sind bedienungsfreundlichere Frontends für die Programme `userdel` und `groupdel`. Unter anderem löschen sie optional das Home-Verzeichnis oder sogar alle im System vorhandenen Dateien des zu entfernenden Benutzers und lassen benutzerdefinierte Skripte laufen.
 
 + useradd
+
+`useradd` is a low level utility for adding users. On Debian, administrators should usually use `adduser` instead.
+
 + userdel
+
+`userdel` is a low level utility for removing users. On Debian, administrators should usually use `deluser` instead.
+
+The `userdel` command modifies the system account files, deleting all entries that refer to the user name LOGIN. The named user must exist.
+
 + usermod
 + passwd
 
