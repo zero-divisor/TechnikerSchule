@@ -29,6 +29,7 @@
 * [Fremdschlüssel](#fremdschlüssel)
 * [Check-Constraints](#check-constraints)
 * [Entity-Relationship-Model](#entity-relationship-model)
+* [Prepared Statements](#prepared-statements)
 
 ## Datenbank
 
@@ -748,4 +749,32 @@ create table Hochzeit(
     foreign key(ID_Ehemann) references Ehemaenner(ID),
     foreign key(ID_Ehefrau) references Ehefrauen(ID)
 );
+```
+
+## Prepared Statements
+
+```sql
+PREPARE <name> FROM <sql-statement>; 
+```
+
+Platzhalter im Where-Teil des SQL-Statements werden mit `?` angegeben. Mehrere Platzhalter sind möglich, je Platzhalter ein `?`.
+
+### Abfrage
+
+```sql
+SET @variable1 = <wert für platzhalter>;
+
+EXECUTE <name> USING @variable1;
+```
+
+Die Platzhalter werden mit den Variablen-Inhalten nach `USING` aufgefüllt. Die Reihenfolge der `?` muss hier einhalten werden (der erste Wert steht im ersten Platzhalter, usw.).
+
+### Beispiel
+
+```sql
+PREPARE ein_artikel FROM "SELECT * FROM artikel WHERE artnr = ?";
+
+SET @artikel1 = 1002;
+
+EXECUTE ein_artikel USING @artikel1;
 ```
