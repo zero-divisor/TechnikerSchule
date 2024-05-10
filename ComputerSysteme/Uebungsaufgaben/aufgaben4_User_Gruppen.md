@@ -3,6 +3,9 @@
 Untersuchen Sie mithilfe der man pages auf einer Linux-Maschine die folgenden Befehle
 
 + adduser
+
+Die Befehle `adduser` und `addgroup` richten im System Benutzer und Gruppen ein, deren Eigenschaften durch die Befehlszeilen-Optionen und die Konfigurationsinformationen in `/etc/adduser.conf` festgelegt werden. Sie sind freundlichere Frontends für systemnahe  Werkzeuge  wie die Programme useradd, groupadd und usermod. Standardmäßig werden zu der Debian-Richtlinie konforme Werte für UID und GID gewählt, ein Home-Verzeichnis mit einer Grundkonfiguration eingerichtet, ein benutzerdefiniertes Skript ausgeführt und andere Funktionen.
+
 + deluser
 + useradd
 + userdel
