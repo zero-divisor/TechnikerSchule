@@ -1,7 +1,7 @@
 ### 1. Analysieren Sie die Datei artikel.sql und führen Sie sie aus.
 
 ```sql
-source C:/Users/ale040/Git/TechnikerSchule/Datenbanken/Uebungsaufgaben/artikel.sql;
+source C:/pfad/zu/artikel.sql;
 ```
 
 ```sql
@@ -75,7 +75,7 @@ alter table lager
     foreign key (lagnr)
     references lagerorte(lagnr);
 
--- Es müssen die Artikelnummern 1006 und 1007 angelegt werden sonst schlägt der constraint fehl
+-- Es müssen die Artikelnummern 1006 und 1007 angelegt werden sonst schlägt fk_artnr fehl
 
 INSERT INTO artikel VALUES 
     (1006, 'Platzhalter1', 1, 'ST', '0.50', 2), 
@@ -89,6 +89,34 @@ alter table lager
 
 ### 3. Erstellen Sie das ERM.
 
+<img src="erm.png">
+
 ### 4. Erstellen Sie ein Prepared Statement zur Suche in der Tabelle "artikel" nach einer bestimmten Artikelbenennung und der Artikelgruppe.
 
+```sql
+PREPARE ein_artikel FROM 
+"SELECT * FROM artikel
+INNER JOIN artikelgruppen
+ON (artikel.artgr = artikelgruppen.artgr)
+    WHERE artikel.benennung = ? 
+    AND artikelgruppen.benennung = ?";
+
+SET @artgr_name = 'Lebensmittel';
+SET @art_name = 'Birne';
+
+EXECUTE ein_artikel USING @art_name, @artgr_name;
+```
+
 ### 5. Erstellen Sie ein Prepared Statement zur Erhöhung des Lagerbestands in der Tabelle "lager" unter Angabe Artikelnummer, Lagernummer und Einlagermenge.
+
+```sql
+PREPARE lagerbestand_erhoehen FROM 
+"UPDATE lager SET menge = (menge + ?)
+    WHERE artnr = ? AND lagnr = ?";
+
+SET @artnr = 1001;
+SET @lagnr = 2;
+SET @einlager_menge = 100;
+
+EXECUTE lagerbestand_erhoehen USING @einlager_menge, @artnr, @lagnr;
+```
