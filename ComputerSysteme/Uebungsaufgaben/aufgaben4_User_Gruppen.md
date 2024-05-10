@@ -7,6 +7,9 @@ Untersuchen Sie mithilfe der man pages auf einer Linux-Maschine die folgenden Be
 Die Befehle `adduser` und `addgroup` richten im System Benutzer und Gruppen ein, deren Eigenschaften durch die Befehlszeilen-Optionen und die Konfigurationsinformationen in `/etc/adduser.conf` festgelegt werden. Sie sind freundlichere Frontends für systemnahe  Werkzeuge  wie die Programme useradd, groupadd und usermod. Standardmäßig werden zu der Debian-Richtlinie konforme Werte für UID und GID gewählt, ein Home-Verzeichnis mit einer Grundkonfiguration eingerichtet, ein benutzerdefiniertes Skript ausgeführt und andere Funktionen.
 
 + deluser
+
+`deluser` und `delgroup` entfernen Benutzer und Gruppen aus dem System. Ihr Vorgehen richtet sich nach den auf der Befehlszeile übergebenen Optionen und Konfigurationsinformationen in `/etc/deluser.conf` und `/etc/adduser.conf`. Sie sind bedienungsfreundlichere Frontends für die Programme `userdel` und `groupdel`. Unter anderem löschen sie optional das Home-Verzeichnis oder sogar alle im System vorhandenen Dateien des zu entfernenden Benutzers und lassen benutzerdefinierte Skripte laufen.
+
 + useradd
 + userdel
 + usermod
