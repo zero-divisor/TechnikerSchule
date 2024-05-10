@@ -27,7 +27,7 @@ The `usermod` command modifies the system account files to reflect the changes t
 
 The `passwd` command changes passwords for user accounts. A normal user may only change the password for their own account, while the superuser may change the password for any account. `passwd` also changes the account or associated password validity period.
 
-#### Manche der Befehle machen im Grund das selbe. Welche sollten verwendet werden, d.h. was ist hier "best practice"?
+### Manche der Befehle machen im Grund das selbe. Welche sollten verwendet werden, d.h. was ist hier "best practice"?
 
 ### Aufgabe 2
 
