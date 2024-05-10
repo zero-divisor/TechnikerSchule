@@ -2,28 +2,32 @@
 
 Untersuchen Sie mithilfe der man pages auf einer Linux-Maschine die folgenden Befehle
 
-+ adduser
+#### adduser
 
 Die Befehle `adduser` und `addgroup` richten im System Benutzer und Gruppen ein, deren Eigenschaften durch die Befehlszeilen-Optionen und die Konfigurationsinformationen in `/etc/adduser.conf` festgelegt werden. Sie sind freundlichere Frontends für systemnahe  Werkzeuge  wie die Programme useradd, groupadd und usermod. Standardmäßig werden zu der Debian-Richtlinie konforme Werte für UID und GID gewählt, ein Home-Verzeichnis mit einer Grundkonfiguration eingerichtet, ein benutzerdefiniertes Skript ausgeführt und andere Funktionen.
 
-+ deluser
+#### deluser
 
 `deluser` und `delgroup` entfernen Benutzer und Gruppen aus dem System. Ihr Vorgehen richtet sich nach den auf der Befehlszeile übergebenen Optionen und Konfigurationsinformationen in `/etc/deluser.conf` und `/etc/adduser.conf`. Sie sind bedienungsfreundlichere Frontends für die Programme `userdel` und `groupdel`. Unter anderem löschen sie optional das Home-Verzeichnis oder sogar alle im System vorhandenen Dateien des zu entfernenden Benutzers und lassen benutzerdefinierte Skripte laufen.
 
-+ useradd
+#### useradd
 
-`useradd` is a low level utility for adding users. On Debian, administrators should usually use `adduser` instead.
+`useradd` is a low level utility for adding users. On Debian, administrators should usually use `adduser` instead. By default, a group will also be created for the new user.
 
-+ userdel
+#### userdel
 
 `userdel` is a low level utility for removing users. On Debian, administrators should usually use `deluser` instead.
+The `userdel` command modifies the system account files, deleting all entries that refer to the user name. The named user must exist.
 
-The `userdel` command modifies the system account files, deleting all entries that refer to the user name LOGIN. The named user must exist.
+#### usermod
 
-+ usermod
-+ passwd
+The `usermod` command modifies the system account files to reflect the changes that are specified on the command line.
 
-Manche der Befehle machen im Grund das selbe. Welche sollten verwendet werden, d.h. was ist hier "best practice"?
+#### passwd
+
+The `passwd` command changes passwords for user accounts. A normal user may only change the password for their own account, while the superuser may change the password for any account. `passwd` also changes the account or associated password validity period.
+
+#### Manche der Befehle machen im Grund das selbe. Welche sollten verwendet werden, d.h. was ist hier "best practice"?
 
 ### Aufgabe 2
 
