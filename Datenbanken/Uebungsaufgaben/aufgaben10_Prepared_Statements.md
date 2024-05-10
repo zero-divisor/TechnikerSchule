@@ -59,6 +59,34 @@ MariaDB [est]> desc lager;
 
 ### 2. Legen Sie die fehlenden Foreign Keys an.
 
+```sql
+alter table artikel
+    add constraint fk_artgr
+    foreign key (artgr)
+    references artikelgruppen(artgr);
+
+alter table artikel
+    add constraint fk_mwstgr
+    foreign key (mwstgr)
+    references mwst(mwstgr);
+
+alter table lager
+    add constraint fk_lagnr
+    foreign key (lagnr)
+    references lagerorte(lagnr);
+
+-- Es müssen die Artikelnummern 1006 und 1007 angelegt werden sonst schlägt der constraint fehl
+
+INSERT INTO artikel VALUES 
+    (1006, 'Platzhalter1', 1, 'ST', '0.50', 2), 
+    (1007, 'Platzhalter2', 1, 'ST', '0.75', 2);
+
+alter table lager
+    add constraint fk_artnr
+    foreign key (artnr)
+    references artikel(artnr);
+```
+
 ### 3. Erstellen Sie das ERM.
 
 ### 4. Erstellen Sie ein Prepared Statement zur Suche in der Tabelle "artikel" nach einer bestimmten Artikelbenennung und der Artikelgruppe.
