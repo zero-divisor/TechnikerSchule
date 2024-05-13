@@ -1,6 +1,6 @@
 ### Aufgabe 1
 
-Untersuchen Sie mithilfe der man pages auf einer Linux-Maschine die folgenden Befehle
+### Untersuchen Sie mithilfe der man pages auf einer Linux-Maschine die folgenden Befehle
 
 #### adduser
 
@@ -29,9 +29,60 @@ The `passwd` command changes passwords for user accounts. A normal user may only
 
 ### Manche der Befehle machen im Grund das selbe. Welche sollten verwendet werden, d.h. was ist hier "best practice"?
 
+Anstelle von `useradd` und `userdel` sollten `adduser` und `deluser` verwendet werden.
+
 ### Aufgabe 2
 
 Erstellen Sie sich unter Verwendung von seriösen Quellen ein Tutorial, wie bei Debian lokale Benutzer und Gruppen eingerichtet werden können.
+
+In Debian, there are two command-line tools that you can use to create a new user account: `useradd` and `adduser`.
+
+`useradd` is a low-level utility for adding users while the `adduser` is a friendly interactive frontend to useradd written in Perl.
+
+To create a new user account named `username` using the `adduser` command you would run:
+
+```
+$ sudo adduser username
+```
+
+
+Output:
+
+```
+Adding user `username' ...
+Adding new group `username' (1001) ...
+Adding new user `username' (1001) with group `username' ...
+Creating home directory `/home/username' ...
+Copying files from `/etc/skel' ...
+```
+
+You will be asked a series of questions. The password is required, and all other fields are optional.
+
+```
+Enter new UNIX password: 
+Retype new UNIX password: 
+passwd: password updated successfully
+Changing the user information for username
+Enter the new value, or press ENTER for the default
+	Full Name []: 
+	Room Number []: 
+	Work Phone []: 
+	Home Phone []: 
+	Other []: 
+Is the information correct? [Y/n]
+```
+
+On the last prompt you’ll need to confirm that the information is correct by entering `Y`.
+
+The command will create the new user’s home directory, and copy files from `/etc/skel` directory to the user’s home directory. Within the home directory, the user can write, edit, and delete files and directories.
+
+By default on Debian, members of the group sudo are granted with sudo access.
+
+If you want the newly created user to have administrative rights, add the user to the sudo group:
+
+```
+$ sudo usermod -aG sudo username
+```
 
 ### Aufgabe 3
 
