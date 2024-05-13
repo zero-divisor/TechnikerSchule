@@ -33,7 +33,7 @@ Anstelle von `useradd` und `userdel` sollten `adduser` und `deluser` verwendet w
 
 ### Aufgabe 2
 
-Erstellen Sie sich unter Verwendung von seriösen Quellen ein Tutorial, wie bei Debian lokale Benutzer und Gruppen eingerichtet werden können.
+#### Erstellen Sie sich unter Verwendung von seriösen Quellen ein Tutorial, wie bei Debian lokale Benutzer und Gruppen eingerichtet werden können.
 
 In Debian, there are two command-line tools that you can use to create a new user account: `useradd` and `adduser`.
 
@@ -86,28 +86,92 @@ $ sudo usermod -aG sudo username
 
 ### Aufgabe 3
 
-Legen Sie in Ihrer Linux VM zwei neue Benutzer an, die einer eigenen ebenfalls neu angelegten Sekundärgruppe angehören.
+#### Legen Sie in Ihrer Linux VM zwei neue Benutzer an, die einer eigenen ebenfalls neu angelegten Sekundärgruppe angehören.
+
+```
+$ sudo adduser newuser1
+Adding user `newuser1' ...
+Adding new group `newuser1' (1004) ...
+Adding new user `newuser1' (1004) with group `newuser1' ...
+Creating home directory `/home/newuser1' ...
+Copying files from `/etc/skel' ...
+Geben Sie ein neues Passwort ein:
+Geben Sie das neue Passwort erneut ein:
+passwd: Passwort erfolgreich geändert
+Benutzerinformationen für newuser1 werden geändert.
+Geben Sie einen neuen Wert an oder drücken Sie ENTER für den Standardwert
+        Vollständiger Name []: new1
+        Zimmernummer []:
+        Telefon geschäftlich []:
+        Telefon privat []:
+        Sonstiges []:
+Is the information correct? [Y/n] Y
+```
+
+```
+$ sudo adduser newuser2
+Adding user `newuser2' ...
+Adding new group `newuser2' (1005) ...
+Adding new user `newuser2' (1005) with group `newuser2' ...
+Creating home directory `/home/newuser2' ...
+Copying files from `/etc/skel' ...
+Geben Sie ein neues Passwort ein:
+Geben Sie das neue Passwort erneut ein:
+passwd: Passwort erfolgreich geändert
+Benutzerinformationen für newuser2 werden geändert.
+Geben Sie einen neuen Wert an oder drücken Sie ENTER für den Standardwert
+        Vollständiger Name []: new2
+        Zimmernummer []:
+        Telefon geschäftlich []:
+        Telefon privat []:
+        Sonstiges []:
+Is the information correct? [Y/n] Y
+```
+
+```
+$ sudo addgroup newgroup1
+Adding group `newgroup1' (GID 1006) ...
+Done.
+```
+
+```
+$ sudo usermod -aG newgroup1 newuser1
+$ sudo usermod -aG newgroup1 newuser2
+```
+
+```
+$ tail -n 2 /etc/passwd
+newuser1:x:1004:1004:new1,,,:/home/newuser1:/bin/bash
+newuser2:x:1005:1005:new2,,,:/home/newuser2:/bin/bash
+```
+
+```
+$ tail -n 3 /etc/group
+newuser1:x:1004:
+newuser2:x:1005:
+newgroup1:x:1006:newuser1,newuser2
+```
 
 ### Aufgabe 4
 
-Schauen Sie sich die Einträge an, die beim Anlegen der Benutzer und Gruppen in `/etc/passwd`, `/etc/shadow` und `/etc/group` entstanden sind.
+#### Schauen Sie sich die Einträge an, die beim Anlegen der Benutzer und Gruppen in `/etc/passwd`, `/etc/shadow` und `/etc/group` entstanden sind.
 
 ### Aufgabe 5
 
-Untersuchen sie den Befehl `chage`. Welche Features bietet er, und warum sind diese im Alltag wichtig?
+#### Untersuchen sie den Befehl `chage`. Welche Features bietet er, und warum sind diese im Alltag wichtig?
 
 ### Aufgabe 6
 
-Erstellen Sie sich unter Verwendung von seriösen Quellen ein Tutorial, wie bei Windows 10 lokale Benutzer und Gruppen eingerichtet werden können.
+#### Erstellen Sie sich unter Verwendung von seriösen Quellen ein Tutorial, wie bei Windows 10 lokale Benutzer und Gruppen eingerichtet werden können.
 
 ### Aufgabe 7
 
-Legen Sie auf einer Windows 10 Maschine zwei weitere Benutzer an, die einer eigenen, ebenso neu angelegten Gruppe angehören. Gibt es bei Windows auch Primär- und Sekundärgruppen?
+#### Legen Sie auf einer Windows 10 Maschine zwei weitere Benutzer an, die einer eigenen, ebenso neu angelegten Gruppe angehören. Gibt es bei Windows auch Primär- und Sekundärgruppen?
 
 ### Aufgabe 8
 
-Finden Sie heraus, wo und in welchem Format die Passwörter der Benutzer gespeichert sind. Welches Verschlüsselungsverfahren verwendet Windows dabei?
+#### Finden Sie heraus, wo und in welchem Format die Passwörter der Benutzer gespeichert sind. Welches Verschlüsselungsverfahren verwendet Windows dabei?
 
 ### Aufgabe 9
 
-Welche Möglichkeiten und Features zum Passwort Aging (aquivalent zu `chage`) unterstützt Windows 10?
+#### Welche Möglichkeiten und Features zum Passwort Aging (aquivalent zu `chage`) unterstützt Windows 10?
