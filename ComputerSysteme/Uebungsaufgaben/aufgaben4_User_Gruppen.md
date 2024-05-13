@@ -139,10 +139,21 @@ $ sudo usermod -aG newgroup1 newuser1
 $ sudo usermod -aG newgroup1 newuser2
 ```
 
+### Aufgabe 4
+
+#### Schauen Sie sich die Einträge an, die beim Anlegen der Benutzer und Gruppen in `/etc/passwd`, `/etc/shadow` und `/etc/group` entstanden sind.
+
+
 ```
 $ tail -n 2 /etc/passwd
 newuser1:x:1004:1004:new1,,,:/home/newuser1:/bin/bash
 newuser2:x:1005:1005:new2,,,:/home/newuser2:/bin/bash
+```
+
+```
+$ sudo tail -n 2 /etc/shadow
+newuser1:$y$j9T$2SK2e7mRHvE/FGiOTtE5A/$zLR0d.9OGRxiAuV5ogsHhprR04n2wURnISq6PwrjtsA:19856:0:99999:7:::
+newuser2:$y$j9T$uGUxKRUEMGYN3aTcfUrhg1$nMNYLEOm0KWqlrXH0ra2WllSESTX4YoWvYNc7cdS4cA:19856:0:99999:7:::
 ```
 
 ```
@@ -152,13 +163,80 @@ newuser2:x:1005:
 newgroup1:x:1006:newuser1,newuser2
 ```
 
-### Aufgabe 4
-
-#### Schauen Sie sich die Einträge an, die beim Anlegen der Benutzer und Gruppen in `/etc/passwd`, `/etc/shadow` und `/etc/group` entstanden sind.
-
 ### Aufgabe 5
 
 #### Untersuchen sie den Befehl `chage`. Welche Features bietet er, und warum sind diese im Alltag wichtig?
+
+```
+NAME
+       chage - ändert die Information zum Passwortverfall
+
+ÜBERSICHT
+       chage [Optionen] ANMELDENAME
+
+BESCHREIBUNG
+       The chage command changes the number of days between password changes
+       and the date of the last password change.
+       
+       This information is used by the system to determine when a user must 
+       change their password.
+
+ANMERKUNGEN
+       The chage program requires a shadow password file to be available.
+
+       The chage command is restricted to the root user, 
+       except for the -l option,  which may be used by an unprivileged user 
+       to determine when their password or account is due to expire.
+```
+
+Wichtige Optionen:
+
+```
+-E, --expiredate EXPIRE_DATE
+       Setzt das Datum oder die Anzahl der Tage seit dem 1. Januar 1970, 
+       ab dem auf das Benutzerkonto nicht mehr zugegriffen werden kann. 
+       Das Datum kann auch im Format JJJJ-MM-TT 
+       (oder in dem Format, das in Ihrer Region verbreitet ist) angegeben werden. 
+       Ein Benutzer, dessen Konto gesperrt ist, muss sich mit dem 
+       Systemadministrator in Verbindung setzen, ehe er sich wieder am System anmelden kann.
+
+       Passing the number -1 as the EXPIRE_DATE will remove an account expiration date.
+
+-h, --help
+       zeigt die Hilfe an und beendet das Programm
+
+-I, --inactive INACTIVE
+       Set the number of days of inactivity after a password has expired 
+       before the account is locked. 
+       The INACTIVE option is the number of days of inactivity. 
+       A user whose account is locked must contact the system administrator 
+       before being able to use the system again.
+
+       Passing the number -1 as the INACTIVE will remove an account's inactivity.
+
+-l, --list
+       zeigt Informationen zur Kontoalterung an
+
+-m, --mindays MIN_DAYS
+       Set the minimum number of days between password changes to MIN_DAYS. 
+       A value of zero for this field indicates that the user may change their 
+       password at any time.
+
+-M, --maxdays MAX_DAYS
+       Set the maximum number of days during which a password is valid. 
+       When MAX_DAYS plus LAST_DAY is less than the current day, 
+       the user will be required to change their password 
+       before being able to use their account. 
+       This occurrence can be planned for in advance by use of the -W option, 
+       which provides the user with advance warning.
+
+       Passing the number -1 as MAX_DAYS will remove checking a password's validity.
+
+-W, --warndays WARN_DAYS
+       Set the number of days of warning before a password change is required. 
+       The WARN_DAYS option is the number of days prior to the password expiring 
+       that a user will be warned their password is about to expire.
+```
 
 ### Aufgabe 6
 
