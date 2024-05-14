@@ -30,6 +30,7 @@
 * [Check-Constraints](#check-constraints)
 * [Entity-Relationship-Model](#entity-relationship-model)
 * [Prepared Statements](#prepared-statements)
+* [Views](#views)
 
 ## Datenbank
 
@@ -777,4 +778,32 @@ PREPARE ein_artikel FROM "SELECT * FROM artikel WHERE artnr = ?";
 SET @artikel1 = 1002;
 
 EXECUTE ein_artikel USING @artikel1;
+```
+
+## Views
+
+(Teil-) Ansichten einer Tabelle oder mehrerer Tabellen (mit join verknüpft). Views verhalten sich wie Tabellen.
+
+__Anlegen__
+
+```sql
+CREATE VIEW <view-name> AS <select-statement>;
+```
+
+__Ändern__
+
+```sql
+CREATE OR REPLACE VIEW <view-name> AS <select-statement>;
+```
+
+__Löschen__
+
+```sql
+DROP VIEW <view-name>;
+```
+
+__Anzeigen der View__
+
+```sql
+SHOW CREATE VIEW <view-name>;
 ```
