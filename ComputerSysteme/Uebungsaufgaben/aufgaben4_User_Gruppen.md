@@ -238,9 +238,18 @@ Wichtige Optionen:
        that a user will be warned their password is about to expire.
 ```
 
+If none of the options are selected, `chage` operates in an interactive fashion, prompting the user with the current values for all of the fields. Enter the new value to change the field, or leave the line blank to use the current value. The current value is displayed between a pair of [ ] marks.
+
 ### Aufgabe 6
 
 #### Erstellen Sie sich unter Verwendung von seriösen Quellen ein Tutorial, wie bei Windows 10 lokale Benutzer und Gruppen eingerichtet werden können.
+
+__Create a local user account__
+
++ Select Start > Settings > Accounts and then select Family & other users. (In some versions of Windows you'll see Other users.)
++ Select Add someone else to this PC.
++ Select I don't have this person's sign-in information, and on the next page, select Add a user without a Microsoft account.
++ Enter a user name, password, or password hint, or choose security questions and then select Next.
 
 ### Aufgabe 7
 
