@@ -13,6 +13,8 @@
 * [Reguläre Ausdrücke](#reguläre-ausdrücke)
 * [Lokale Benutzerverwaltung](#lokale-benutzerverwaltung)
 * [Special permissions SUID SGID and sticky bit](#special-permissions-suid-sgid-and-sticky-bit)
+* [Benutzer und Gruppen](#benutzer-und-gruppen)
+* [Prozesse und Prozessmanagement](#prozesse-und-prozessmanagement)
 
 ## Grundlagen der Befehlszeile
 
@@ -358,3 +360,215 @@ You can also combine both the commands to find both SGID and SUID but set files.
 ```
 # find / -type f \\( -perm -4000 -o -perm -2000 \\) -exec ls -l {} \\;
 ```
+
+## Benutzer und Gruppen
+
+In Debian, there are two command-line tools that you can use to create a new user account: `useradd` and `adduser`.
+
+`useradd` is a low-level utility for adding users while the `adduser` is a friendly interactive frontend to useradd written in Perl.
+
+To create a new user account named `username` using the `adduser` command you would run:
+
+```
+$ sudo adduser username
+```
+
+
+Output:
+
+```
+Adding user `username' ...
+Adding new group `username' (1001) ...
+Adding new user `username' (1001) with group `username' ...
+Creating home directory `/home/username' ...
+Copying files from `/etc/skel' ...
+```
+
+You will be asked a series of questions. The password is required, and all other fields are optional.
+
+```
+Enter new UNIX password: 
+Retype new UNIX password: 
+passwd: password updated successfully
+Changing the user information for username
+Enter the new value, or press ENTER for the default
+	Full Name []: 
+	Room Number []: 
+	Work Phone []: 
+	Home Phone []: 
+	Other []: 
+Is the information correct? [Y/n]
+```
+
+On the last prompt you’ll need to confirm that the information is correct by entering `Y`.
+
+The command will create the new user’s home directory, and copy files from `/etc/skel` directory to the user’s home directory. Within the home directory, the user can write, edit, and delete files and directories.
+
+By default on Debian, members of the group sudo are granted with sudo access.
+
+If you want the newly created user to have administrative rights, add the user to the sudo group:
+
+```
+$ sudo usermod -aG sudo username
+```
+
+### Beispiel
+
+Es werden zwei neue Benutzer angelegt, die einer eigenen ebenfalls neu angelegten Sekundärgruppe angehören.
+
+```
+$ sudo adduser newuser1
+Adding user `newuser1' ...
+Adding new group `newuser1' (1004) ...
+Adding new user `newuser1' (1004) with group `newuser1' ...
+Creating home directory `/home/newuser1' ...
+Copying files from `/etc/skel' ...
+Geben Sie ein neues Passwort ein:
+Geben Sie das neue Passwort erneut ein:
+passwd: Passwort erfolgreich geändert
+Benutzerinformationen für newuser1 werden geändert.
+Geben Sie einen neuen Wert an oder drücken Sie ENTER für den Standardwert
+        Vollständiger Name []: new1
+        Zimmernummer []:
+        Telefon geschäftlich []:
+        Telefon privat []:
+        Sonstiges []:
+Is the information correct? [Y/n] Y
+```
+
+```
+$ sudo adduser newuser2
+Adding user `newuser2' ...
+Adding new group `newuser2' (1005) ...
+Adding new user `newuser2' (1005) with group `newuser2' ...
+Creating home directory `/home/newuser2' ...
+Copying files from `/etc/skel' ...
+Geben Sie ein neues Passwort ein:
+Geben Sie das neue Passwort erneut ein:
+passwd: Passwort erfolgreich geändert
+Benutzerinformationen für newuser2 werden geändert.
+Geben Sie einen neuen Wert an oder drücken Sie ENTER für den Standardwert
+        Vollständiger Name []: new2
+        Zimmernummer []:
+        Telefon geschäftlich []:
+        Telefon privat []:
+        Sonstiges []:
+Is the information correct? [Y/n] Y
+```
+
+```
+$ sudo addgroup newgroup1
+Adding group `newgroup1' (GID 1006) ...
+Done.
+```
+
+```
+$ sudo usermod -aG newgroup1 newuser1
+$ sudo usermod -aG newgroup1 newuser2
+```
+
+
+#### Die Einträge in `/etc/passwd`, `/etc/shadow` und `/etc/group` sehen dann wie folgt aus.
+
+
+```
+$ tail -n 2 /etc/passwd
+newuser1:x:1004:1004:new1,,,:/home/newuser1:/bin/bash
+newuser2:x:1005:1005:new2,,,:/home/newuser2:/bin/bash
+```
+
+```
+$ sudo tail -n 2 /etc/shadow
+newuser1:$y$j9T$2SK2e7mRHvE/FGiOTtE5A/$zLR0d.9OGRxiAuV5ogsHhprR04n2wURnISq6PwrjtsA:19856:0:99999:7:::
+newuser2:$y$j9T$uGUxKRUEMGYN3aTcfUrhg1$nMNYLEOm0KWqlrXH0ra2WllSESTX4YoWvYNc7cdS4cA:19856:0:99999:7:::
+```
+
+```
+$ tail -n 3 /etc/group
+newuser1:x:1004:
+newuser2:x:1005:
+newgroup1:x:1006:newuser1,newuser2
+```
+
+## Prozesse und Prozessmanagement
+
+### What is a process?
+
++ A process is an instance of a program that is being executed
++ A process may have one or more child processes and be a child of its parent process.
++ Instructions within one process may be executed concurrently by multiple threads.
+
+### Program vs. Process
+
++ Baking analogy
+  + CPU → Baker
+  + Input Data → Cake Ingredients
+  + Program → Recipe
++ “... a program is something that may be stored on disk, not doing anything.”
+
+### Process Model
+
+<img src="images/prozesse.PNG">
+
+### Execution on a Single-Core CPU
+
+<img src="images/single_core.PNG">
+
+### Context Switch
+
++ A context completely describes a process’s current state of
+execution.
+  + Program counter
+  + Registers
+  + Virtual address space
++ During a context switch ...
+  + the current process’s execution is suspended
+  + the context information for that process is stored
+  + the context of the next process is retrieved from memory and restored in
+the CPU’s registers
+  + the execution of the new process is resumed at the location indicated by
+the program counter
++ Hardware context switching
+  + Context switch completely performed by CPU hardware
++ Software context switching
+  + Context switch performed by the operating system
+  + Often preferred for performance and portability reasons
++ Context switches are performed by a component
+called dispatcher, which is part of the scheduler. The
+dispatcher also alters the flow of execution that is
+required in a context switch.
+
+### Processes vs. Threads
+
++ A single process can have multiple threads.
++ A thread represents a separate, independent, path of execution
+within a process.
++ All threads of a process share the process’s address space
+(memory).
++ Each thread has its own execution stack
+  + Multiple threads can call the execute the same function concurrently
++ Advantages of threads over processes
+  + less context switching time
+  + easier, more efficient, communication between threads
+  + concurrency within a process
+
+### Process-related OS Objectives
+
++ Maximize processor utilization
++ Allocate resources to processes
++ Prioritize execution
++ Allow for user creation of processes
++ Provide mechanisms for synchronization and
+inter-process communication
+
+### Process Control Block (PCB)
+
+<img src="images/pcb.PNG">
+
+### Process States
+
+<img src="images/states.PNG">
+
+### Process States on Linux
+
+<img src="images/states_linux.PNG">
