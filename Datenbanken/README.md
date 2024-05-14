@@ -787,23 +787,23 @@ EXECUTE ein_artikel USING @artikel1;
 __Anlegen__
 
 ```sql
-CREATE VIEW <view-name> AS <select-statement>;
+CREATE VIEW <view_name> AS <select_statement>;
 ```
 
 __Ändern__
 
 ```sql
-CREATE OR REPLACE VIEW <view-name> AS <select-statement>;
+CREATE OR REPLACE VIEW <view_name> AS <select_statement>;
 ```
 
 __Löschen__
 
 ```sql
-DROP VIEW <view-name>;
+DROP VIEW <view_name>;
 ```
 
 __Anzeigen der View__
 
 ```sql
-SHOW CREATE VIEW <view-name>;
+SHOW CREATE VIEW <view_name>;
 ```
