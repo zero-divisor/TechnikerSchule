@@ -31,6 +31,7 @@
 * [Entity-Relationship-Model](#entity-relationship-model)
 * [Prepared Statements](#prepared-statements)
 * [Views](#views)
+* [Index und Unique Key](#index-und-unique-key)
 
 ## Datenbank
 
@@ -807,3 +808,64 @@ __Anzeigen der View__
 ```sql
 SHOW CREATE VIEW <view_name>;
 ```
+
+## Index und Unique Key
+
+### Index
+
+Wenn häufig nach dem Inhalt eines Feldes oder einer Feldkombination in einer Tabelle mit vielen Datensätzen gesucht wird, so lässt sich die Suche mit Index-Tabellen beschleunigen.
+
+__Nachteil:__ Beim Einfügen bzw. Ändern von Datensätzen müssen die Indextabellen vom Datenbankserver zusätzlich gepflegt werden, was dieses Zugriffe verlangsamt.
+
+__Erstellen__
+
+```sql
+CREATE TABLE <tab_name> ( ... , INDEX (<feldname1>)) ;
+ALTER TABLE <tab_name> ADD INDEX (<feldname1>, <feldname2>, ... );
+CREATE INDEX <index_name> ON <tab_name> (<feldname1>);
+```
+
+__Löschen__
+
+```sql
+DROP INDEX <index_name> ON <tab_name>;
+```
+
+__Anzeigen von Indizes__
+
+```sql
+SHOW INDEX FROM <tab_name>;
+```
+
+#### Woher weiß man, ob ein Index verwendet wird beim Suchen?
+
+Hier unterscheiden sich die Möglichkeiten wieder stark von der verwendeten Datenbanksoftware. Bei MariaDB/MySQL setzen Sie das Kommando `EXPLAIN` vor den SQL-Befehl. Anschließend erhalten Sie eine Auskunft, wie die Suche der Datensätze erfolgt.
+
+__Beispiel__
+
+```sql
+explain select * from artikel where benennung like "A%";
+```
+
+Output
+
+```
++------+-------------+---------+------+---------------+------+---------+------+------+-------------+
+| id   | select_type | table   | type | possible_keys | key  | key_len | ref  | rows | Extra       |
++------+-------------+---------+------+---------------+------+---------+------+------+-------------+
+|    1 | SIMPLE      | artikel | ALL  | NULL          | NULL | NULL    | NULL | 7    | Using where |
++------+-------------+---------+------+---------------+------+---------+------+------+-------------+
+```
+
+### Unique Keys
+
+Primary Keys erzwingen die Eindeutigkeit der Inhalte eines Feldes oder einer Feldkombination innerhalb einer Tabelle. Manchmal ist die Eindeutigkeit auch bei anderen Feldern/Feldkombinationen gewünscht (z.B. Steuer-ID im Mitarbeiterstamm). Dies kann mit Unique Keys erreicht werden.
+
+__Erstellen__
+
+```sql
+CREATE TABLE <tab_name> ( ... , UNIQUE KEY (<feldname1>)) ;
+ALTER TABLE <tab_name> ADD UNIQUE KEY (<feldname1>, <feldname2>, ... );
+```
+
+Es können auch `UNIQUE INDEX` erstellt werden (Kombination aus Index und Unique Key).
