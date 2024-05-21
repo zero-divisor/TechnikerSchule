@@ -1,0 +1,10 @@
+- Voraussetzungen: Bedienung von Putty und Notepad++ (Zwischenablage!)
+- Zugelassene Hilfsmittel: Bereitgestellte Refenrenz
+- Themen der 1. Klassenarbeit
+- Join
+- Primary Key
+- Foreign Key
+- Check-Constraints
+- Index, Unique Key
+- Prepared Statements
+- Views
