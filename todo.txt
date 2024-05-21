@@ -1,6 +1,5 @@
 CS: Prozesse Aufgaben
-DB: Views Aufgaben
-    Index und Unique Key Aufgaben
+DB: Index und Unique Key Aufgaben
 	Klassenarbeit Übungsaufgaben
 BWL: Aufgaben
 MCT: Schieberegister Aufschrieb
