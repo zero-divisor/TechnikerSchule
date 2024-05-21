@@ -1,5 +1,3 @@
 CS: Prozesse Aufgaben
-DB: Index und Unique Key Aufgaben
-	Klassenarbeit Übungsaufgaben
 BWL: Aufgaben
 MCT: Schieberegister Aufschrieb
