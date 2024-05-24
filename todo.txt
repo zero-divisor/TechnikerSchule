@@ -1,3 +1,2 @@
 CS: Prozesse Aufgaben
 BWL: Aufgaben
-MCT: Schieberegister Aufschrieb
