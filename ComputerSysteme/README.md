@@ -641,3 +641,98 @@ $ jobs
 ```
 
 The `jobs` command marks the last paused job with the + sign and the immediate previous stopped job with the – sign. If we use `fg` and other job commands without a job number, the last paused job is implied.
+
+#### Resume a Specific Job in the Foreground
+
+The `fg` command allows us to resume a specific job by its job number. The job’s name is output when it starts:
+
+```bash
+$ fg %1
+make -j4
+```
+
+#### Run the Job in the Background
+
+We can also resume a job in the background. A background job runs without tying up the shell. It doesn’t have access to the shell input, but it can still output to the shell:
+
+```bash
+$ bg %1
+[1]+ make -j4 &
+
+```
+
+As with `fg`, we can omit the job number in the `bg` command to resume the last paused job in the background:
+
+```bash
+$ bg
+[2]+ find . -name "*.java" &
+```
+
+#### Start a Job in the Background
+
+We can also start a job directly as a background process by adding the ampersand `&` character to the end of its command line:
+
+```bash
+$ find . -name "*.java" &
+[1] 1726
+```
+
+### Message: There Are Stopped Jobs
+
+Sometimes when we try to exit the shell by pressing `Ctrl+D` or by using `logout`, we may receive an error message:
+
+```bash
+$ logout
+There are stopped jobs.
+```
+
+When bash shows this message, it also prevents logout.
+
+This is because bash doesn’t allow us to exit the shell while there are paused jobs. The current shell’s process manages its jobs. When we pause a job, it’s left in an incomplete state. If we exit the shell with jobs paused, we might lose some critical data.
+
+So, we need to take care of these paused jobs before we can exit the shell.
+
+#### List Jobs to Handle
+
+To decide what to do with our jobs, let’s list them:
+
+```bash
+$ jobs
+[1]-  Stopped                 python
+[2]+  Stopped                 find . -name "*.java" > javafiles.txt
+```
+
+Depending on these jobs, we may wish to keep them running or kill them.
+
+#### Keeping the Job Running
+
+We’ve already seen how to keep a job running in the background:
+
+```bash
+$ bg %2
+[2]+ find . -name "*.java" > javafiles.txt &
+```
+
+As we earlier noted about background jobs, this job can still output to the shell while running in the background. If we exit the shell now, the job might terminate anyway if it tries to output to the shell as the shell doesn’t exist anymore. It can also get killed when it receives certain signals.
+
+To avoid this, we can remove the background job from the current shell using the `disown` command:
+
+```bash
+$ disown %2
+$ logout
+```
+
+This will make sure the background job keeps running in the background even after the shell exits.
+
+#### Killing the Job
+
+Alternatively, we can kill a job we don’t need by using the `kill` command:
+
+```bash
+$ kill %1
+[1]+  Stopped                 python
+
+$ logout
+```
+
+`kill` allows us to use `%1` as the job number, though it is also commonly used to terminate processes by their process id.
