@@ -41,8 +41,6 @@ $ ps -p 1943 -o pid=PID -o comm=NAME -o state=STATE
    1943 cmus            S
 ```
 
-
-
 ```
 PROZESSZUSTANDSCODES
 

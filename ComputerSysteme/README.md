@@ -15,6 +15,7 @@
 * [Special permissions SUID SGID and sticky bit](#special-permissions-suid-sgid-and-sticky-bit)
 * [Benutzer und Gruppen](#benutzer-und-gruppen)
 * [Prozesse und Prozessmanagement](#prozesse-und-prozessmanagement)
+* [Jobs and Job Control in Bash](#jobs-and-job-control-in-bash)
 
 ## Grundlagen der Befehlszeile
 
@@ -572,3 +573,14 @@ inter-process communication
 ### Process States on Linux
 
 <img src="images/states_linux.PNG">
+
+## Jobs and Job Control in Bash
+
+### Processes and Jobs in bash Shell
+
+A process in Linux means any running program. For example, when we run `ls`, it’s run as a process. If we search for a filename, by using `ls -l` and piping the result to `grep`, we’re actually running two processes:
+
+```bash
+$ ls -l | grep script
+-rwxr-xr-x 1 ubuntu users 18 Aug  2 21:44 myscript.sh
+```
