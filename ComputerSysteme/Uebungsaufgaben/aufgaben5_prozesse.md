@@ -1,12 +1,9 @@
 ### Make yourself familiar with the following Unix/Linux tools.
 
-__ps:__ Zeigt laufende Prozesse an.
-
-__pstree:__ Zeigt laufende Prozesse als Baum an.
-
-__top, htop:__ Zeigt laufende Prozesse in echtzeit an. Hat auch Prozessverwaltungsfunktionen.
-
-__GUI system resource monitor:__ Gleich wie top/htop aber mit gui.
++ __ps:__ Zeigt laufende Prozesse an.
++ __pstree:__ Zeigt laufende Prozesse als Baum an.
++ __top, htop:__ Zeigt laufende Prozesse in echtzeit an. Hat auch Prozessverwaltungsfunktionen.
++ __GUI system resource monitor:__ Gleich wie top/htop aber mit gui.
 
 ### Find out how you can use ps to identify and display
 
@@ -57,13 +54,14 @@ PROZESSZUSTANDSCODES
 
 ### Make yourself familiar with the following bash features:
 
-+ jobs
-+ bg
-+ fg
-+ &
-
++ __jobs:__ Zeigt existierende jobs an
++ __bg:__ Setzt job im Hintergrund fort
++ __fg:__ Setzt job im Vordergrund fort
++ __&:__ Startet job im Hintergrund
 
 ### What do bash jobs have to do with processes?
+
+Ein Job ist die logische Gruppierung von Prozessen, die von einem einzelnen Befehl oder Skript gestartet wurden.
 
 ### Analyze the following C program and explain what it does.
 

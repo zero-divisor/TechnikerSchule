@@ -148,7 +148,7 @@ Ae76f5fadf83ab
 1c:e5:e8:8b:d7
 ```
 
-### Überschriften in HTML
+### Überschriften in HTML[^1]
 
 + Beginnt mit \<h1\> bis \<h6\> oder \<H1\> bis \<H6\>
 + Dann eine beliebige Zeichenkette (die eigentliche Überschrift)
@@ -279,3 +279,5 @@ Verwenden Sie den grep-Befehl um den kompletten Sourcecode des Linux-Kernels nac
 |||Piles of crap below pretend to be a parser for module and kernel|
 |||`pr_info("This system has a very crappy BIOS: It doesn't even list the DIMMS.\n");`|
 |||/* We don't need no stinkin' I/O port allocation crap. */|
+
+[^1]: [You can't parse [X]HTML with regex.](https://stackoverflow.com/questions/1732348/regex-match-open-tags-except-xhtml-self-contained-tags)
