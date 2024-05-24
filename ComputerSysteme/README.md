@@ -584,3 +584,60 @@ A process in Linux means any running program. For example, when we run `ls`, it�
 $ ls -l | grep script
 -rwxr-xr-x 1 ubuntu users 18 Aug  2 21:44 myscript.sh
 ```
+
+Since one command may cause several processes to run, it’s represented as a job in the bash shell and is the logical grouping of processes run from a single command or script.
+
+### Pausing and Resuming Jobs
+
+In our `ls` example, we usually expect execution to complete immediately and return us to the shell prompt. But if a command takes a while, we need to wait for it to terminate. And, if we want to run another command while we’re waiting, we would need to open another shell.
+
+Let’s say we ran a `find` command and it has already displayed the file we think we’re looking for. We could press `Ctrl+C` to stop the command. But, maybe it would be preferable to pause find so we can double-check, and resume it if necessary.
+
+We can pause the current job with `Ctrl+Z`:
+
+```bash
+$ find . -name "*.java"
+./code/com/my/package/Main.java
+^Z
+[1]+  Stopped                 find . -name "*.java"
+```
+
+Here, we ran the `find` command and pressed `Ctrl+Z` (^Z) after we saw some output. Pausing the job caused a prompt showing us the job number `[1]` and a message that it has been Stopped. We can refer to the paused job by this job number.
+
+We should note that even though the shell says the job is Stopped, it is, in fact, paused – not terminated – and we’ll be able to resume it.
+
+When we pause the `find` command, we’ll get back to the shell prompt to run further commands. If we wish to resume the find operation, we can use the `fg` command:
+
+```bash
+$ fg
+find . -name "*.java"
+
+./code/com/my/package2/Util.java
+```
+
+Here, the last paused job is resumed and runs in the foreground, tying up the shell until it is completed or we choose to stop or pause it again.
+
+### Job Control
+
+To understand what more we can do with jobs, let’s start two long-running jobs and press `Ctrl+Z` after each to pause them:
+
+```bash
+$ make -j4
+^Z
+[1]+  Stopped                 make -j4
+$ find . -name "*.java"
+^Z
+[2]+  Stopped                 find . -name "*.java"
+```
+
+#### List Jobs
+
+We list jobs using the `jobs` command:
+
+```bash
+$ jobs
+[1]-  Stopped                 make -j4
+[2]+  Stopped                 find . -name "*.java"
+```
+
+The `jobs` command marks the last paused job with the + sign and the immediate previous stopped job with the – sign. If we use `fg` and other job commands without a job number, the last paused job is implied.
