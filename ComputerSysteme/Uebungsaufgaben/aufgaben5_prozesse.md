@@ -31,6 +31,31 @@ $ ps -C cmus -o pid=
 
 __the process state of a process with a certain PID or name__
 
+```
+$ ps -C cmus -o pid=PID -o comm=NAME -o state=STATE
+    PID NAME            STATE
+   1943 cmus            S
+
+$ ps -p 1943 -o pid=PID -o comm=NAME -o state=STATE
+    PID NAME            STATE
+   1943 cmus            S
+```
+
+
+
+```
+PROZESSZUSTANDSCODES
+
+ D    Nicht unterbrechbarer Schlafzustand (üblicherweise E/A)
+ I    Kernel-Thread im Leerlauf
+ R    Laufend oder lauffähig (in der Ausführungswarteschlange)
+ S    Unterbrechbarer Schlafzustand (auf den Abschluss eines Ereignisses wartend)
+ T    Durch Jobsteuersignal gestoppt
+ t    Durch Debugger während der Verfolgung gestoppt
+ W    Paging (ungültig seit Kernel 2.6.xx)
+ X    Tot (sollte niemals angezeigt werden)
+ Z    Defunktionaler (»Zombie«-) Prozess, beendet, aber durch seinen Elternprozess nicht aufgeräumt
+```
 
 ### Make yourself familiar with the following bash features:
 
