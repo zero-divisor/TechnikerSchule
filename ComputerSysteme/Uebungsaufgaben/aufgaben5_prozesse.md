@@ -87,3 +87,18 @@ $ ./forkBomb
 <img src="resourceMonitor.png">
 
 ### What security mechanism does Linux provide to prevent such code from causing harm?
+
+In Distributionen, die systemd verwenden ist die anzahl an Prozessen pro User limitiert.
+
+```bash
+$ systemctl status user-$UID.slice
+● user-1000.slice - User Slice of UID 1000
+     Loaded: loaded
+    Drop-In: /usr/lib/systemd/system/user-.slice.d
+             └─10-defaults.conf
+     Active: active since Thu 2024-03-21 11:03:23 CET; 2 months 6 days ago
+       Docs: man:user@.service(5)
+      Tasks: 221 (limit: 20389)
+```
+
+Alternativ kann die maximale Anzahl von Prozessen pro User in bash mit `ulimit gesetzt werden.`
