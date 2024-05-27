@@ -75,7 +75,15 @@ int main(int argc, char** argv)
 }
 ```
 
+Erzeugt neue Prozesse in endlosschleife, die selbst wieder neue Prozesse erzeugen.
+
 ### Open your GUI system resource monitor, compile and run the program.
 
+
+```bash
+$ gcc -o forkBomb forkBomb.c
+$ ./forkBomb
+```
+<img src="resourceMonitor.png">
 
 ### What security mechanism does Linux provide to prevent such code from causing harm?
