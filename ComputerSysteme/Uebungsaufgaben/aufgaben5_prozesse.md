@@ -101,4 +101,4 @@ $ systemctl status user-$UID.slice
       Tasks: 221 (limit: 20389)
 ```
 
-Alternativ kann die maximale Anzahl von Prozessen pro User in bash mit `ulimit gesetzt werden.`
+Alternativ kann die maximale Anzahl von Prozessen pro User in bash mit `ulimit` gesetzt werden.

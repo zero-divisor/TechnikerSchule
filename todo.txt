@@ -1,3 +1,1 @@
-CS: Prozesse Aufgaben
-    Jobs Aufschrieb https://www.baeldung.com/linux/jobs-job-control-bash
 BWL: Aufgaben
