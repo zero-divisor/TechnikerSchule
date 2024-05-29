@@ -44,6 +44,13 @@
 - `find` Befehl
 - Nachteile: Suche ist zeitaufwändig, weil jeder Dateiname auf der Festplatte "angeschaut" werden muss.
 
+__Beispiel__
+
+```bash
+$ find <directory_path> <search_parameter>
+$ find . -name .gitignore
+```
+
 ### Datenbnkbasiert/Indiziert
 
 - `locate` Befehl
