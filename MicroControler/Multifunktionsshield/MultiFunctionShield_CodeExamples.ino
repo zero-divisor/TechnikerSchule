@@ -104,7 +104,7 @@ void loop() {
   // Zeigt den Buchstaben U an der Tausender stelle der 7SegmentAnzeige an
   // LATCH_CLOCK muss vor beginn der Übertragung auf LOW gesetzt werden
   digitalWrite(LATCH_CLOCK, LOW);
-  // shiftOut() :  Schiebt ein Byte in dias Schieberegister
+  // shiftOut() :  Schiebt ein Byte in das Schieberegister
   // SERIAL_DIN :  Input Pin des Schieberegisters
   // SHIFT_CLOCK : Takt Pin für Schieberegister
   // LSBFIRST bzw. MSBFIRST legt die Reihenfolge der bits fest
