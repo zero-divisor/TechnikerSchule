@@ -19,9 +19,9 @@
 
 // In-/Outputs gleicher Art in ein Array zu speichern kann späterten Code einfacher machen
 // Array mit den Led Pins
-byte led_pins = {LED_D1, LED_D2, LED_D3, LED_D4};
+byte led_pins[4] = {LED_D1, LED_D2, LED_D3, LED_D4};
 // Array mit den Schalter Pins
-byte switch_pins = {SWITCH_S1, SWITCH_S2, SWITCH_S3};
+byte switch_pins[3] = {SWITCH_S1, SWITCH_S2, SWITCH_S3};
 
 // Array für die 4 Blöcke der 7Segment Anzeige
 // Welche Blöcke aktiv sind wird durch die ersten 4 Bits des Schieberegisters bestimmt
