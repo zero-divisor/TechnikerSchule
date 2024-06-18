@@ -55,9 +55,9 @@ void setup() {
   // Analog Input
   pinMode(ANALOG_IN, INPUT);
   // Outputs für Schieberegister
-  pinMode(LCHCLK, OUTPUT);
-  pinMode(SFTCLK, OUTPUT);
-  pinMode(SDI,    OUTPUT);
+  pinMode(LATCH_CLOCK, OUTPUT);
+  pinMode(SHIFT_CLOCK, OUTPUT);
+  pinMode(SERIAL_DIN,  OUTPUT);
   // Outputs für Leds
   for(byte i=0; i<4; i++){
 	pinMode(led_pins[i], OUTPUT);
