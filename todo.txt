@@ -1,1 +1,1 @@
-BWL: Übungsaufgaben in OneNote
+DB: Transaktionen Aufschrieb + Aufgaben

@@ -36,7 +36,7 @@ void setup()
     pinMode(wuerfelLeds[i], OUTPUT);
   }
   // Schalter-Pin als input deklarieren
-  pinMode(schalter, OUTPUT);
+  pinMode(schalter, INPUT);
 }
 
 // Zeigt 6 bei gedrücktem Schalter an
