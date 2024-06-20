@@ -122,7 +122,7 @@ void loop() {
   while(digitalRead(SWITCH_S1) == LOW){ 
     for(byte i=0; i<4; i++){
       // Bei Jedem Schleifendurchgang wird der nächste Buchstabe von TEXT auf dem nächsten Segment angezeigt
-	  // Durch den schnellen wechsel sieht es aus als würden alle Werte gleichzeitig angezeigt
+      // Durch den schnellen wechsel sieht es aus als würden alle Werte gleichzeitig angezeigt
       digitalWrite(LATCH_CLOCK, LOW);
       shiftOut(SERIAL_DIN, SHIFT_CLOCK, LSBFIRST, ~TEXT[i+1]); /*oder*/ shiftOut(SERIAL_DIN, SHIFT_CLOCK, LSBFIRST, TEXT_INV[i+1]);
       shiftOut(SERIAL_DIN, SHIFT_CLOCK, LSBFIRST, segments[i]);

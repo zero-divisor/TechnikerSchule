@@ -32,6 +32,7 @@
 * [Prepared Statements](#prepared-statements)
 * [Views](#views)
 * [Index und Unique Key](#index-und-unique-key)
+* [Transaktionen](#transaktionen)
 
 ## Datenbank
 
@@ -869,3 +870,37 @@ ALTER TABLE <tab_name> ADD UNIQUE KEY (<feldname1>, <feldname2>, ... );
 ```
 
 Es können auch `UNIQUE INDEX` erstellt werden (Kombination aus Index und Unique Key).
+
+## Transaktionen
+
+Gehören mehrere Änderungen an Tabelleninhalten zusammen, so wäre es sehr kritisch, wenn nur ein Teil der Änderungen gemacht wird, weil es z.B. beim letzten Zugriff zu einem Fehler kommt. 
+
+Mit Transaktionen lassen sich Datenbankoperationen zusammenfassen. Kommt es im Laufe der Änderungen zu einem Abbruch, so werden alle bereits gemachten Änderungen zurückgenommen.
+
+### Schritte
+
+1. Transaktion starten
+
+```sql
+BEGIN;
+--alternativ:
+START TRANSACTION;
+```
+
+2. Datensätze manipulieren
+
+```sql
+INSERT, UPDATE, DELETE
+```
+
+3. Transaktion erfolgreich abschließen
+
+```sql
+COMMIT;
+```
+
+... oder Transaktion zurückfahren auf Ursprungszustand
+
+```sql
+ROLLBACK;
+```
