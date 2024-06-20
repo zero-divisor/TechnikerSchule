@@ -904,3 +904,11 @@ COMMIT;
 ```sql
 ROLLBACK;
 ```
+
+### Autocommit
+
+Standardmäßig ist Autocommit aktiv `SET AUTOCOMMIT=1`. Somit werden alle Änderungen sofort automatisch in der Datenbank gespeichert. 
+
+Ist der Autocommit abgeschaltet `SET AUTOCOMMIT=0` so muss jede Datensatzmanipulation mit einem `COMMIT` abgeschlossen werden.
+
+D.h. es wird ohne Autocommit immer automatisch ein `BEGIN` ausgeführt. Wird in diesem Fall vor den Beenden der Client-Session vergessen, ein `COMMIT` durchzuführen, so so waren alle Änderungen, die in der Session durchgeführt wurden, nutzlos.
