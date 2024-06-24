@@ -1,1 +1,1 @@
-DB: Transaktionen Aufschrieb + Aufgaben
+DB: Transaktionen Aufgaben
