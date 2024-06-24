@@ -6,7 +6,7 @@
 
 + Melden Sie sich über ein zweites Fenster ein weiteres Mal an der Datenbank an und prüfen Sie von dieser Seite aus nach jedem Schritt im ersten Fenster mit SELECT den Lagerbestand.
 
-#### Scritt 1
+### Schritt 1
 
 ```sql
 begin;
@@ -48,7 +48,7 @@ select * from lager where artnr = 1001;
 +-------+-------+-------+
 ```
 
-#### Schritt 2
+### Schritt 2
 
 ```sql
 update lager set menge = menge + 5 where artnr = 1001 and lagnr = 1;
@@ -59,7 +59,7 @@ Query OK, 1 row affected (0.000 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
 ```
 
-#### Select Zum überprüfen:
+#### Select zum überprüfen:
 
 ```sql
 select * from lager where artnr = 1001;
@@ -99,7 +99,7 @@ commit;
 Query OK, 0 rows affected (0.002 sec)
 ```
 
-#### Select Zum überprüfen:
+#### Select zum überprüfen:
 
 ```sql
 select * from lager where artnr = 1001;
