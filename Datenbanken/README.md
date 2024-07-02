@@ -921,3 +921,20 @@ D.h. es wird ohne Autocommit immer automatisch ein `BEGIN` ausgeführt. Wird in 
 Da in Stored Procedures das Semikolon als Zeilenabschluss dient, muss im MySQL-Client der Delimiter umgesetzt werden. Ansonsten würde das Kommando zum Erzeugen einer Stored Procedure am ersten Semikolon unvollständig beendet werden. Mit dem Kommando "delimiter" gefolgt vom neuen Trennzeichen wird ein neues Zeichen definiert.
 
 In der Literatur wird sehr häufig dabei der doppelte Slash `//` verwendet. Bei Shellskripten ist eher das doppelte Dollarzeichen `$$` üblich. Am Ende sollte der Delimiter wieder auf das Semikolon zurückgeändert werden, da ansonsten alle weiteren SQL-Kommandos mit dem geänderten Delimiter abgeschlossen werden müssten.
+
+### Erstellen/Ändern
+
+```sql
+delimiter //
+create or replace procedure proc_name()
+begin
+   PROGRAMMCODE;
+end //
+delimiter ;
+```
+
+### Aufrufen
+
+```sql
+call proc_name();
+```
