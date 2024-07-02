@@ -938,3 +938,27 @@ delimiter ;
 ```sql
 call proc_name();
 ```
+
+### Proceduren mit Parametern
+
+Proceduren können auch Parameter übergeben werden. 
+
+__Achtung:__ es gibt keinen Return-Wert wie bei anderen Programmiersprachen. Es wird unterschieden zwischen IN- und OUT-Parametern um Daten an eine Stored Procedure zu übergeben oder von der Stored Procedure zurück zu erhalten. Dient ein Parameter in beide Richtung, so ist das Schlüsselwort INOUT zu verwenden.
+
+```sql
+delimiter //
+create or replace procedure proc_name(IN var1 int, OUT var2 varchar(30))
+begin
+  PROGRAMMCODE;
+end //
+delimiter ;
+```
+
+#### Aufrufen
+
+Die Stored Procedure kann nun bei den IN-Parametern mit Werten direkt oder über eine Variable gefüllt werden. Bei den OUT-Parametern muss eine MySQL-Variable übergeben werden, die den Rückgabewert erhält. Solche Variablen haben im MySQL-Client einen Klammeraffen `@` vorangestellt.
+
+```sql
+call proc_name(1, @text);
+select @text;
+```
