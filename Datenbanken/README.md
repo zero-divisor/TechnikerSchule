@@ -33,6 +33,7 @@
 * [Views](#views)
 * [Index und Unique Key](#index-und-unique-key)
 * [Transaktionen](#transaktionen)
+* [Stored Procedures](#stored-procedures)
 
 ## Datenbank
 
@@ -912,3 +913,11 @@ Standardmäßig ist Autocommit aktiv `SET AUTOCOMMIT=1`. Somit werden alle Ände
 Ist der Autocommit abgeschaltet `SET AUTOCOMMIT=0` so muss jede Datensatzmanipulation mit einem `COMMIT` abgeschlossen werden.
 
 D.h. es wird ohne Autocommit immer automatisch ein `BEGIN` ausgeführt. Wird in diesem Fall vor den Beenden der Client-Session vergessen, ein `COMMIT` durchzuführen, so so waren alle Änderungen, die in der Session durchgeführt wurden, nutzlos.
+
+## Stored Procedures
+
+Über Stored Procedures können Programme geschrieben werden, die in der Datenbank gespeichert werden und dort ausführbar sind. Der Befehlsumfang variiert sehr stark unter den einzelnen Datenbank-Produkten.
+
+Da in Stored Procedures das Semikolon als Zeilenabschluss dient, muss im MySQL-Client der Delimiter umgesetzt werden. Ansonsten würde das Kommando zum Erzeugen einer Stored Procedure am ersten Semikolon unvollständig beendet werden. Mit dem Kommando "delimiter" gefolgt vom neuen Trennzeichen wird ein neues Zeichen definiert.
+
+In der Literatur wird sehr häufig dabei der doppelte Slash `//` verwendet. Bei Shellskripten ist eher das doppelte Dollarzeichen `$$` üblich. Am Ende sollte der Delimiter wieder auf das Semikolon zurückgeändert werden, da ansonsten alle weiteren SQL-Kommandos mit dem geänderten Delimiter abgeschlossen werden müssten.
