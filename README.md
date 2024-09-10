@@ -8,3 +8,6 @@ Schulunterlagen Informationstechnik
 #### [Micro Controler](MicroControler)
 #### [Softwareentwicklung](SoftwareEntwicklung)
 #### [Robotik 1](Robotik1)
+#### [Netze](Netze)
+#### [Netzwerksicherheit](Netzwerksicherheit)
+#### [Betriebliche Kommunikation](BetrieblicheKommunikation)
