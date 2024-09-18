@@ -675,6 +675,23 @@ for(int i=0; i<10; i++) {
 //                              nach einem Schleifendurchlauf
 ```
 
+### for-each-Schleife
+
+
+Iteriert über Datenstrukturen deren Elemente aufzählbar sind. (Array, ArrayList und weitere).
+
+```java
+String[] tage = {"Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag",
+                "Samstag", "Sonntag"};
+
+for(String tag : tage) {
+    System.out.println(tag);
+}
+```
+
++ __Vorteil:__ Kürzere und übersichtlichere Syntax
++ __Nachteil:__ In der Schleife kein Zugriff auf den Schleifenzähler
+
 ### `break` und `continue`
 
 Wird die Anweisung `break` innerhalb einer Schleife notiert, so bewirkt sie, dass deren Ausführung an dieser Stelle beendet und die Programmausführung sofort nach der Schleife fortgesetzt wird. Das folgende Beispiel demonstriert dies.
