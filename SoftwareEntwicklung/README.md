@@ -798,3 +798,71 @@ _Indizes fangen bei 0 an._
 ```java
 int firstValue = values[0];
 ```
+
+## ArrayList
+
++ __Problem bei Arrays:__ Die Größe des Arrays kann nach dem Deklarieren nicht mehr verändert werden.
++ __Lösung:__ ArrayList (`import java.util.ArrayList;`)
+
+### Vergleich von Array und ArrayList
+
+||Array (feste Länge, Typ int) | ArrayList (variable Länge, Typ int) |
+|-|-|-|
+| Deklaration | `int [] werte` | `ArrayList<Integer> werte` |
+| Erzeugung | `werte = new int[anzahl]` | `werte = new ArrayList<Integer>()`|
+| Elemente hinzufügen | --- | `werte.add(zahl)`|
+| Werte zuweisen | `werte[index] = zahl` | `werte.set(index, zahl)`|
+| Zugriff auf ein Element | `int zahl = werte[index]` | `int zahl = werte.get(index)`
+| Ausgabe eines Elements | `System.out.print(werte[3])` | `System.out.print(werte.get(3))`|
+| Länge ermitteln | `werte.length` | `werte.size()`|
+| Element einfügen | --- | `werte.add(index, zahl)`|
+| Element löschen | --- | `werte.remove(index)`|
+| Alle Elemente löschen | --- | `werte.clear()`|
+| Elemente suchen | `Arrays.binarySearch(werte, zahl)` | `werte.contains(zahl)`|
+| Arrays vergleichen | `Arrays.equals(werteA, werteB)`|`werteA.containsAll(werteB) && werteB.containsAll(werteA)`|
+| Array zu ArrayList, ArrayList zu Array | `int[] array = werte.toArray()` | `List<Integer> list = Arrays.asList(werte)`|
+
+### ArrayList von beliebigen Typen (Wrapper-Typen)
+
+Die primitiven Datentypen `byte`, `short`, `int`, `long`, `char`, `float`, `double`, `boolean` können bei der Deklaration und Erzeugung von einer `ArrayList` nicht angegeben werden. Es müssen die dazugehörigen Wrapper-Typen verwendet werden. Die Konvertierung übernimmt der Compiler automatisch.
+
+|Primitiver Typ |Wrapper Typ|
+|-|-|
+|`byte`|`Byte`|
+|`short`|`Short`|
+|`int`|`Integer`|
+|`long`|`Long`|
+|`char`|`Character`|
+|`float`|`Float`|
+|`double`|`Double`|
+|`boolean`|`Boolean`|
+
+### ArrayList Beispiel: Messwerte eingeben und ausgeben
+
+```java
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class MesswerteArrayList{
+    public static void main(String[] args){
+    
+        Scanner kb = new Scanner(System.in);
+        System.out.print("Wieviele Messwerte möchten Sie eingeben? ");
+        int anzahl = kb.nextInt();
+        
+        ArrayList<Integer> werte = new ArrayList<Integer>();
+        
+        // Eingabe
+        for(int i = 0; i < anzahl; i++){
+            System.out.print("Geben Sie Messwert " + (i+1) + " ein: ");
+            int wert = kb.nextInt();
+            werte.add(wert);
+        }
+        
+        // Ausgabe
+        for(int i = 0; i < werte.size(); i++){
+            System.out.println("Messwert " + (i+1) + ": " + werte.get(i));
+        }
+    }
+}
+```
