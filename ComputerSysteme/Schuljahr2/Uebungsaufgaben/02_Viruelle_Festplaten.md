@@ -50,27 +50,39 @@ todo:
 ### Verschlüsseln des Inhalts der Datei
 
 #### 1. Erstelle eine leere Datei mit einer Größe von 20MB oder mehr
+
+```
+dd if=/dev/zero of=virtDiskEncrypted.img bs=1024 count=20480
+```
+
 #### 2. Installiere „cryptsetup“ auf deinem System
+
+```
+sudo apt install cryptsetup
+```
+
 #### 3. Verschlüssele nun den Inhalt der Datei mittels cryptsetup.
+
 ```
-sudo cryptsetup luksFormat datei.img
+sudo cryptsetup luksFormat virtDiskEncrypted.img
 ```
+
 Hierbei wird die komplette datei.img zu LUKS formatiert und mit dem
-gewählten Passwort verschlüsselt.
+gewählten Passwort verschlüsselt.\
 __ACHTUNG: Eventuell vorhandener Inhalt wird gelöscht.__
 
 #### 4. Entschlüssele die Datei, um ein Dateisystem zu erstellen
+
 ```
-sudo cryptsetup open datei.img <name>
+sudo cryptsetup open virtDiskEncrypted.img virtDiskDecrypted.img
 ````
+
 Hier wird der Name der Datei (normalerweise die Festplatte/Partition)
-angegeben, welche geöffnet werden soll. <name> kann hierbei mit einem
-beliebigen Namen ersetzt werden und stellt nur den Namen dar, unter welcher
-die Datei entschlüsselt wird.
+angegeben, welche geöffnet werden soll. `virtDiskDecrypted.img` kann hierbei mit einem beliebigen Namen ersetzt werden und stellt nur den Namen dar, unter welchem die Datei entschlüsselt wird.
 
 #### 5. Nun ist die Datei entschlüsselt worden und kann als normale Festplatte verwendet werden.
-Der Pfad zu der entschlüsselten Partition ist „/dev/mapper/<name>“, abhängig
-von dem vorher gewählten Entschlüsselungsnamen.
+
+Der Pfad zu der entschlüsselten Partition ist `/dev/mapper/virtDiskDecrypted.img`, abhängig von dem vorher gewählten Entschlüsselungsnamen.
 
 #### 6. Gehe nun die Schritte 2 bis 4 aus der 1. Aufgabe durch, um ein Dateisystem zu erstellen und zu mounten. 
 
