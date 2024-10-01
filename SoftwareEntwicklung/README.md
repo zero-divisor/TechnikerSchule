@@ -809,12 +809,30 @@ double [][] zinsen = new double[4][3];
 ```
 
 Man hat nun zwei Angaben zur Anzahl der Elemente und stellt sich eine Tabelle vor. 
-Die erste Angabe [4] steht für die Anzahl der Zeilen und die zweite Angabe [3] für die Anzahl der Spalten.
+Die erste Angabe `[4]` steht für die Anzahl der Zeilen und die zweite Angabe `[3]` für die Anzahl der Spalten.
 #### Deklaration, Erzeugung und Initialisierung mit Literalen:
 
 ```java
 double [][] zinsen = {{28,42,56},{56,83,111},{83,125,166},{111,166,222}};
 ```
+
+#### Zugriff auf einen Wert:
+
+```java
+Wert = Arrayname[ZeilenIndex][SpaltenIndex];
+// Beispiel:
+double wert = zinsen[2][1];
+```
+
+#### Zuweisung eines Wertes: 
+
+```java
+Arrayname[ZeilenIndex][SpaltenIndex] = Wert;
+// Beispiel:
+zinsen[2][1] = 17;
+```
+
+__Hinweis:__ Auch drei-, vier- und mehrdimensionale Arrays sind möglich.
 
 ## ArrayList
 
