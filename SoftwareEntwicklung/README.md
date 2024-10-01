@@ -16,6 +16,7 @@
 * [Schleifen](#schleifen)
 * [Typumwandlung](#Typumwandlung)
 * [Arrays](#arrays)
+* [ArrayList](#arraylist)
 
 
 ## Hello World
@@ -797,6 +798,22 @@ __Bsp.:__ Zugriff über Index
 _Indizes fangen bei 0 an._
 ```java
 int firstValue = values[0];
+```
+
+### Mehrdimensionale Arrays
+
+#### Deklaration und Erzeugung eines leeren zweidimensionalen Arrays:
+
+```java
+double [][] zinsen = new double[4][3];
+```
+
+Man hat nun zwei Angaben zur Anzahl der Elemente und stellt sich eine Tabelle vor. 
+Die erste Angabe [4] steht für die Anzahl der Zeilen und die zweite Angabe [3] für die Anzahl der Spalten.
+#### Deklaration, Erzeugung und Initialisierung mit Literalen:
+
+```java
+double [][] zinsen = {{28,42,56},{56,83,111},{83,125,166},{111,166,222}};
 ```
 
 ## ArrayList
