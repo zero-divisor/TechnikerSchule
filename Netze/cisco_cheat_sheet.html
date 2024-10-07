@@ -1,0 +1,86 @@
+<html>
+<head>
+    <title>Cisco Cheet Sheet</title>
+	<style>
+	table {
+		border-collapse: collapse
+	}
+	table td {
+		padding: 5px 10px 5px 10px;
+	}
+	table th {
+		padding: 10px 10px 10px 10px;
+	}
+	</style>
+</head>
+<body>
+    <h1>Cisco Cheet Sheet</h1>
+	<h2>IOS Modes</h2>
+	
+    <table border="1">
+        <tr><th>Prompt</th><th>Wechseln mit</th><th>Erklärung</th></tr>
+        <tr>
+			<td>Switch></td>
+			<td></td>
+			<td>User Exec Mode / "view-only" Mode</td>
+		</tr>
+		<tr>
+			<td>Switch#</td>
+			<td>enable</td>
+			<td>Privileged Exec Mode</td>
+		</tr>
+		<tr>
+			<td>Switch(config)#</td>
+			<td>configure terminal</td>
+			<td>Global Config Mode</td>
+		</tr>
+		<tr>
+			<td>Switch(config-line)#</td>
+			<td>line console 0</td>
+			<td>Line Configuration Mode</td>
+		</tr>
+		<tr>
+			<td>Switch(config-if)#</td>
+			<td>interface FastEthernet 0/1</td>
+			<td>Interface Configuration Mode</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>exit</td>
+			<td>ein Level zurück</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>end oder Ctrl+z</td>
+			<td>zurück zu Privileged Exec Mode</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>disable</td>
+			<td>von Privileged Exec Mode zu User Exec Mode</td>
+		</tr>
+    </table>
+	
+	<h2>Befehle</h2>
+	
+    <table border="1">
+        <tr><th>Befehl</th><th>Erklärung</th></tr>
+        <tr>
+			<td>Switch(config)#hostname SW1</td>
+			<td>Hostname zu SW1 ändern</td>
+		</tr>
+		<tr>
+			<td>SW1(config-line)#password test</td>
+			<td>Setzt Passwort für User Exec Mode</td>
+		</tr>
+		<tr>
+			<td>SW1(config-line)#login</td>
+			<td>aktiviert login prompt</td>
+		</tr>
+		<tr>
+			<td>SW1(config)#enable secret test</td>
+			<td>Setzt Passwort für Privileged Exec Mode</td>
+		</tr>
+    </table>
+</body>
+</html>
