@@ -1,5 +1,12 @@
-+ Journaling / COW (Was ist das überhaupt und wozu benötigt man das?)
-+ Besondere Features / Anwendungsfälle (Wo/warum wird dieses Filesystem eingesetzt?)
+### Journaling
+
+A journaling file system is a file system that keeps track of changes not yet committed to the file system's main part by recording the goal of such changes in a data structure known as a "journal".
+
+In the event of a system crash or power failure, such file systems can be brought back online more quickly with a lower likelihood of becoming corrupted.
+
+### COW (Was ist das überhaupt und wozu benötigt man das?)
+
+In traditional file systems, file changes overwrite the original data. With COW, when changes are made, a new version of the file is created while keeping the original intact. This approach enables features like snapshots, which capture the state of a file at a specific time without consuming much additional space.
 
 ||Unterstützung von Benutzern und Zugriffsberechtigungen|Journaling|COW|max. Partitionsgröße|max. Dateigröße|max. Anzahl von Dateien|Besondere Features / Anwendungsfälle|
 |-|-|-|-|-|-|-|-|
