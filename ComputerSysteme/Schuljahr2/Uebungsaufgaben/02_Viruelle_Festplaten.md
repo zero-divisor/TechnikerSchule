@@ -44,9 +44,6 @@ Um den Inhalt zu verschlüsseln, kann zusätzlich zu einem Dateisystem die LUKS-
 Alternativ kann auf Software wie Veracrypt (https://www.veracrypt.fr/) genutzt werden.
 Diese erstellt verschlüsselte Container und erlaubt einfaches mounten via einer GUI.
 
-```
-todo:
-```
 ### Verschlüsseln des Inhalts der Datei
 
 #### 1. Erstelle eine leere Datei mit einer Größe von 20MB oder mehr
