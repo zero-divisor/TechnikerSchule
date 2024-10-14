@@ -65,21 +65,65 @@
 	
     <table border="1">
         <tr><th>Befehl</th><th>Erklärung</th></tr>
+		<tr>
+			<td>Switch# show running-config</td>
+			<td>Zeigt config im RAM</td>
+		</tr>
+		<tr>
+			<td>Switch# show startup-config</td>
+			<td>Zeigt config auf dem NVRAM (Flash-Speicher)</td>
+		</tr>
+		<tr>
+			<td>Switch# write memory</td>
+			<td>Speichert running-config dauerhaft</td>
+		</tr>
+		<tr>
+			<td>Switch# copy running-config startup-config </td>
+			<td>Speichert running-config dauerhaft (gleich wie write memory)</td>
+		</tr>
         <tr>
-			<td>Switch(config)#hostname SW1</td>
+			<td>Switch(config)# hostname SW1</td>
 			<td>Hostname zu SW1 ändern</td>
 		</tr>
 		<tr>
-			<td>SW1(config-line)#password test</td>
-			<td>Setzt Passwort für User Exec Mode</td>
+			<td>Switch(config-line)# password test</td>
+			<td>Setzt Passwort für User Exec Mode (line console 0)</td>
 		</tr>
 		<tr>
-			<td>SW1(config-line)#login</td>
+			<td>Switch(config-line)# password test</td>
+			<td>Setzt Passwort für alle vty lines (line vty 0 15)</td>
+		</tr>
+		<tr>
+			<td>Switch(config-line)# login</td>
 			<td>aktiviert login prompt</td>
 		</tr>
 		<tr>
-			<td>SW1(config)#enable secret test</td>
+			<td>Switch(config)# enable secret test</td>
 			<td>Setzt Passwort für Privileged Exec Mode</td>
+		</tr>
+		<tr>
+			<td>Switch> show interfaces</td>
+			<td>Gibt Infos zu allen Interfaces</td>
+		</tr>
+		<tr>
+			<td>Switch> show interfaces FastEthernet 0/7</td>
+			<td>Gibt Infos zu diesem Interface</td>
+		</tr>
+		<tr>
+			<td>Switch(config)# banner motd #test banner#</td>
+			<td>Setzt message-of-the-day (MOTD) banner, delimiter ist vom Nutzer wählbar</td>
+		</tr>
+		<tr>
+			<td>Switch(config)# service password-encryption</td>
+			<td>Verschlüsselt Passwörter in config (Schwache Verschlüsselung)</td>
+		</tr>
+		<tr>
+			<td>Switch# reload</td>
+			<td>Verwirft running-config und lädt startup-config</td>
+		</tr>
+		<tr>
+			<td>Switch# erase startup-config</td>
+			<td>Löscht startup-config, nach reload ist der Switch auf Werkseinstellungen zürückgesetzt</td>
 		</tr>
     </table>
 </body>
