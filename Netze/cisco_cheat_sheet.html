@@ -61,7 +61,7 @@
 		</tr>
     </table>
 	
-	<h2>Befehle</h2>
+	<h2>Basic Config</h2>
 	
     <table border="1">
         <tr><th>Befehl</th><th>Erklärung</th></tr>
@@ -126,5 +126,35 @@
 			<td>Löscht startup-config, nach reload ist der Switch auf Werkseinstellungen zürückgesetzt</td>
 		</tr>
     </table>
+
+	<h2>Configure Ip</h2>
+	
+	<table border="1">
+        <tr><th>Befehl</th><th>Erklärung</th></tr>
+		<tr>
+			<td>Switch# configure terminal</td>
+			<td>Zu Global Config Mode wechseln</td>
+		</tr>
+		<tr>
+			<td>Switch(config)# interface vlan 1</td>
+			<td>Zu Interface Configuration Mode wechseln</td>
+		</tr>
+		<tr>
+			<td>Switch(config-if)# ip address 192.168.1.20 255.255.255.0</td>
+			<td>Ip Adresse und Subnetzmaske setzen</td>
+		</tr>
+		<tr>
+			<td>Switch(config-if)# no shutdown</td>
+			<td>Interface (vlan 1) enablen</td>
+		</tr>
+		<tr>
+			<td>Switch(config-if)# exit</td>
+			<td>Zurück zu Global Config Mode wechseln</td>
+		</tr>
+		<tr>
+			<td>Switch(config)# ip default-gateway 192.168.1.1</td>
+			<td>Gateway Ip setzen</td>
+		</tr>
+	</table>
 </body>
 </html>
