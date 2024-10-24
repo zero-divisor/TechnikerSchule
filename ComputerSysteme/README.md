@@ -17,6 +17,7 @@
 * [Prozesse und Prozessmanagement](#prozesse-und-prozessmanagement)
 * [Jobs and Job Control in Bash](#jobs-and-job-control-in-bash)
 * [Partitionen und Mounten](#partitionen-und-mounten)
+* [Hardlinks und Symbolosche Links](#hardlinks-und-symbolosche-links)
 
 ## Grundlagen der Befehlszeile
 
@@ -760,9 +761,53 @@ $ logout
   + Dieser muss nur einfach ein Verzeichnis sein
   + z.B. `mkdir meindatentraeger`
   + `mount /dev/vde1 meindatentraeger`
-  + ... hängt /dev/vde1 unter dem Pfad meindatentraeger ein
+  + ... hängt `/dev/vde1` unter dem Pfad meindatentraeger ein
 + Aushängen mit umount (Achtung: kein n!)
 
 Hinweis: Filesysteme können auch in "normalen" Dateien angelegt werden und davon gemountet werden. -> Images!
 
 + Permanentes Mounten: `/etc/fstab` (oder "mount" Units von systemd)
+
+## Hardlinks und Symbolosche Links
+
+### Hardlinks
+
++ Bedeutet: Einen oder mehrere Verzeichniseinträge zeigen auf den selben Inode. (Konsequenz: Eine Datei hat einen oder mehrere Namen/Einträge im Verzeichnis)
++ -> Jeder Verzeichniseintrag ist ein Hardlink!
++ Wenn der letzte Hardlink auf einen Inode gelöscht wird, dann wird der Inode für anderweitige Verwendung freigegeben.
++ Es gibt de facto keine "Originaldatei", sondern einfach nur einmal die Daten auf der Filesystem (an der entsprechenden Inode Nr.) und 1 oder mehrere Verzeichniseinträge.
++ Werden Dateirechte über einen Hardlink geändert, dann sind sie für jeden anderen Hardlink auch so sichtbar.
+
+__Nachteil:__
+
++ Hardlinks funktionieren nur auf dem selben Filesystem! (Also z.B. nicht über Partitionen hinaus)
+
+__Vorteil:__
+
++ Deutlich schnellere Zugriffszeiten
++ Verbrauchen keinen inode
+
+### Symblinks (Symbolic Link)
+
++ Symbolisch => Namensbasierte Verknüpfungen, nicht Inode
++ Zum Namen gehört der Pfad dazu
++ Ein Symblink bekommt einen eigenen, neuen Inode.
++ Konsequenz: Es gibt eine Originaldatei! Im Symblink selber steht nur der Name (mit der Location)
++ Wird das Original gelöscht, ensteht ein "stale link" (kaputter Link, der auf "nix" zeigt)
++ Ein Symblink kann die Rechte seines Targets nicht "kennen" (hat immer 0777). Werden die Rechte auf einen Symblink gesetzt, so verändert das nur die Rechte des Targets.
+
+__Nachteile:__
+
++ Inode wird verbraucht
++ Zugriffszeit ist deutlich langsamer als bei Hardlinks
+
+__Vorteil:__
+
++ Funktioniert über Filesystem-Grenzen hinaus
+
+### Zweck von Links (allgemein)
+
++ Benutzerfreundlichkeit (z.B. eine Anwendung vom Desktop aus Starten)
++ Zur Konfiguration von System- und Applikationen
+    + Verschiedene Konfig-Files können z.B. versions- oder profil-abhängig verlinkt werden
+    + Beispiel: Java JDK + JRE
