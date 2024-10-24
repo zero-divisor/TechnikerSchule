@@ -16,6 +16,7 @@
 * [Benutzer und Gruppen](#benutzer-und-gruppen)
 * [Prozesse und Prozessmanagement](#prozesse-und-prozessmanagement)
 * [Jobs and Job Control in Bash](#jobs-and-job-control-in-bash)
+* [Partitionen und Mounten](#partitionen-und-mounten)
 
 ## Grundlagen der Befehlszeile
 
@@ -743,3 +744,25 @@ $ logout
 ```
 
 `kill` allows us to use `%1` as the job number, though it is also commonly used to terminate processes by their process id.
+
+## Partitionen und Mounten
+
++ Partitionieren (mit einem dieser Tools)
+  + `fdisk`
+  + `parted`
+  + `gparted`
++ Dateisystem anlegen ("Formatieren")
+  + mit `mkfs`
+  + z.B. `mkfs -t ext4 /dev/vdb1`
+  + Es gibt in manchen Distributionen auch "Shortcuts" für mkfs mit dem entsprechenden Type, z.B. `mkfs.ntfs`
++ Mounten ("Einhängen") von Filesystemen
+  + Hierzu braucht man einen "mountpoint" (Einhängepunkt) irgendwo im Systembaum
+  + Dieser muss nur einfach ein Verzeichnis sein
+  + z.B. `mkdir meindatentraeger`
+  + `mount /dev/vde1 meindatentraeger`
+  + ... hängt /dev/vde1 unter dem Pfad meindatentraeger ein
++ Aushängen mit umount (Achtung: kein n!)
+
+Hinweis: Filesysteme können auch in "normalen" Dateien angelegt werden und davon gemountet werden. -> Images!
+
++ Permanentes Mounten: `/etc/fstab` (oder "mount" Units von systemd)
