@@ -18,6 +18,7 @@
 * [Jobs and Job Control in Bash](#jobs-and-job-control-in-bash)
 * [Partitionen und Mounten](#partitionen-und-mounten)
 * [Hardlinks und Symbolosche Links](#hardlinks-und-symbolosche-links)
+* [Logical Volume Manager](#logical-volume-manager)
 
 ## Grundlagen der Befehlszeile
 
@@ -811,3 +812,30 @@ __Vorteil:__
 + Zur Konfiguration von System- und Applikationen
     + Verschiedene Konfig-Files können z.B. versions- oder profil-abhängig verlinkt werden
     + Beispiel: Java JDK + JRE
+
+## Logical Volume Manager
+
+### Nachteile/Grenzen der herkömmlichen Partitionierung
+
++ Partionsgröße kann nicht größer sein als die physikalische Platte, daher kann sich eine Partition nicht über mehrere Platten erstrecken
++ Änderungen der Partitionsgrößen sind schwierig, z.B. kann nicht einfach eine ganze Festplatte nachträglich zu einer Partition dazu genommen werden
+
+__Lösung:__ Abstraktion (Einbau einer "Zwischenschicht") -> Logical Volume Management (LVM)
+
+### Wie funktioniert's?
+
++ Mehrere Physical Volumes (PV) - das sind physikalische Festplatten - werden zu einer Volume Group (VG) zusammengefasst - das ist sozusagen ein "Speicher-Pool"
++ Dieser "Speicher-Pool" (VG) kann in eine oder mehrere Logische Volumes (LV) aufgeteilt werden, auf denen dann das Filesystem angelegt werden kann.
++ __Vorteil:__ Ein LV kann sich über mehrere physikalische Platten erstrecken
+
+### In der Praxis:
+
++ LVM installieren `sudo apt install lvm2`
++ PVs definieren `pvcreate`
++ VGs definieren und PVs zur VG hinzufügen `vgcreate`
++ LVs definieren `lvcreate`
++ Filesystem auf LV anlegen `mkfs`
++ Mounten
++ Freuen
+
+
