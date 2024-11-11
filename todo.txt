@@ -1,3 +1,2 @@
-CS: BL Ausgelagertes Home
-	Lvm Aufgaben
+CS: Lvm Aufgaben
 NetSec: Verschlüsselung
