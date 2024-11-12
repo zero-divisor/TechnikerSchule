@@ -17,6 +17,7 @@
 * [Typumwandlung](#Typumwandlung)
 * [Arrays](#arrays)
 * [ArrayList](#arraylist)
+* [Methoden](#methoden)
 
 
 ## Hello World
@@ -901,3 +902,57 @@ public class MesswerteArrayList{
     }
 }
 ```
+
+## Methoden
+
+### Was sind Methoden?
+
+• Unterprogramm, das Teil einer größeren Aufgabe löst.
+
+__Beispiel:__ Die Ausgabe wird nicht vom Hauptprogramm sondern von der Methode ausgabe erledigt
+
+```java
+public class HelloWorld {
+    public static void main(String[] args){
+        ausgabe();
+    }
+
+    public static void ausgabe(){
+        System.out.println("Hello World");
+    }
+}
+```
+
+### Vorteile von Methoden:
+
++ Zusammenfassung von Abläufen, die mehrfach ausgeführt werden sollen.
++ Untergliederung von Detailproblemen in mehrere überschaubare Aufgaben.
++ Wird in einer Methode etwas geändert oder ein Fehler behoben, profitieren davon alle Programmteile, die diese Methode aufrufen.
++ Bessere Lesbarkeit des Programmcodes. Faustregel: Die Länge des Programmcodes einer
+Methode sollte nicht größer als der Bildschirm sein.
+
+### Gültigkeit von Variablen:
+
++ Variablen sind immer nur in dem Block gültig in dem sie deklariert sind. Ein Block steht immer zwischen zwei geschweiften Klammern. Methoden sowie Kontrollstrukturen (if, else if, else, for, while, do while) sind Blöcke.
+
+### Parameterübergabe:
+
+#### Problem ohne Parameterübergabe:
+
+```java
+public class Ausgabe{
+
+    public static void main(String[] args){
+        int zahl = 2;
+        ausgabe();
+    }
+
+    public static void ausgabe(){
+        System.out.println(zahl);
+    }
+}
+```
+
+Um Werte an eine Methode zu schicken kann man Parameter an die Methode "übergeben". Die Methode kann dann diese Werte z.B. in einer Berechnung verwenden.
+
+__Wichtig:__ Die Anzahl und der Typ der Parameter im Methodenaufruf und im Methodenkopf der aufgerufenen Methode müssen gleich sein.
