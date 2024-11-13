@@ -913,11 +913,11 @@ __Beispiel:__ Die Ausgabe wird nicht vom Hauptprogramm sondern von der Methode a
 
 ```java
 public class HelloWorld {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         ausgabe();
     }
 
-    public static void ausgabe(){
+    public static void ausgabe() {
         System.out.println("Hello World");
     }
 }
@@ -940,14 +940,14 @@ Methode sollte nicht größer als der Bildschirm sein.
 #### Problem ohne Parameterübergabe:
 
 ```java
-public class Ausgabe{
+public class Ausgabe {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         int zahl = 2;
         ausgabe();
     }
 
-    public static void ausgabe(){
+    public static void ausgabe() {
         System.out.println(zahl);
     }
 }
@@ -956,3 +956,26 @@ public class Ausgabe{
 Um Werte an eine Methode zu schicken kann man Parameter an die Methode "übergeben". Die Methode kann dann diese Werte z.B. in einer Berechnung verwenden.
 
 __Wichtig:__ Die Anzahl und der Typ der Parameter im Methodenaufruf und im Methodenkopf der aufgerufenen Methode müssen gleich sein.
+
+### Rückgabewerte:
+
+An aufgerufene Methoden können nicht nur Werte übergeben werden, sondern Methoden können auch wieder einen Wert an die aufrufende Methode zurückgeben. 
+
+Im Gegensatz zum Werte übergeben kann nur ein Wert zurückgegeben werden.
+
+__Beispiel:__
+
+```java
+public class Addierer {
+    public static void main(String[] args) {
+        int ergebnis;
+        ergebnis = addiere(2, 5);
+        System.out.println(ergebnis);
+    }
+
+    public static int addiere(int x, int y) {
+        int ergebnis = x + y;
+        return ergebnis;
+    }
+}
+```
