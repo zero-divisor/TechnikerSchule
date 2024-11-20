@@ -838,4 +838,14 @@ __Lösung:__ Abstraktion (Einbau einer "Zwischenschicht") -> Logical Volume Mana
 + Mounten
 + Freuen
 
+### LVM Snapshots
 
++ Snapshot (= "Wiederherstellungszeitpunkt") (=Zustand des Systems zum Zeitpunkt x)
++ Ab einem bestimmten Zeitpunkt (wenn der Snapshot "gestartet" wird), werden alle Änderungen mitgeschrieben. Durch Rückgängigmachen kann dann zu diesem Zeitpunkt zurückgekehrt werden.
++ __Konsequenz:__ Ein Snapshot alleine ist KEIN Backup und ersetzt auch keines!!!
++ Größe des Snapshots bemisst sich nach der Änderungsrate und der Zeit, die der Snapshot "aktiv" ist. Snapshot kann auch größer als das Original-Image werden.
++ __Nachteil:__ Performance-Einbußen, Speicherplatzverbrauch -> Man sollte Snapshots nur dann aktiv haben, wenn man sie auch wirklich braucht.
++ Anwendungsfälle (Vorteile):
+  + Für Testumgebungen geeignet (z.B. Testen von Softwareinstalltionen und Konfigurationen)
+  + Wiederherstellung einzelner Dateien mit entsprechenden Möglichkeiten
+  + Einfrieren des Zustands für den Zeitpunkt während ein Backup gemacht wird ("Blitzlicht")
