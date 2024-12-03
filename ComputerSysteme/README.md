@@ -17,7 +17,7 @@
 * [Prozesse und Prozessmanagement](#prozesse-und-prozessmanagement)
 * [Jobs and Job Control in Bash](#jobs-and-job-control-in-bash)
 * [Partitionen und Mounten](#partitionen-und-mounten)
-* [Hardlinks und Symbolosche Links](#hardlinks-und-symbolosche-links)
+* [Hardlinks und Symbolische Links](#hardlinks-und-symbolische-links)
 * [Logical Volume Manager](#logical-volume-manager)
 
 ## Grundlagen der Befehlszeile
@@ -763,13 +763,13 @@ $ logout
   + z.B. `mkdir meindatentraeger`
   + `mount /dev/vde1 meindatentraeger`
   + ... hängt `/dev/vde1` unter dem Pfad meindatentraeger ein
-+ Aushängen mit umount (Achtung: kein n!)
++ Aushängen mit `umount` (Achtung: kein n!)
 
 Hinweis: Filesysteme können auch in "normalen" Dateien angelegt werden und davon gemountet werden. -> Images!
 
 + Permanentes Mounten: `/etc/fstab` (oder "mount" Units von systemd)
 
-## Hardlinks und Symbolosche Links
+## Hardlinks und Symbolische Links
 
 ### Hardlinks
 

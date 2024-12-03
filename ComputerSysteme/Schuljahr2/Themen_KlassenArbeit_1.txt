@@ -1,0 +1,17 @@
+    Prozessprioritäten
+        Grundsätzliches Konzept / Idee / Konsequenzen
+        Szenarien einschätzen können
+        CPU-lastige vs. Nicht-CPU-lastige Prozesse
+        Systemauslastung deuten (top oder htop / Kennzahlen - ohne Details für die Durchschnittsbildung)
+    Einfache Filesystems
+        Definition der Grundbegriffe Datei/Verzeichnis/Partition/Datenträger/Dateisystem
+        Gängige Dateisysteme (Anwendungszweck, Betriebssystem, grundsätzliche unterscheidende Merkmale - ohne genaue Kenngrößen): ext4, btrfs, NTFS, ReFS, FAT, apfs
+        Begriffe wie mounten, mountpoint, mount-options
+        Aufgabe des Hardware-Abstraction Layers (udev), Grundsätzlicher Unterschied im Konzept bei MS Windows
+        permanentes mounten (/etc/fstab)
+        Inodestruktur als Indizierung auf Filesystemebene, Hardlinks vs. Symblinks, Vor- und Nachteile
+    LVM
+        Was ist es, wozu dient es, worin liegt der Vorteil, gibt es auch Nachteile (situations-/szenarioabhängig)?
+        Begriffe PV, VG, LV
+        Deuten von Ausgaben der Tools (Speichergrößen)
+        LVM Snapshots (Definition/Wirkung/Anwendungsfälle von Snapshots, Grenzen/Einschränkungen)
