@@ -1,1 +1,1 @@
-CS: Raid Aufgabe
+SE: sortierverfahren aufschrieb u aufgaben, switch-case aufgaben
