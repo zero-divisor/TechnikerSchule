@@ -1,1 +1,1 @@
-SE: sortierverfahren aufschrieb u aufgaben, switch-case aufgaben
+SE: sortierverfahren aufschrieb

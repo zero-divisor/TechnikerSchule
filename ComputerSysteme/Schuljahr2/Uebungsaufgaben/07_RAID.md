@@ -12,7 +12,7 @@ Beachten Sie, dass nicht alle ähnlichen Aufstellungen, die im Internet verfügb
 + RAID 0
     * Verfügbarer Speicherplatz: 100%
     * Leseperformance: n
-    * Schreibperformance: 1
+    * Schreibperformance: n
     * keine Disk darf ausfallen
     * mind. 2 Disks
 + RAID 1
@@ -29,13 +29,13 @@ Beachten Sie, dass nicht alle ähnlichen Aufstellungen, die im Internet verfügb
     * mind. 3 Disks
 + RAID 5
     * Verfügbarer Speicherplatz: eine Disk weniger
-    * Leseperformance: n
+    * Leseperformance: n-1
     * Schreibperformance: n-1
     * eine Disk kann ausfallen
     * mind. 3 Disks
 + RAID 6 
     * Verfügbarer Speicherplatz: 2 Disks weniger
-    * Leseperformance: n
-    * Schreibperformance: n-1
+    * Leseperformance: n-2
+    * Schreibperformance: n-2 (Hängt vom Aufwand der Paritätsberechnung ab)
     * 2 Disks können ausfallen
     * mind 4 Disks
