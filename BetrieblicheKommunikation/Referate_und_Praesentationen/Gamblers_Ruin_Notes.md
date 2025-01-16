@@ -7,6 +7,14 @@ Ein Spieler mit endlichem Kapital, der Ein faires Spiel (Erwartungswert 0 für b
 
 https://tomrocksmaths.com/2021/09/22/gamblers-ruin/
 
+https://discrete.openmathbooks.org/dmoi2/sec_recurrence.html
+
+Somwhat related: __yard sale model__
+
+Interresante Aspekte:
+ + Wahrscheinlichkeit wenn man aufhört sobald man das erste mal im plus ist
+ + Warum ist gamblers ruin unabhängig von stratergie
+
 ### Beispiel Roulette mit Martingale Strategie
 
 #### Martingale Strategie
