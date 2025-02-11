@@ -19,6 +19,7 @@
 * [Partitionen und Mounten](#partitionen-und-mounten)
 * [Hardlinks und Symbolische Links](#hardlinks-und-symbolische-links)
 * [Logical Volume Manager](#logical-volume-manager)
+* [Datenkomprimierung](#datenkomprimierung)
 
 ## Grundlagen der Befehlszeile
 
@@ -849,3 +850,18 @@ __Lösung:__ Abstraktion (Einbau einer "Zwischenschicht") -> Logical Volume Mana
   + Für Testumgebungen geeignet (z.B. Testen von Softwareinstalltionen und Konfigurationen)
   + Wiederherstellung einzelner Dateien mit entsprechenden Möglichkeiten
   + Einfrieren des Zustands für den Zeitpunkt während ein Backup gemacht wird ("Blitzlicht")
+
+## Datenkomprimierung
+
+
++ Zwei Arten der Datenkompression
+    + __Verlustbehaftete__ Verfahren\
+        Beispiel: SCHL MCHT SPSS :)
+        Verfahren: Bildkomprimierung mit JPEG, Audiokomprimierung MP3, Videokompromierung MPEG\
+        Charakteristik: Die Originaldaten können nach der Dekompromierung nicht wieder vollständig hergestellt werden. -> Datenverlust
+    + __Verlustlose__ Verfahren\
+        Verfahren: zip, rar, lha, ...\
+        Charakteristik: Jedes Bit der Originaldaten kann bei der Dekompromierung wieder hergestellt werden.
++ __Redundanz:__ "Überflüssige" Information, benötigt meist nur der Mensch, wird aber auch verwendet, um z.B. Datenverlust zu vermeiden (siehe RAID)
++ __Informationsgehalt (Entropie):__ Wie gehaltvoll an Informationen ist ein Zeichen, Text, Bild, ...
++ __Komprimierung:__ Entfernung von Redundanz -> Erhöhung des Informationsgehalts
