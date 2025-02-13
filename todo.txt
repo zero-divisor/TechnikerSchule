@@ -1,2 +1,2 @@
 NE: Packettracer Modul 10 Router Config, optional: subnetzrechner programmieren
-CS: raid Übung, komprimierung aufschrieb
+CS: raid Übung

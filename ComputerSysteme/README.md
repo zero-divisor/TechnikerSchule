@@ -856,7 +856,7 @@ __Lösung:__ Abstraktion (Einbau einer "Zwischenschicht") -> Logical Volume Mana
 
 + Zwei Arten der Datenkompression
     + __Verlustbehaftete__ Verfahren\
-        Beispiel: SCHL MCHT SPSS :)
+        Beispiel: SCHL MCHT SPSS :)\
         Verfahren: Bildkomprimierung mit JPEG, Audiokomprimierung MP3, Videokompromierung MPEG\
         Charakteristik: Die Originaldaten können nach der Dekompromierung nicht wieder vollständig hergestellt werden. -> Datenverlust
     + __Verlustlose__ Verfahren\

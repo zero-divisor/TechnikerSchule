@@ -566,7 +566,7 @@ create table tabelle2 (
 
 create table tabelle2 (
     feld1, … feldn, 
-    constraint contraint_name foreign key (feld1) references tabelle1(feld1)
+    constraint constraint_name foreign key (feld1) references tabelle1(feld1)
 );
 -- Name selber gewählt
 ```
