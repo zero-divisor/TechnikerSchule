@@ -1,0 +1,57 @@
+Adressbereich: 10.4.16.0/22
+
+Subnetz A: 500 Rechner
+Subnetz B: 250 Rechner
+Subnetz c: 100 Rechner
+Subnetz D:  50 Rechner
+Subnetz E:  25 Rechner
+Router in Peer to Peer Netze mit den restlichen Adressen
+
+Netzwerk ID:
+00001010.00000100.00010000.00000000
+
+Subnetzmaske: 255.255.252.0
+11111111.11111111.11111100.00000000
+xxxxxxxx.xxxxxxxx.xxxxxxnn.nnnnnnnn
+
+A: /23
+xxxxxxxx.xxxxxxxx.xxxxxxsn.nnnnnnnn
+00001010.00000100.00010000.00000000
+bis
+00001010.00000100.00010001.11111111
+10.4.16.0 - 10.4.17.255
+
+B: /24
+xxxxxxxx.xxxxxxxx.xxxxxxss.nnnnnnnn
+00001010.00000100.00010010.00000000
+bis
+00001010.00000100.00010010.11111111
+10.4.18.0 - 10.4.18.255
+
+C: /25
+xxxxxxxx.xxxxxxxx.xxxxxxss.snnnnnnn
+00001010.00000100.00010011.00000000
+bis
+00001010.00000100.00010011.01111111
+10.4.19.0 - 10.4.19.127
+
+D: /26
+xxxxxxxx.xxxxxxxx.xxxxxxss.ssnnnnnn
+00001010.00000100.00010011.10000000
+bis
+00001010.00000100.00010011.10111111
+10.4.19.128 - 10.4.19.191
+
+E: /27
+xxxxxxxx.xxxxxxxx.xxxxxxss.sssnnnnn
+00001010.00000100.00010011.11000000
+bis
+00001010.00000100.00010011.11011111
+10.4.19.192 - 10.4.19.223
+
+Peer to Peer Netze:
+xxxxxxxx.xxxxxxxx.xxxxxxss.sssnnnnn
+00001010.00000100.00010011.11100000
+bis
+00001010.00000100.00010011.11111111
+10.4.19.224 - 10.4.19.255

@@ -1,2 +1,2 @@
-NE: Packettracer Modul 10 Router Config, 10 Checkpoint Exam: Communicating Between Networks Exam
+NE: Packettracer Modul 10 Router Config
 CS: raid Übung
