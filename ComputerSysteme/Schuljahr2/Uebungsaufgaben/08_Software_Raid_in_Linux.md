@@ -73,4 +73,10 @@ Dateisystem    Größe Benutzt Verf. Verw% Eingehängt auf
 
 ### 7. Füllen Sie beide RAID-Systeme, in dem Sie große Datei mit zufälligem Inhalt erzeugen (z.B. aus /dev/urandom).
 
+```
+test@debian:~$ head -c 500M </dev/urandom >largeFile
+test@debian:~$ sudo cp largeFile /mnt/raid_1/largeFile1
+test@debian:~$ sudo cp largeFile /mnt/raid_6/largeFile2
+```
+
 ### 8. Untersuchen Sie das Verhalten der RAID-Arrays beim "Ziehen" von Platten aus der virtuellen Maschine. Was stellen Sie fest?
