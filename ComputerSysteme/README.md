@@ -20,6 +20,7 @@
 * [Hardlinks und Symbolische Links](#hardlinks-und-symbolische-links)
 * [Logical Volume Manager](#logical-volume-manager)
 * [Datenkomprimierung](#datenkomprimierung)
+* [Backups](#Backups)
 
 ## Grundlagen der Befehlszeile
 
@@ -865,3 +866,17 @@ __Lösung:__ Abstraktion (Einbau einer "Zwischenschicht") -> Logical Volume Mana
 + __Redundanz:__ "Überflüssige" Information, benötigt meist nur der Mensch, wird aber auch verwendet, um z.B. Datenverlust zu vermeiden (siehe RAID)
 + __Informationsgehalt (Entropie):__ Wie gehaltvoll an Informationen ist ein Zeichen, Text, Bild, ...
 + __Komprimierung:__ Entfernung von Redundanz -> Erhöhung des Informationsgehalts
+
+## Backups
+
+Sinn des Backups
+
++ Ermöglichen einer Rückkehr zum Zustand vor dem Zeitpunkt des Backups, z.B. bei Upgrades
++ Schutz vor Datenverlust durch Soft- und/oder Hardwareausfälle (z.B. Malware, Schadensereignisse, ...)
+
+Backup-Medien
+
++ Tapes
++ Festplatten (HDD, SSD) 
++ CDs/DVDs
++ Cloud
