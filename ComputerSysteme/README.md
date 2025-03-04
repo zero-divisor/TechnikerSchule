@@ -867,16 +867,20 @@ __Lösung:__ Abstraktion (Einbau einer "Zwischenschicht") -> Logical Volume Mana
 + __Informationsgehalt (Entropie):__ Wie gehaltvoll an Informationen ist ein Zeichen, Text, Bild, ...
 + __Komprimierung:__ Entfernung von Redundanz -> Erhöhung des Informationsgehalts
 
+[Huffman-Verfahren (am Beispiel erklärt)](https://bitjunkie.wordpress.com/2011/05/23/never-waste-your-memory-huffman-encoding/)
+
 ## Backups
 
-Sinn des Backups
+__Sinn des Backups__
 
 + Ermöglichen einer Rückkehr zum Zustand vor dem Zeitpunkt des Backups, z.B. bei Upgrades
 + Schutz vor Datenverlust durch Soft- und/oder Hardwareausfälle (z.B. Malware, Schadensereignisse, ...)
 
-Backup-Medien
+__Backup-Medien__
 
 + Tapes
 + Festplatten (HDD, SSD) 
 + CDs/DVDs
 + Cloud
+
+
