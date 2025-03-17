@@ -883,4 +883,32 @@ __Backup-Medien__
 + CDs/DVDs
 + Cloud
 
+__Backup-Strategien__
 
++ Vollsicherung
+    + Komplette Kopie der Daten
+    + __Nachteil:__ Viel Speicher (pro Kopie) erforderlich, Sicherung und Restaurierung zeitaufwändig
+
++ Differentielles Backup
+    + Es wird zunächst eine Vollsicherung benötigt.
+    + Jedes (Teil-)Backup sichert jeweils die Änderungen seit der Vollsicherung.
+    + Logischerweise benötigt man zum Restaurieren neben dem letzten (Teil-)Backup auch das ursprüngliche Vollbackup.
+    + __Vorteil:__ Die ersten (Teil-)Backups nach dem Vollbackup sind klein und schnell.
+    + __Nachteil:__ Mit jedem weiteren (Teil-)Backup wächst die Datenmenge
+
++ Inkrementelles Backup
+    + Startet mit einem Vollbackup.
+    + Jedes (Teil-)Backup sichert jeweils die Änderungen seit dem letzten (Teil-)Backup.
+    + Logischerweise benötigt man zur Restaurierung das Vollbackup sowie alle (Teil-)Backups.
+    + __Vorteil:__ Teilbackups sind klein und schnell (beim Sichern)
+    + __Nachteil:__ Geht ein Backup in der "Kette" kaputt, so gibt es Datenverlust
+    + Restaurierung ist zeitaufwändig.
+
++ 3-2-1 Regel (Empfehlung)
+    + 3 separate Kopien auf 2 unterschiedlichen Medien, wobei 1 davon örtlich getrennt sein soll (heute meist Cloud).
+
++ Generationen-Prinzip (Empfehlung)
+    + Empfiehlt, in welchen Zeitabständen Backups "gefahren" werden sollen.
+    + Sohn => Tagesbackup
+    + Vater => Wochenbackup
+    + Großvater => Monatsbackup
