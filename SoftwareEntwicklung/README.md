@@ -1012,7 +1012,7 @@ public class Person {
 
 Datei `Test.java`
 
-```
+```java
 // Programm um Personen zu erzeugen, Eigenschaften zuzuweisen und
 // auszugeben
 public class Test {
