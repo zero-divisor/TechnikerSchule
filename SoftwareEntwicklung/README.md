@@ -18,6 +18,7 @@
 * [Arrays](#arrays)
 * [ArrayList](#arraylist)
 * [Methoden](#methoden)
+* [Klassen und Objekte](#Klassen-und-Objekte)
 
 
 ## Hello World
@@ -979,3 +980,74 @@ public class Addierer {
     }
 }
 ```
+
+## Klassen und Objekte
+
+Programmierung eines Sachverhaltes aus der realen Welt.\
+Programmieren von realen Objekten mit definierten Eigenschaften und Funktionalitäten
+die untereinander interagieren.
+
++ Klassen sind Baupläne für Objekte. Klassen geben an, welche Arten von Eigenschaften
+und Funktionalitäten ein Objekt hat.
++ Objekte können im Programmcode erzeugt oder geändert werden. Den Eigenschaften
+eines Objekts können Werte zugewiesen werden.
++ Klassen sind selbstgebastelte Variablentypen. Objekte sind die Variablen dieser
+Variablentypen.
++ Eigenschaften sind Variablen die nur zu einem bestimmten Objekt gehören. Sie haben
+Typ, Name und Wert.
++ Jede Klassendefinition wird in einer eigenen Datei implementiert.(im gleichen Verzeichnis)
++ Klassendateien kann man unabhängig voneinander kompilieren.
+
+### Programmierbeispiel
+
+Datei `Person.java`
+
+```java
+// Bauplan für Personen (Objekte vom Typ Person)
+public class Person {
+    public String name;
+    public int alter;
+}
+```
+
+Datei `Test.java`
+
+```
+// Programm um Personen zu erzeugen, Eigenschaften zuzuweisen und
+// auszugeben
+public class Test {
+
+    public static void main(String[] args) {
+        // Objekte sind Variablen und müssen definiert werden
+        Person p1; // Variable p1 vom Typ Person
+        
+        p1 = new Person(); // Objekterzeugung mit dem Schlüsselwort new
+        p1.name = "Michael";
+        
+        // Zugriff auf Eigenschaften mit dem Punktoperator
+        p1.alter = 21;
+        
+        Person p2 = new Person();
+        p2.name = "Eva";
+        p2.alter = 19;
+        
+        // Ausgabe der Eigenschaftswerte der beiden Objekte
+        System.out.println("Name: " + p1.name + " Alter: " + p1.alter);
+        System.out.println("Name: " + p2.name + " Alter: " + p2.alter);
+    }
+}
+```
+
+### Objekte erzeugen
+
+Typisch 2 Schritte:
+
+1. Variablendefinition: `Person p1;`
+2. Objekterzeugung: `p1 = new Person();`
+
+Kann man zusammenfassen zu einem Schritt: `Person p1 = new Person();`
+
+### Zugriff auf Eigenschaften eines Objekts: Punktoperator
+
++ Zuweisung: `p1.name = "Michael";`
++ Zugriff: `String ausgabe = p1.name;`

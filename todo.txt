@@ -1,2 +1,3 @@
 NE: Packettracer Modul 10 Router Config
-CS: Aufschrieb Backup, Memory mgmt
+CS: Aufschrieb Memory mgmt
+SE: Aufgaben Objekte
