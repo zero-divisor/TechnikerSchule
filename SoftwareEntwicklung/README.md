@@ -1022,9 +1022,9 @@ public class Test {
         Person p1; // Variable p1 vom Typ Person
         
         p1 = new Person(); // Objekterzeugung mit dem Schlüsselwort new
-        p1.name = "Michael";
         
         // Zugriff auf Eigenschaften mit dem Punktoperator
+        p1.name = "Michael";
         p1.alter = 21;
         
         Person p2 = new Person();
