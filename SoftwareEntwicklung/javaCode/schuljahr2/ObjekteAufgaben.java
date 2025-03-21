@@ -10,6 +10,10 @@ public class ObjekteAufgaben {
 
 }
 
+//Erstellen Sie die Klasse Bruch, die Brüche der Form a/b verwaltet, wobei a und b ganze Zahlen sind. Die
+//Klasse soll die Methoden enthalten, mit denen man Brüche kürzt, addiert, subtrahiert, multipliziert und
+//dividiert.
+
 class RationalNumber {
 	
 	private int numerator, denominator;
