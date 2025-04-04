@@ -1,2 +1,1 @@
-NE: Packettracer Modul 10 Router Config
-CS: Übungsaufgabe Huffman-Tree
+NE: Aufgabe Subnetting
