@@ -20,7 +20,7 @@ public class RekursionAufgaben {
 	/*
 	Aufgabe 3:
 		Programmieren Sie eine Methode, die Zweierpotenzen berechnet. Die Methode bekommt als Parameter
-		den Exponenten und gibt die Potenz zur Basis zwei zurück. Verwenden Sie zur Berechnung keine Schleife,
+		den Exponenten und gibt die Potenz zur Basis zwei zurï¿½ck. Verwenden Sie zur Berechnung keine Schleife,
 		sondern rekursive Methodenaufrufe.
 	*/
 	public static int powers(int exponent) {
@@ -32,7 +32,7 @@ public class RekursionAufgaben {
 	}
 	/*
 	Aufgabe 4:
-		Programmieren Sie eine Methode, die die Fakultät rekursiv berechnet.
+		Programmieren Sie eine Methode, die die Fakultï¿½t rekursiv berechnet.
 	*/
 	public static int fac(int n) {
 		if(n > 1) {
@@ -42,6 +42,9 @@ public class RekursionAufgaben {
 		}
 	}
 	
+	/*
+	 * 
+	 */
 	public static int wasGebeIchAus(int n)
 	{
 		if(n == 0)
