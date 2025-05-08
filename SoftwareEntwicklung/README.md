@@ -1090,3 +1090,49 @@ public class RechteckDemo {
 }
 
 ```
+
+#### Probleme:
++ Der Benutzer der Klasse Rechteck kann die Fläche unabhängig von Breite und Länge setzen. 
+Die Fläche eines Rechtecks ist aber von dessen Breite und Länge abhängig.
+So können Rechtecke entstehen, die es in der realen Welt gar nicht gibt. 
++ Außerdem kann der Benutzer negative Maße setzen. Ein Rechteck mit der Länge -5 gibt es nicht.
+Eine Überprüfung gibt es nicht.
+
+#### Lösung: set/get-Methoden:
+
+Datei `Rechteck.java`:
+
+```java
+public class Rechteck {
+    private double breite = 0; // PRIVATE: SPERRT DIREKTEN ZUGRIFF VON ANDEREN KLASSEN
+    private double laenge = 0; // ZUGRIFF NUR ÜBER SET/GET-METHODEN
+    private double flaeche = 0;
+    
+    public void setBreite(double breite){ // ZUGRIFF AUF DIE EIGENSCHAFT BREITE
+                                          // SET: WERTE SETZEN MÖGLICH
+        
+        if(breite <= 0){ // WIR STELLEN SICHER DASS DER BENUTZER RICHTIGE WERTE EINGIBT
+            System.out.println("FEHLER: Breite muss grösser 0 sein");
+        }
+        this.breite = breite;
+        this.flaeche = laenge * breite; // WIR BERECHNEN DIE KORREKTE FLAECHE
+    }
+ 
+    public void setLaenge(double laenge) { // ZUGRIFF AUF DIE EIGENSCHAFT LAENGE
+                                           // SET: WERTE SETZEN MÖGLICH
+        
+        if(laenge <= 0){ // WIR STELLEN SICHER DASS DER BENUTZER RICHTIGE WERTE EINGIBT
+            System.out.println("FEHLER: Laenge muss grösser 0 sein");
+        }
+        this.laenge = laenge;
+        this.flaeche = laenge * breite;
+    }
+ 
+    public double getFlaeche(){ // ZUGRIFF AUF DIE EIGENSCHAFT FLAECHE
+                                // GET: NUR WERTE ABFRAGEN MÖGLICH
+        return this.flaeche;
+    }
+}
+```
+
+Das Schlüsselwort `this` bedeutet, dass die Objekteigenschaft anstatt der lokalen Variable benutzt wird.
