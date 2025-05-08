@@ -1051,3 +1051,42 @@ Kann man zusammenfassen zu einem Schritt: `Person p1 = new Person();`
 
 + Zuweisung: `p1.name = "Michael";`
 + Zugriff: `String ausgabe = p1.name;`
+
+### Sichtbarkeit von Variablen, Methoden und Konstruktoren in Java
+
+|Modifizierer |Die Klasse selbst |Paket-Klassen/innere-Klassen |Unterklassen |Sonstige Klassen |
+|-|-|-|-|-|
+|private |ja |nein |nein |nein |
+|public |ja |ja |ja |ja| 
+|protected |ja |ja |ja |nein| 
+|ohne/leer |ja |ja |nein |nein|
+
+### set/get-Methoden
+
+Betrachten Sie folgenden Programmcode:
+
+Datei `Rechteck.java`: (stellt dem Benutzer ein Rechteck mit den Eigenschaften Breite, Länge und Fläche zur Verfügung)
+
+```java
+public class Rechteck {
+    public double breite;
+    public double laenge;
+    public double flaeche;
+}
+```
+
+Datei `RechteckDemo.java`: (Hier wird ein Rechteck erstellt und dann die Fläche ausgegeben)
+
+```Java
+public class RechteckDemo {
+    public static void main(String[] args) {
+        Rechteck re = new Rechteck();
+        re.breite = 10.0;
+        re.laenge = -5.0;   // PROBLEM: DER BENUTZER KANN UNGÜLTIGE WERTE SETZEN
+        re.flaeche = 200.0; // PROBLEM: FLAECHE IST VON BREITE UND LAENGE ABHÄNGIG
+                            // UND DARF NICHT DIREKT VERÄNDERT WERDEN
+        System.out.println(re.flaeche);
+    }
+}
+
+```
