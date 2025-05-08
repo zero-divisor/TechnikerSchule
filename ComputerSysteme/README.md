@@ -21,6 +21,7 @@
 * [Logical Volume Manager](#logical-volume-manager)
 * [Datenkomprimierung](#datenkomprimierung)
 * [Backups](#Backups)
+* [Linux Bootvorgang](#linux-bootvorgang)
 
 ## Grundlagen der Befehlszeile
 
@@ -912,3 +913,40 @@ __Backup-Strategien__
     + Sohn => Tagesbackup
     + Vater => Wochenbackup
     + Großvater => Monatsbackup
+
+## Linux Bootvorgang
+
+1. Einschalten des PC.
+1. Hardware / UEFI (Unified Extensible Firmware Interface), früher BIOS (Basic Input/Output System)
+   - POST (Power-On Self Test)
+   - Hardwareerkennung (Controller und Peripherals)
+   - Bootreihenfolge durchgehen und nach "bootbarer" Partition suchen
+1. Bootloader wird geladen (z.B. Windows Bootloader, GRUB2, manchmal auch im UEFI integriert)
+Der Bootloader erlaubt ggf. eine Auswahl unter mehreren Betriebssystemen (Multiboot)
+1. Laden des Betriebssystems, zuerst Kernel (Kern des Betriebssystems)
+1. Ab diesem Punkt Distributionsabhängig
+
+__Es gibt bei Linux zwei Varianten!__
+
+### SysVInit (Legacy, da viele Nachteile)
+
++ Einen Systemprozess, der den Bootvorgang und das Starten von Services (Dienste) übernimmt. Dieser heißt "initd"
++ Weiterer Bootvorgang erfolgt durch Skripte, die sequentiell (nacheinander) ausgeführt werden.
++ Runlevels 0-6
+   + 0: Aus
+   + 1: Single-User ohne Netzwerk (zum Debuggen, Konfigurieren)
+   + 2-4: Distributionsabhängig
+   + 5: Voll hochgefahren
+   + 6: Reboot
++ Nachteile: Langsamer Systemstart wegen sequentiellen Skripten, Aufwändige Einrichtung von neuen Diensten, Fehleranfällig bei der Konfiguration
++ Beispiel-Distro: Devuan (Debian mit SysVInit statt systemd)
+
+### systemd
+
++ "Allumfassendes" System Management Framework
++ __Service:__ Dienst, Kleinste Einheit eines Programms, das im Hintergrund läuft (z.B. Grafische Oberfläche, Druckerserver, Webserver)
++ __Target:__ Zusammenfassung von Diensten
+   + ähnlich wie Runlevels, aber nicht streng hierarchisch aufgebaut und auch nicht auf 6 Stück begrenzt :), frei definierbar
+   + Bei den "gängigen bekannten" v.a. konservativen Distributionen werden die SysVInit-Runlevels als Targets abgebildet ("simuliert")
++ __Unit:__ Überbegriff für Services, Targets u.v.m. (z.B. Mounts, Timers, ...)
++ Konfigurationstool zum Starten/Stoppen u.s.w. von Services heißt systemctl
