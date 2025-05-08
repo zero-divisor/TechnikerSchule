@@ -1136,3 +1136,45 @@ public class Rechteck {
 ```
 
 Das Schlüsselwort `this` bedeutet, dass die Objekteigenschaft anstatt der lokalen Variable benutzt wird.
+
+Datei `RechteckDemo.java`:
+
+```java
+public class RechteckDemo {
+    public static void main(String[] args) {
+        Rechteck re = new Rechteck();
+        re.setBreite(10.0);
+        re.setLaenge(10.0);
+
+        System.out.println(re.getFlaeche());
+    }
+}
+```
+
+### Konstruktoren
+
+```java
+public class RechteckDemo {
+    public static void main(String[] args) {
+        Rechteck re = new Rechteck();
+        re.setBreite(10.0);
+        re.setLaenge(10.0);
+
+        System.out.println(re.getFlaeche());
+    }
+}
+```
+
+__Problem:__ In Zeile 3 ist zwar bereits ein Rechteckobjekt erzeugt worden, \
+jedoch sind dieEigenschaften des Rechtecks an dieser Stelle undefiniert. \
+Erst in Zeile 4 und 5 wird Breite und Länge gesetzt und über die set-Methoden die Fläche berechnet.
+
+__Lösung:__ Benutzung eines Konstruktors
+Ein Konstruktor ist eine spezielle Methode, die direkt bei der Objekterzeugung aufgerufen wird.
+Durch die Übergabe von Parametern kann im Konstruktor das Objekt mit den Anfangswerten initialisiert 
+werden. Aus Sicht der Demoklasse besitzt das Objekt zu jedem Zeitpunkt gültige Werte.
+
+__Implementierung:__
+Der Konstruktor wird wie eine Methode in der Klasse Rechteck.java implementiert. Der Konstruktorname 
+muss immer gleich sein wie der Klassenname. Im Konstruktorkopf wird kein Rückgabetyp angegeben. Der 
+Rückgabetyp ist dann auch nicht void, sondern er wird weggelassen. 
