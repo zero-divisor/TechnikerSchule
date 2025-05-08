@@ -1165,16 +1165,81 @@ public class RechteckDemo {
 }
 ```
 
-__Problem:__ In Zeile 3 ist zwar bereits ein Rechteckobjekt erzeugt worden, \
-jedoch sind dieEigenschaften des Rechtecks an dieser Stelle undefiniert. \
-Erst in Zeile 4 und 5 wird Breite und Länge gesetzt und über die set-Methoden die Fläche berechnet.
+__Problem:__ 
++ In Zeile 3 ist zwar bereits ein Rechteckobjekt erzeugt worden, 
++ jedoch sind dieEigenschaften des Rechtecks an dieser Stelle undefiniert. 
++ Erst in Zeile 4 und 5 wird Breite und Länge gesetzt und über die set-Methoden die Fläche berechnet.
 
 __Lösung:__ Benutzung eines Konstruktors
-Ein Konstruktor ist eine spezielle Methode, die direkt bei der Objekterzeugung aufgerufen wird.
-Durch die Übergabe von Parametern kann im Konstruktor das Objekt mit den Anfangswerten initialisiert 
-werden. Aus Sicht der Demoklasse besitzt das Objekt zu jedem Zeitpunkt gültige Werte.
++ Ein Konstruktor ist eine spezielle Methode, die direkt bei der Objekterzeugung aufgerufen wird.
++ Durch die Übergabe von Parametern kann im Konstruktor das Objekt mit den Anfangswerten initialisiert werden.
++ Aus Sicht der Demoklasse besitzt das Objekt zu jedem Zeitpunkt gültige Werte.
 
 __Implementierung:__
-Der Konstruktor wird wie eine Methode in der Klasse Rechteck.java implementiert. Der Konstruktorname 
-muss immer gleich sein wie der Klassenname. Im Konstruktorkopf wird kein Rückgabetyp angegeben. Der 
-Rückgabetyp ist dann auch nicht void, sondern er wird weggelassen. 
++ Der Konstruktor wird wie eine Methode in der Klasse Rechteck.java implementiert.
++ Der Konstruktorname muss immer gleich sein wie der Klassenname. 
++ Im Konstruktorkopf wird kein Rückgabetyp angegeben. Der 
+Rückgabetyp ist dann auch nicht `void`, sondern er wird weggelassen.
+
+```java
+public Rechteck(double breite, double laenge) {
+    this.setBreite(breite);
+    this.setLaenge(laenge);
+}
+```
+
+```java
+public class RechteckDemo {
+    public static void main(String[] args) {
+    
+        Rechteck re = new Rechteck(5.0, 10.0);
+        System.out.println(re.getFlaeche());
+    }
+}
+```
+
+__Standardkonstruktor:__
++ Bei der Objekterzeugung wird immer ein Konstruktor aufgerufen.
++ Ist kein Konstruktor definiert wird immer 
+der unsichtbare Standardkonstruktor aufgerufen
+
+```java
+public Rechteck() {}
+```
+
+__Vollständige Klasse Rechteck mit Konstruktor:__
+
+```java
+public class Rechteck {
+    private double breite = 0;
+    private double laenge = 0;
+    private double flaeche = 0;
+    
+    public Rechteck(double breite, double laenge) {
+        this.setBreite(breite);
+        this.setLaenge(laenge);
+    }
+ 
+    public void setBreite(double breite) {
+        if(breite > 0) {
+            this.breite = breite;
+            this.flaeche = laenge * breite;
+        } else {
+            System.out.println("FEHLER: Die Breite muss grösser 0 sein");
+        }
+    }
+    
+    public void setLaenge(double laenge) {
+         if(laenge > 0) {
+             this.laenge = laenge;
+             this.flaeche = laenge * breite;
+         } else {
+            System.out.println("FEHLER: Die Laenge muss grösser 0 sein");
+         }
+    }
+    
+    public double getFlaeche() {
+        return this.flaeche;
+    }
+}
+```
