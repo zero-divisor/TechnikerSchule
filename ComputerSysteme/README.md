@@ -22,6 +22,7 @@
 * [Datenkomprimierung](#datenkomprimierung)
 * [Backups](#Backups)
 * [Linux Bootvorgang](#linux-bootvorgang)
+* [Softwaremanagement](#softwaremanagement)
 
 ## Grundlagen der Befehlszeile
 
@@ -950,3 +951,24 @@ __Es gibt bei Linux zwei Varianten!__
    + Bei den "gängigen bekannten" v.a. konservativen Distributionen werden die SysVInit-Runlevels als Targets abgebildet ("simuliert")
 + __Unit:__ Überbegriff für Services, Targets u.v.m. (z.B. Mounts, Timers, ...)
 + Konfigurationstool zum Starten/Stoppen u.s.w. von Services heißt systemctl
+
+## Softwaremanagement
+
+### Grundbegriffe
+
++ Individualsoftware
+    + Software, speziell für einen(!) konkreten Anwendungsfall und/oder Kunden
++ Native Applikation
+    + Software, das (nur) auf einem bestimmen Betriebssystem und/oder in einer bestimmten Umgebung läuft (z.B. compiliertes Windows .exe)
++ Virtualisierte Applikationen
+    + Client-Server Applikation (z.B. mit Webinterface)
+    + Applikationsvirtualisierung (z.B. mit Docker)
+
++ Software-Pakete
+    + Applikationen inklusive (teilw. Shared-) Bibliotheken, Konfigurationsdatein, Multimedia
+    + Werden durch Paketmanagement-Systeme verwaltet
+        + Betriebssystemspezifisch (z.B. apt, snap, msi, ...)
+        + Herstellspezifisch (z.B. für UEFI-Systeme, Grafikkarten, NAS-Boxen) 
+        + Sorgen automatisch für die Versionskontrolle
+        + Funktionalität umfasst (meist) Installer, Deinstaller, Upgrade und (häufig) netzbasierte/ 
+ client-server basierte "Software-Lager" (Repositories)
