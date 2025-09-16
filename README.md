@@ -7,6 +7,7 @@ Schulunterlagen Informationstechnik
 #### [BWL](BWL)
 #### [Computersysteme](ComputerSysteme)
 #### [Datenbanken](Datenbanken)
+#### [KI](Ki)
 #### [Micro Controler](MicroControler)
 #### [Netze](Netze)
 #### [Netzwerksicherheit](Netzwerksicherheit)
