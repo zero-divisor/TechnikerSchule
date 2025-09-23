@@ -8,6 +8,7 @@ Schulunterlagen Informationstechnik
 #### [Computersysteme](ComputerSysteme)
 #### [Datenbanken](Datenbanken)
 #### [KI](KI)
+#### [LinuxVertiefung](LinuxVertiefung)
 #### [Micro Controler](MicroControler)
 #### [Netze](Netze)
 #### [Netzwerksicherheit](Netzwerksicherheit)

@@ -1,1 +1,1 @@
-NE: Aufgabe Subnetting
+CS: Networking Aufgaben
