@@ -1,1 +1,2 @@
 CS: Networking Aufgaben
+SE: Klassenbeziehungen Aufschrieb

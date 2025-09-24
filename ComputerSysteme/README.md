@@ -23,6 +23,7 @@
 * [Backups](#Backups)
 * [Linux Bootvorgang](#linux-bootvorgang)
 * [Softwaremanagement](#softwaremanagement)
+* [Basic Networking](#basic-networking)
 
 ## Grundlagen der Befehlszeile
 
@@ -972,3 +973,30 @@ __Es gibt bei Linux zwei Varianten!__
         + Sorgen automatisch für die Versionskontrolle
         + Funktionalität umfasst (meist) Installer, Deinstaller, Upgrade und (häufig) netzbasierte/ 
  client-server basierte "Software-Lager" (Repositories)
+ 
+## Basic Networking
+
+### Basic Networking Tools und Files
+
+__Allgemeine Tools:__
+
++ ping
++ traceroute (Linux), tracert (Windows)
++ arp
++ host, dig
++ route (Linux-Legacy)
++ ipconfig (Windows), ifconfig/iwconfig (Linux - Legacy), ip, iw, iwlist
++ Powershell cmdlets, netsh
++ netstat
++ nmap
++ whois
++ nc (netcat) <-- "Schweizer Taschenmesser" der Netzwerker und Hacker
++ wireshark, tcpdump
++ GUI-Tools
++ Konfigurationsfiles unter Linux (Everything is a file)
++ /etc/hostname
++ /etc/hosts (statische Namensauflösung)
++ /etc/nsswitch.conf (Konfig-Datei aus der hervorgeht, ob /etc/hosts und/oder DNS verwendet wird)
++ /etc/resolv.conf
++ /etc/hosts.allow
++ /etc/hosts.deny
