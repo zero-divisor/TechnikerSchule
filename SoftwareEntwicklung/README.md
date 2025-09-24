@@ -19,6 +19,7 @@
 * [ArrayList](#arraylist)
 * [Methoden](#methoden)
 * [Klassen und Objekte](#Klassen-und-Objekte)
+* [Klassenbeziehungen](#klassenbeziehungen)
 
 
 ## Hello World
@@ -1243,3 +1244,21 @@ public class Rechteck {
     }
 }
 ```
+
+## Klassenbeziehungen
+
++ __Assoziation:__ A kennt B
++ __Aggregation:__ A enthält B
++ __Komposition:__ A enthält B
++ __Generalisierung (Vererbung):__ A ist ein B
+
+### Beispiele
+
++ __Assoziation:__ Ein Fahrer kennt sein Fahrzeug
++ __Aggregation:__ Eine Mannschaft enthält Spieler
++ __Komposition:__ Ein Haus enthält Räume
++ __Generalisierung:__ Ein Vogel ist ein Tier
+
+### Assoziationen
+
+Eine wichtige Eigenschaft objektorientierter Systeme ist der gegenseitige Zugriff zwischen Objekten. Dazu _kennt_ ein Objekt andere Objekte und kann Anforderungen weitergeben. Diese Verbindung nennt sich Assoziation und ist ein wichtigste Werkzeug bei der Bildung von Objektverbänden.
