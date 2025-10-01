@@ -1,1 +1,2 @@
-CS: Networking Aufgaben
+CS: Webserver Aufgabe
+KI: Tic Tac Toe Solver aufgabe
