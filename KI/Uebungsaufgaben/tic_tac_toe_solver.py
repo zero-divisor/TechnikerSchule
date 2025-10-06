@@ -1,10 +1,10 @@
-xes = [1,0,0,
-       0,0,0,
-       0,0,0]
+xes = [0,1,0,
+       0,0,1,
+       0,0,1]
 
 os  = [0,0,0,
-       0,1,0,
-       0,1,0]
+       0,0,0,
+       1,1,0]
 
 winning_states = [
         [1,1,1,
@@ -71,12 +71,12 @@ def print_grid(xes,os):
     print("-+-+-")
     print(get_grid_char(6,xes,os) + "|" + get_grid_char(7,xes,os) + "|" + get_grid_char(8,xes,os))
 
-def score(xes,os):
+def score(xes,os,depth):
     score_val = 0
     if check_win(xes):
-        score_val = 10
+        score_val = 10 - depth
     elif check_win(os):
-        score_val = -10
+        score_val = depth-10
     else:
         score_val = 0
     return score_val
@@ -106,9 +106,9 @@ def get_available_moves(xes,os):
             free_grid_spaces.append(i)
     return free_grid_spaces
 
-def minimax(xes,os,x_players_turn):
+def minimax(xes,os,x_players_turn,depth):
     if is_game_ended(xes,os):
-        return score(xes,os)
+        return score(xes,os,depth)
     scores = [] # an array of scores
     moves = []  # an array of moves
     
@@ -120,7 +120,7 @@ def minimax(xes,os,x_players_turn):
         else:
             new_os[i] = 1
         
-        scores.append(minimax(new_xes,new_os,not x_players_turn))
+        scores.append(minimax(new_xes,new_os,not x_players_turn,depth+1))
         moves.append(i)
     
     global chosen_move
@@ -135,13 +135,13 @@ def minimax(xes,os,x_players_turn):
         chosen_move = [False,moves[min_score_index]]
         return scores[min_score_index]
 
-x_players_turn = True
+x_players_turn = False
 
 print_grid(xes,os)
 print()
 
 while not check_win(xes) and  not check_win(os) and not check_draw(xes,os):
-    minimax(xes,os,x_players_turn)
+    minimax(xes,os,x_players_turn,0)
     if x_players_turn:
         print("X on " + str(chosen_move[1]))
         xes[chosen_move[1]] = 1
@@ -151,10 +151,6 @@ while not check_win(xes) and  not check_win(os) and not check_draw(xes,os):
     x_players_turn = not x_players_turn
     print_grid(xes,os)
     print()
-
-print(os)
-print_grid(xes,os)
-print(check_win(os))
 
 if check_win(xes):
     print("X win")
