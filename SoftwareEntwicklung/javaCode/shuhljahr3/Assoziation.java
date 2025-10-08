@@ -16,6 +16,7 @@ public class Assoziation {
 		public Kunde(String kdNr, String kdBez) {
 			this.kdBez = kdBez;
 			this.kdNr = kdNr;
+			this.bestellungen = new ArrayList<>();
 		}
 
 		public ArrayList<Bestellung> getBestellungen(){
@@ -47,6 +48,7 @@ public class Assoziation {
 			this.anzahl = anzahl;
 			this.bestellungOnline = bestellungOnline;
 			this.kunde = kunde;
+			
 			setRabSatz();
 			kunde.getBestellungen().add(this);
 		}
