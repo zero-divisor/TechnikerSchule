@@ -19,19 +19,13 @@ public class Beziehungen2 {
 			}
 		}
 		
-		
-		
 		public Artikel[] getSortiment() {
 			return sortiment;
 		}
 
-
-
 		public void setSortiment(Artikel[] sortiment) {
 			this.sortiment = sortiment;
 		}
-
-
 
 		public double getPreis(int index) {
 			return sortiment[index].getPreis();
