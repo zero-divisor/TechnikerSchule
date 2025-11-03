@@ -4,7 +4,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
 
 hostName = "localhost"
-serverPort = 6666
+serverPort = 8080
 basePath = "./pages"
 
 class MyServer(BaseHTTPRequestHandler):
@@ -13,7 +13,7 @@ class MyServer(BaseHTTPRequestHandler):
         if self.path == "/":
             self.path = "/page1.html"
         
-        file_path = Path(basePath + "/page1.html")
+        file_path = Path(basePath + self.path)
         file_content = file_path.read_text()
         
         self.send_response(200)
