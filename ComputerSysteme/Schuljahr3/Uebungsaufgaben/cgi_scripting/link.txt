@@ -1,1 +1,4 @@
 https://www.cyberciti.biz/faq/ubuntu-mod_python-apache-tutorial/
+https://www.loewenstark.com/wissen/html/cgi/
+https://kraisnet.de/index.php/de/themen/10-rasperry-einrichten/32-cgi-skripte-auf-apache-2-einrichten
+https://www.ionos.com/digitalguide/server/configuration/enable-cgi-scripts-on-apache/

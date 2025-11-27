@@ -1,0 +1,217 @@
+Moodle: Wiederholung/Kommunikation1.pdf
+---------------------------------------
+Nennen Sie die drei Ebenen der Kommunikation und geben Sie jeweils ein Beispiel.
+	Verbal:
+		- sowohl mündl. als auch schriftl. Kommunikation
+		- dazu gehören Wortwahl, Satzbau, etc.
+	Nonverbal:
+		- Mimik
+		- Gestik
+		- Auftreten
+	Paraverbal:
+		- umfasst nichtverbale Elemente, die unmittelbar an der Lautbildung und Artikualtion sind
+		- Stimmlage
+		- Lautstärke
+		- Betonung
+		- Sprechtempo
+
+Was versteht man unter "kongruenter" und "inkongruenter" Kommunikation?
+	Kongruent:
+		- alle 3 Ebenen sowie der situative Kontext passen zusammen
+	Inkongruent:
+		- verbale und nonverbale/paraverbale Elemente passen nicht zusammen
+		- inkongruente Botschaften zeigen oftmals einblicke in die Psyche des Senders
+	
+Warum ist Inkongruenz problematisch?
+	- Der Sender der Nachricht legt sich nicht auf eine Botschaft fest
+	- die Entschlüsselung ist dem Empfänger überlassen
+
+Nennen Sie drei Beispiele für paraverbale Elemente und deren Wirkung.
+	- todo
+	
+Welche Elemente gehören zur nonverbalen Kommunikation?
+	- Mimik
+	- Gestik
+	- Auftreten
+
+Nennen und erklären Sie die fünf Axiome nach Watzlawick und geben Sie je ein Beispiel.
+	Man kan nicht nich Kommunizieren:
+		- Ein Mensch kommuniziert immer, da Kommunikation nicht nur auf verbaler Ebene stattfindet
+	Kommunikation hat einen Inhalts- und einen Beziehungsaspekt:
+		- Bei jeder Aussage schwingt mit wie die Perohnen zueinander stehen
+		- Ein Mitarbeiter redet mit seinem Kollegen anders, als mit seinem Vorgesetzten
+	Kommunikation ist immer Uhrsache und Wirkung
+		- Meist wird auf eine Nachricht mit einem bestimmten Verhalten reagiert
+	Kommunikation ist analog und digital
+		- Digital ist der reine Inhalt (incl. Grammatik, Wortwahl, Syntax)
+		- Analog ist nonverbale/paraverbale kommunikation mit unmittelbarer verbindung zum InhaltS
+	Kommunikation ist entweder symmetrisch oder komplementär
+		- Symmetrische kommunikation ist auf Augenhöhe
+		- Bei komplementären Beziehungen gibt es einen superioren und einen inferioren Partner (z.B.: Chef u. Arbeiter)
+
+Moodle: Wiederholung/Schulz von Thun.pdf
+----------------------------------------
+Nennen Sie die vier Seiten einer Nachricht nach Schulz von Thun.
+	- Selbstkundgabe: Was bringe ich emotional ein?, Was gebe ich über mich preis?
+	- Sachebene: Wlchen Inhalt möchte ich mitteilen?
+	- Apellseite: Was will ich bewirken?
+	- Beziehungsebene: Wie stehen die Gesprächspartner zueinender
+
+Interpretieren Sie die Aussage: 
+	Herr Schmid: "Gestern hätte ich Sie unbedingt gebraucht, aber Sie sind schon um 16 Uhr nach Hause gegangen" auf den vier Ebenen.
+		- Selbstkundgabe: Herr Schmid hätte Hilfe gebraucht
+		- Sachebene: Die Person war um 16:00 Uhr nicht mehr im Betrieb
+		- Apellseite: Herr Schmid möchte, dass die Person führ ihn erreichbar ist
+		- Beziehungsebene: Herr Schmid findet, dass die Persohn ihre Arbeit nicht ernst nimmt und zu früh nach Hause geht
+
+Was passiert, wenn eine Nachricht nur über ein "Ohr" wahrgenommen wird?
+	Sachohr:
+		- para-/nonverbale kommunikation wird übersehen
+	Beziehungsohr:
+		- Person bezieht jede Aussage auf sich, und fühlt sich häufig persöhnlich angegriffen
+	Apellohr:
+		- jede Nachricht wird als Aufforderung verstanden, obwohl nur Feststellungen geäußert werden
+	Selbstoffenbarungsohr:
+		- jede Botschaft wird als Selbstoffenbahrung gedeutet z.B.:
+			Ehemann: "Ich jogge heute Abend mit dem Marathonläufer von nebenann"
+			Ehefrau: "Angeber"
+	
+Nennen Sie ein Beispiel für eine einseitige Wahrnehmung über das Beziehungsohr.
+	- Herr Klump: "Heute läufts richtig gut. Wir sind ja schon fast durch"
+		Frau Klein: "Soll das heißen, dass ich sonst nicht so effektiv Arbeite?"
+	- Herr Klump freut sich, dass er früher Feierabend hat, wohingegen sich Frau Klein sofort angegriffen fühlt
+
+Nennen Sie zwei typische Störungen auf der Empfängerseite.
+	- einseitig Apell: Jede Nachricht wird als Aufforderung verstanden
+		Tochter: "Mein Fahrrad ist kaputt"
+		Vater: "Okay ich repariere es Morgen"
+	- einseitig Selbstoffenbarung: 
+		- jede Botschaft wird als Selbstoffenbahrung gedeutet z.B.:
+			Ehemann: "Ich jogge heute Abend mit dem Marathonläufer von nebenann"
+			Ehefrau: "Angeber"
+	
+Welche Probleme können auf der Selbstkundgabeseite auftreten?
+	- Imponiertechnik
+	- Fassadentechnik
+
+Was bedeutet fehlende Sachlichkeit und warum ist sie problematisch?
+	- obwohl es bei einer Besprechung zu einer Entscheidung kommen und nur um eine reine Sache gehen sollte, wird der Prozess verlangsamt
+	- Personen mit fehlender Sachlichkeit stören den Prozess, weil sie die anderen 3 Kommunikationsebenen nicht ausblenden können
+
+
+Moodle: Wiederholung/Ich-Du-Botschaft.pdf
+-----------------------------------------
+Was ist Metakommunikation? Warum ist Metakommunikation wichtig?
+	- Metakommunikation ist die gemeinsame Reflexion der Beteiligten über die Kommunikationssituation und den Kommunikationsprozess.
+	- es geht nicht um den Inhalt des Gesprächs
+	- es geht um die Art und Weise des Austausches und die emotionale Wahrnemung der Beteiligten
+
+Nennen Sie drei Grundregeln für Feedback. Wie sollte der Feedbacknehmer darauf reagieren?
+	Ein Feedback sollte:
+		- wertschätzend sein
+		- ich Botschaften verwenden
+		- erwünscht sein
+		- klar und deutlich
+		- nützlich und umsetzbar
+		- positiv und negativ
+	Ein Feedbacknehmer sollte:
+		- das Feedback annehmen
+		- sich nicht rechtfertigen oder verteidigen
+		- den Feedbackgeber ausreden lassen
+		- sich Zeit für das Feedback nehmen
+		- entscheiden, inwiefern das Feedback hilft
+
+Was ist eine Ich-Botschaft? Nennen Sie zwei Vorteile von Ich-Botschaften gegenüber Du-Botschaften.
+	- es entsteht Offenheit
+	- Feindseligkeiten werden abgebaut
+
+Geben Sie ein Beispiel für die Umwandlung einer Du-Botschaft in eine Ich-Botschaft.
+	- "Ständig kommen Sie zu spät!"
+		--> "Es ärgert mich, wenn ich nicht pünktlich mit meiner Arbeit anfangen kann, 
+		    weil ich dann auch länger brauche. Wäre es in Ordnung für Sie, 
+			wenn wir eine Uhrzeit ausmachen, die wir beide einhalten können?"
+
+Moodle: Konflikte/Konfliktgespräche.pdf
+---------------------------------------
+Was sind typische Anzeichen für Konflikte in der Körpersprache?
+	- verschränkte Arme
+	- Augen rollen
+
+Was sind "dos" bei Konfliktgesprächen? Was sind "don'ts" bei Konfliktgesprächen?
+	- todo
+
+Moodle: Konflikte/Konflikte 2.pdf
+---------------------------------
+Nennen und erklären sie kurz Sie die vier Grice'schen Maximen.
+	Quantität:
+		- Mache deinen Gesprächsbeitrag so informativ wie (für die augenblicklichen Gesprächszwecke) nötig
+		- Gestalte deinen Beitrag nicht informativer, als es für den anerkannten Zweck des Gesprächs nötig ist
+	Qualität:
+		- Sage nichts, das du für unwahr hältst
+		- Sage nichts, wofür du keine hinreichenden Anhaltspunkte hast
+	Relation/Relevanz:
+		- Sage nichts, was nicht zum Thema gehört, wechsle nicht das Thema[6]
+		- Mache deine Gesprächsbeiträge relevant
+		- Beachte den Gesprächskontext vorangegangener Kommunikation und das Vorwissen deines Kommunikationspartners
+	Stil/Modalität:
+		- Vermeide Unklarheit im Ausdruck
+		- Vermeide Mehrdeutigkeit
+		- Fasse dich kurz
+		- Sei methodisch
+		- Gehe der Reihe nach vor
+	Zusammengefasst: Sage nur, was informativ, wahr und themenbezogen ist, und sage dies klar und deutlich!
+
+Welche Gestik und Mimik haben Personen üblicherweise im Hochstatus bzw. im Tiefstatus?
+	Hoch:
+		- Stehen bleiben während der andere sitzt
+	Tief:
+		- todo
+
+Moodle: Konflikte/Konflikte Powerpoint.pdf
+------------------------------------------
+Was ist ein Konflikt? Nennen Sie drei Konfliktarten.
+	- Ein Konflikt entsteht, wenn unterschiedliche Interessen, Ziele oder Werte aufeinandertreffen.
+	- Er kann zwischen Personen, Gruppen oder innerhalb einer Person auftreten
+	- Konflikte sind nicht per se negativ, sie können auch zu positiven Veränderungen führen
+	Konfliktarten:
+		- Zielkonflikte: zwei Ziele widersprechen sich
+		- Rollenkonflikte: unklare oder widersprüchliche Erwartungen an eine Rolle
+		- Beurteilungs-/Wahrnehmungskonflikte: unterschiedliche Sichtweisen
+		- Verteilungskonflikte: Streit um Ressourcen
+		- Beziehungskonflikte: persönliche Differenzen
+
+
+Unterschied latenter und manifester Konflikt (je ein kurzes Beispiel)
+	- Latente Konflikte sind unterschwellig und oft nicht direkt erkennbar
+	- Manifeste Konflikte sind offen ausgetragen und für alle Beteiligten sichtbar
+	- Ein latenter Konflikt kann sich jederzeit zu einem manifesten Konflikt entwickeln
+
+Unterschied zwischen heißem und kaltem Konflikt? (je ein kurzes Beispiel)
+	- Heiße Konflikte sind emotional, laut und direkt
+		- die Beteiligten kämpfen aktiv
+	- Kalte Konflikte sind still, distanziert und oft passiv-aggressiv
+		- Kommunikation ist eingefroren
+
+Intrapersonaler und interpersonaler Konflikt (je ein kurzes Beispiel)
+	- Intrapersonale Konflikte entstehen innerhalb einer Person
+		- z.B. bei schwierigen Entscheidungen
+	- Interpersonale Konflikte entstehen zwischen zwei oder mehreren Personen oder Gruppen
+		- Nicht alle Betroffenen sind direkt beteiligt
+		- z.B. Kinder bei einem Elternkonflikt
+
+Was sind die drei Hauptphasen im Glasl-Modell? Erklären Sie diese kurz
+
+	- Win-win (Stufen 1–3) Es ist noch alles offen
+		1. Verhärtung:  Meinungsverschiedenheiten entstehen. Kommunikation ist noch möglich
+		2. Debatte und Polemik: Diskussion wird emotionaler, Argumente werden zugespitzt
+		3. Taten statt Worte: Kommunikation nimmt ab, Aktionen ersetzen Gespräche
+
+	- Win-lose (Stufen 4–6) Ab hier Gewinner und Verlierer
+		4. Koalitionen: Parteien suchen Verbündete, Gruppenbildung beginnt
+		5. Gesichtsverlust: Ziel ist, den Gegner bloßzustellen
+		6. Drohstrategien: Drohungen werden ausgesprochen, Machtspiele dominieren
+
+	- Lose-lose (Stufen 7–9) Ab hier nur noch Verlierer
+		7. Begrenzte Vernichtung: Ziel ist Schaden für die Gegenseite, auch auf eigene Kosten
+		8. Zersplitterung: Gegner wird als unmenschlich dargestellt, Kontakt wird abgebrochen
+		9. Gemeinsam in den Abgrund: Beide Seiten nehmen vollständige Zerstörung in Kauf
