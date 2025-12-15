@@ -1,2 +1,6 @@
 1. mit apache modul
 2. mit cgi schnittstelle
+
+
+sudo ln -s /etc/apache2/mods-available/cgi.load /etc/apache2/mods-enabled/
+/etc/apache2/conf-enabled/serve-cgi-bin.conf
