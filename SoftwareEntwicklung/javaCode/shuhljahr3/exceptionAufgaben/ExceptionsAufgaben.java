@@ -33,7 +33,7 @@ public class ExceptionsAufgaben {
 				}
 			}catch(PinException e) {
 				incorrectPinCounter++;
-				System.out.println("Falsher Pin");
+				System.out.println(e.getMessage());
 			}
 		}
 		
