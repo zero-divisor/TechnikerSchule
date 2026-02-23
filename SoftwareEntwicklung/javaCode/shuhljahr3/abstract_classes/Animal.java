@@ -1,4 +1,4 @@
-package shuhljahr3.abstrct_classes;
+package shuhljahr3.abstract_classes;
 
 public abstract class Animal {
 	private int hungerlevel;

@@ -1,1 +1,2 @@
-Bayes Theorem Aufgabe
+KI: Bayes Theorem Aufgabe
+CS: Fragen zu Content Management System

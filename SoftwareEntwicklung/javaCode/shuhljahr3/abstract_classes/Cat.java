@@ -1,4 +1,4 @@
-package shuhljahr3.abstrct_classes;
+package shuhljahr3.abstract_classes;
 
 public class Cat extends Animal{
 
